@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>XMLDump.xslt</guid>
+      <orgPath>/xslt</orgPath>
+      <orgName>XMLDump.xslt</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>XML Dump</name>
+      <version>0.1</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://greystate.dk/resources/umbraco/packages/xml-dump/</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Chriztian Steinmeier</name>
+      <website>http://greystate.dk/who/</website>
+    </author>
+    <readme><![CDATA[Simple package to test package creation and to provide easy access to the XML for either the whole site (root) or a specific node.
+
+Also does member XML for the currently logged in member...]]></readme>
+  </info>
+  <DocumentTypes>
+    <DocumentType>
+      <Info>
+        <Name>XML Output</Name>
+        <Alias>XML Output</Alias>
+        <Icon>.sprTreeSettingXml</Icon>
+        <Thumbnail>xml.png</Thumbnail>
+        <Description></Description>
+        <Master></Master>
+        <AllowedTemplates>
+          <Template>Splash XML</Template>
+          <Template>Fixture XML</Template>
+          <Template>Galleri XML</Template>
+        </AllowedTemplates>
+        <DefaultTemplate>
+        </DefaultTemplate>
+      </Info>
+      <Structure />
+      <GenericProperties>
+      </GenericProperties>
+      <Tabs>
+      </Tabs>
+    </DocumentType>
+  </DocumentTypes>
+  <Templates>
+    <Template>
+      <Name>Fixture XML</Name>
+      <Alias>Fixture XML</Alias>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+<asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"><% Response.ContentType = "text/xml"; %><?xml version="1.0"?><umbraco:Macro Alias="XMLDump" runat="server"></umbraco:Macro></asp:Content>]]></Design>
+    </Template>
+  </Templates>
+  <Stylesheets />
+  <Macros>
+    <macro>
+      <name>XML Dump</name>
+      <alias>XMLDump</alias>
+      <scriptType>
+      </scriptType>
+      <scriptAssembly>
+      </scriptAssembly>
+      <xslt>XMLDump.xslt</xslt>
+      <useInEditor>False</useInEditor>
+      <refreshRate>0</refreshRate>
+      <properties />
+    </macro>
+  </Macros>
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>
