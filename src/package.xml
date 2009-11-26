@@ -30,7 +30,7 @@
       <Info>
         <Name>XML Dump</Name>
         <Alias>XMLDump</Alias>
-        <Icon>.sprTreeSettingXml</Icon>
+        <Icon>settingXML.gif</Icon>
         <Thumbnail>xml.png</Thumbnail>
         <Description>
         	Creates a page for easy viewing of the XML structure of the content.
