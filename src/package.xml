@@ -28,18 +28,19 @@
   <DocumentTypes>
     <DocumentType>
       <Info>
-        <Name>XML Output</Name>
-        <Alias>XML Output</Alias>
+        <Name>XML Dump</Name>
+        <Alias>XMLDump</Alias>
         <Icon>.sprTreeSettingXml</Icon>
         <Thumbnail>xml.png</Thumbnail>
-        <Description></Description>
+        <Description>
+        	Creates a page for easy viewing of the XML structure of the content.
+        </Description>
         <Master></Master>
         <AllowedTemplates>
-          <Template>Splash XML</Template>
-          <Template>Fixture XML</Template>
-          <Template>Galleri XML</Template>
+          <Template>XMLDump</Template>
         </AllowedTemplates>
         <DefaultTemplate>
+          <Template>XMLDump</Template>
         </DefaultTemplate>
       </Info>
       <Structure />
@@ -51,8 +52,8 @@
   </DocumentTypes>
   <Templates>
     <Template>
-      <Name>Fixture XML</Name>
-      <Alias>Fixture XML</Alias>
+      <Name>XML Dump</Name>
+      <Alias>XMLDump</Alias>
       <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="/umbraco/masterpages/default.master" AutoEventWireup="true" %>
 <asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"><% Response.ContentType = "text/xml"; %><?xml version="1.0"?><umbraco:Macro Alias="XMLDump" runat="server"></umbraco:Macro></asp:Content>]]></Design>
     </Template>
