@@ -1,0 +1,615 @@
+<?xml version="1.0"?><!--
+	XML Dump for Umbraco (v0.5)
+	======================================================================================
+	Options (QueryString parameters):
+	- node:		Grab a node by its id, e.g.: node=1080
+	- type:		Grab node(s) by their DocumentType (nodeTypeAlias), e.g.: type=GalleryItem
+	- hidden:	Set to 'yes' to show all nodes with 'umbracoNaviHide' checked.
+
+	- Use 'verbose=yes' to show all attributes of <node> elements, by default only shows "@id | @level | @nodeName | @urlName | @nodeTypeAlias | @alias".
+
+	(You can use 'yes', 'true' or '1' interchangeably)
+-->
+<root id="-1">
+  <node id="1080" level="1" nodeName="Home" urlName="home" nodeTypeAlias="CWS_Home">
+    <data alias="umbracoUrlName" />
+    <data alias="umbracoUrlAlias" />
+    <data alias="metaDescription"><![CDATA[]]></data>
+    <data alias="metaKeywords"><![CDATA[]]></data>
+    <data alias="umbracoRedirect" />
+    <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+    <data alias="siteName"><![CDATA[Your logo/name]]></data>
+    <data alias="headerText"><![CDATA[
+<p><strong>Sam Grady designed this for Warren Buckley.</strong>
+"This" idea was first created by the incredible Robert Brownjohn
+and has been copied many times since.</p>
+]]></data>
+    <data alias="homepagePhoto"><![CDATA[/media/49/home_photo.jpg]]></data>
+    <data alias="bodyText"><![CDATA[
+<p>Thank you for installing the umbraco website package created and
+developed by Warren Buckley. This should website package be used to
+help you understand how all the components of an Umbraco site
+works.</p>
+]]></data>
+    <node id="1081" level="2" nodeName="About" urlName="about" nodeTypeAlias="CWS_Textpage">
+      <data alias="umbracoUrlName" />
+      <data alias="umbracoUrlAlias" />
+      <data alias="metaDescription"><![CDATA[This is the META description for the about page.]]></data>
+      <data alias="metaKeywords"><![CDATA[about, creative web specialist, umbraco, warren buckley, sam grady]]></data>
+      <data alias="umbracoRedirect" />
+      <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+      <data alias="headerText"><![CDATA[
+<p>This is a good place to put a service message or something to
+help define your site or company.</p>
+]]></data>
+      <data alias="articlePhoto" />
+      <data alias="bodyText"><![CDATA[
+<p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam ullamcorper condimentum lorem. Curabitur placerat nunc ut
+leo. Integer eros ligula, vestibulum at, eleifend id, dignissim
+vel, est.</strong></p>
+
+<p>&nbsp;</p>
+
+<?UMBRACO_MACRO macroAlias="TestMacroInRTEMode" /> 
+
+<p>&nbsp;</p>
+
+<p>Saving once more to test.</p>
+
+<p>Fusce tristique. Cras faucibus porta nunc. Aliquam ultrices,
+arcu quis ornare sagittis, lectus augue ornare nulla, eu lobortis
+velit lectus id nibh. Aliquam condimentum aliquet purus. Quisque
+blandit ante non sapien. Sed justo libero, sollicitudin ac, pretium
+et, luctus nec, nisl. Nulla semper neque nec magna. Cras ut nibh ut
+urna bibendum sodales. Quisque venenatis euismod lacus.
+Pellentesque dapibus turpis at urna.</p>
+
+<h3>Sub Header</h3>
+
+<p>Sed scelerisque adipiscing mauris. Mauris egestas dapibus quam.
+Integer in libero eget eros dignissim pretium. Proin luctus sem nec
+lorem. Praesent lorem. Vivamus eget nunc quis sapien condimentum
+egestas. Maecenas facilisis, nunc at sodales facilisis, quam magna
+pretium nibh, vel ultrices lectus lorem quis neque. Nam sit amet
+leo ac lectus gravida convallis. Phasellus at enim vel dui porta
+porttitor. Morbi id dolor adipiscing erat egestas consequat.</p>
+
+<p><a href="http://www.google.co.uk">Phasellus diam. Morbi
+dolor.</a> Donec consequat sodales nunc. Nam dapibus lectus id
+lectus. Sed ultrices metus sit amet est. Morbi porttitor. Proin vel
+risus. Phasellus sodales convallis justo. <em>Sed luctus hendrerit
+risus. Sed est lorem, feugiat et, rutrum quis, condimentum non,
+nunc.</em> Aenean urna leo, sagittis a, commodo eget, lobortis nec,
+eros. Vivamus pharetra, lectus eu ultrices pulvinar, nunc quam
+consectetur nibh, sed pulvinar leo dolor ut felis.</p>
+
+<ol>
+<li>Item one</li>
+
+<li>Item two</li>
+
+<li>Item three</li>
+</ol>
+
+<p>Nullam lobortis, mi nec feugiat congue, dolor diam cursus lacus,
+a elementum ligula dolor vitae sem. Suspendisse at quam. Praesent
+neque. Vestibulum at justo. Nulla rutrum velit et eros.</p>
+
+<ul>
+<li>Integer convallis augue in tellus</li>
+
+<li>Magna quam sollicitudin mauris</li>
+</ul>
+
+<p>Nullam lobortis, mi nec feugiat congue, dolor diam cursus lacus,
+a elementum ligula dolor vitae sem. Suspendisse at quam.</p>
+]]></data>
+      <node id="1082" level="3" nodeName="About Umbraco" urlName="about-umbraco" nodeTypeAlias="CWS_Textpage">
+        <data alias="umbracoUrlName" />
+        <data alias="umbracoUrlAlias" />
+        <data alias="metaDescription"><![CDATA[]]></data>
+        <data alias="metaKeywords"><![CDATA[]]></data>
+        <data alias="umbracoRedirect" />
+        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        <data alias="headerText"><![CDATA[
+<p>It's the <strong>KING</strong> of all CMS's, what more do you
+need to know about it?</p>
+]]></data>
+        <data alias="articlePhoto"><![CDATA[/media/171/umbraco_tshirt.jpg]]></data>
+        <data alias="bodyText"><![CDATA[
+<h3>Umbraco CMS is free</h3>
+
+<p>It means that you are not bound and locked to the licensing
+rules about the number of content items / processors / web /
+domains, etc. Many products are very expensive as the license cost
+escalates with the number of websites. In many cases, one is soon
+up in the 500' before one can even start to implement the
+solution.</p>
+
+<h3>Umbraco is Open Source</h3>
+
+<p>In an Open Source product one has at any time full access to
+source code. This provides insight and leads to better quality, as
+"shortcuts" and bad code can easily be penetrated. Moreover, one
+has the ability to influence and further develop the product.</p>
+
+<p>Umbraco is based on open source and is therefore not
+lisence-plated or subject to an enterprise's ownership. The Umbraco
+publishing tool places great emphasis on simplicity, standards,
+flexibility and integration. Umbraco was launched in 2005 and has
+had a tremendous growth since that time. Umbraco is today among the
+most popular systems based on open source for Microsoft. NET
+platform.</p>
+
+<h3>100% Microsoft .NET</h3>
+
+<p>Umbraco is built 100% on the Microsoft. NET 2.0. This means that
+you can use 3rd party .NET components directly in Umbraco.
+Moreover, integration with other .NET-based solutions is well
+adapted from Umbracos part. Umbraco won an award for the
+Integration possibilities on BNP Awards 2006.</p>
+
+<h3>Fast results</h3>
+
+<p>Umbraco is a powerful tool with a focus on core functionality
+and openness. This efficiently allows you to achieve exactly what
+you want - rather than be restricted to a "finished" module, which
+makes only half of what you really wanted.</p>
+
+<h3>Easy-to-use</h3>
+
+<p>Umbraco has a focus on content and facilitate rapid and
+intuitive content management. The system strives to be elegant,
+usable and effective.</p>
+
+<h3>Based on standards</h3>
+
+<p>Umbraco is based on standards from the W3C as XHTML, CSS, XML
+and XSLT. This gives a greater flexibility and independence, which
+in turn provides more value for the money.</p>
+
+<h3>Integration</h3>
+
+<p>Umbraco is known to be among the best CMS on integration. Much
+of the reason for this is the way to expose Microsoft ASP.NET
+components as elements of, or so-called "macro's" for use in
+templates, as well as in the WYSIWYG editor that writers and
+editors use. Elements is also possible to "cache" on several levels
+and is based on standard Microsoft .NET technology. Below are some
+examples:</p>
+
+<ul>
+<li>External XML sources (ex RSS) can be directly implemented via
+XSLT elements (macros).</li>
+
+<li>ASP.NET controls that retrieve data from external or internal
+posterior systems via standard Web Services.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+]]></data>
+      </node>
+      <node id="1083" level="3" nodeName="About this project" urlName="about-this-project" nodeTypeAlias="CWS_TextpageTwoCol">
+        <data alias="articlePhotoColOne"><![CDATA[/media/227/warren-buckley.jpg]]></data>
+        <data alias="articlePhotoColTwo"><![CDATA[/media/228/sam-grady.jpg]]></data>
+        <data alias="bodyTextColTwo"><![CDATA[
+<h3>Sam Grady</h3>
+
+<p>Sam Grady, me, is a graphic designer. I loves graphic design.
+Great graphic design and simple solutions makes this man very
+happy. Photography is also very close to my heart and I'd like to
+be better, so I practice a lot and annoy people with my
+requests.<br />
+<br />
+ I haven't got a blog, yet, don't Twitter and cancelled my Facebook
+account as I felt uncomfortable with people knowing my business.
+Anyone else feel that way? I do, however, have a Flickr account, so
+go check it out: <a
+href="http://www.flickr.com/photos/mrgrady">www.flickr.com/photos/mrgrady</a><br />
+<br />
+ I also have my own business, G72, which has a website that
+desperately needs updating. Also, as of today (03/03/09), it's
+currently down due to inept web hosts. Hopefully it won't be if you
+want to take a look: <a
+href="http://www.g-72.co.uk">www.g-72.co.uk</a><br />
+<br />
+ Regarding this project, Warren asked me if I wanted to design his
+website starter package for the fantastic Umbraco CMS, which I
+jumped at the chance to do. Hopefully you'll find the design
+appropriate and the package very useful, as that's what we really
+want from this project.<br />
+<br />
+ Finally, Warren says the layout is work in progress and I have a,
+typically fussy, list of designer layout requests that I've asked
+Warren to do, but time being what it is, these changes won't be
+made on version 2.0, so if you spot anything, do mail the man as
+we'll be compiling a list of tweaks to be made.<br />
+<br />
+ Enjoy.</p>
+]]></data>
+        <data alias="bodyTextColOne"><![CDATA[
+<h3>Warren Buckley</h3>
+
+<p>Warren Buckley is a web developer who specialises in using the
+Umbraco CMS platform to build content managed websites for Xeed in
+Norway. I run a blog called <a
+href="http://www.creativewebspecialist.co.uk">Creative Web
+Specialist</a>, where I mainly write tips and tutorial articles
+around Umbraco.</p>
+
+<p>I have teamed up with ex-collegue Sam Grady to help me design
+the new version of CWS as he produces wonderfully sexy designs for
+the web. If you have seen my previous version/s of CWS you will
+know that my design skills are far from stunning.</p>
+
+<p>I decided to create this website starter site nicknamed CWS
+(Creative Website Starter site) as a learning tool to help you
+understand how all the elements of a site work together in
+Umbraco.</p>
+
+<p>From this <strong>NEW</strong> CWS package comes the
+following:</p>
+
+<ul>
+<li>Obviously a <strong>BRAND NEW</strong> spanking design from
+ex-collegue Sam Grady of G-72</li>
+
+<li>A focus for this site to be used to help teach new users to the
+Umbraco CMS platform.</li>
+
+<li>.NET usercontrols written in C#</li>
+
+<li>XSLT &amp; .NET code heavily commented to help understand what
+is going on.</li>
+
+<li>With supporting documentation coming in the near future.</li>
+</ul>
+
+<p>Want to see where else you can find me on the net?<br />
+ Blog - <a
+href="http://www.creativewebspecialist.co.uk">www.creativewebspecialist.co.uk</a><br />
+ Flickr - <a
+href="http://www.flickr.com/photos/warrenbuckley">www.flickr.com/photos/warrenbuckley</a><br />
+ Last.FM - <a
+href="http://www.last.fm/user/warrenbuckley">www.last.fm/user/warrenbuckley</a><br />
+ Twitter - <a
+href="http://twitter.com/warrenbuckley">twitter.com/warrenbuckley</a></p>
+]]></data>
+        <data alias="umbracoUrlName" />
+        <data alias="umbracoUrlAlias" />
+        <data alias="metaDescription"><![CDATA[]]></data>
+        <data alias="metaKeywords"><![CDATA[]]></data>
+        <data alias="umbracoRedirect" />
+        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        <data alias="headerText"><![CDATA[
+<p>This website has been produced to help you understand
+Umbraco.</p>
+]]></data>
+      </node>
+    </node>
+    <node id="1084" level="2" nodeName="Gallery" urlName="gallery" nodeTypeAlias="CWS_Galleries">
+      <data alias="umbracoUrlName" />
+      <data alias="umbracoUrlAlias" />
+      <data alias="metaDescription"><![CDATA[]]></data>
+      <data alias="metaKeywords"><![CDATA[]]></data>
+      <data alias="umbracoRedirect" />
+      <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+      <data alias="headerText"><![CDATA[
+<p>This first page displays all the albums featured within your
+site.<br />
+ Please have a browse through.</p>
+]]></data>
+      <data alias="sortBy"><![CDATA[sortOrder]]></data>
+      <data alias="sortOrder"><![CDATA[ascending]]></data>
+      <node id="1085" level="3" nodeName="The Bookhouse Boys" urlName="the-bookhouse-boys" nodeTypeAlias="CWS_Gallery">
+        <data alias="umbracoUrlName" />
+        <data alias="umbracoUrlAlias" />
+        <data alias="metaDescription"><![CDATA[I am the description]]></data>
+        <data alias="metaKeywords"><![CDATA[keywords, here]]></data>
+        <data alias="umbracoRedirect" />
+        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        <data alias="headerText"><![CDATA[
+<p>The Bookhouse Boys. Live at the ICA, London.</p>
+]]></data>
+        <data alias="sortBy"><![CDATA[sortOrder]]></data>
+        <data alias="sortOrder"><![CDATA[ascending]]></data>
+        <data alias="galleryThumbnail"><![CDATA[/media/1239/bookhouse-boys_gallery.jpg]]></data>
+        <node id="1086" level="4" nodeName="Catherine Turner and Paul Van Oestren" urlName="catherine-turner-and-paul-van-oestren" nodeTypeAlias="CWS_Photo">
+          <data alias="photoText"><![CDATA[Credit: Sam Grady]]></data>
+          <data alias="photo"><![CDATA[/media/1277/bookhouse-boys_3.jpg]]></data>
+          <data alias="photoThumbnail"><![CDATA[/media/1314/bookhouse-boys_3_thumb.jpg]]></data>
+          <data alias="umbracoUrlName" />
+          <data alias="umbracoUrlAlias" />
+          <data alias="metaDescription"><![CDATA[]]></data>
+          <data alias="metaKeywords"><![CDATA[]]></data>
+          <data alias="umbracoRedirect" />
+          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        </node>
+        <node id="1087" level="4" nodeName="J.P.Fellows" urlName="jpfellows" nodeTypeAlias="CWS_Photo">
+          <data alias="photoText"><![CDATA[Credit: Sam Grady]]></data>
+          <data alias="photo"><![CDATA[/media/1250/bookhouse-boys_1.jpg]]></data>
+          <data alias="photoThumbnail"><![CDATA[/media/1296/bookhouse-boys_1_thumb.jpg]]></data>
+          <data alias="umbracoUrlName" />
+          <data alias="umbracoUrlAlias" />
+          <data alias="metaDescription"><![CDATA[]]></data>
+          <data alias="metaKeywords"><![CDATA[]]></data>
+          <data alias="umbracoRedirect" />
+          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        </node>
+        <node id="1088" level="4" nodeName="Catherine Turner" urlName="catherine-turner" nodeTypeAlias="CWS_Photo">
+          <data alias="photoText"><![CDATA[Credit: Sam Grady]]></data>
+          <data alias="photo"><![CDATA[/media/1331/bookhouse-boys_2.jpg]]></data>
+          <data alias="photoThumbnail"><![CDATA[/media/1350/bookhouse-boys_2_thumb.jpg]]></data>
+          <data alias="umbracoUrlName" />
+          <data alias="umbracoUrlAlias" />
+          <data alias="metaDescription"><![CDATA[]]></data>
+          <data alias="metaKeywords"><![CDATA[]]></data>
+          <data alias="umbracoRedirect" />
+          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        </node>
+      </node>
+      <node id="1089" level="3" nodeName="Codegarden 08" urlName="codegarden-08" nodeTypeAlias="CWS_Gallery">
+        <data alias="umbracoUrlName" />
+        <data alias="umbracoUrlAlias" />
+        <data alias="metaDescription"><![CDATA[]]></data>
+        <data alias="metaKeywords"><![CDATA[]]></data>
+        <data alias="umbracoRedirect" />
+        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        <data alias="headerText"><![CDATA[
+<p>Where all the great minds of umbraco meet!</p>
+]]></data>
+        <data alias="sortBy"><![CDATA[sortOrder]]></data>
+        <data alias="sortOrder"><![CDATA[ascending]]></data>
+        <data alias="galleryThumbnail"><![CDATA[/media/993/codegarden-08_gallery.jpg]]></data>
+        <node id="1090" level="4" nodeName="Darren and David have a chat" urlName="darren-and-david-have-a-chat" nodeTypeAlias="CWS_Photo">
+          <data alias="photoText"><![CDATA[Credit: Douglas Robar]]></data>
+          <data alias="photo"><![CDATA[/media/825/darren-ferguson_david-conlisk.jpg]]></data>
+          <data alias="photoThumbnail"><![CDATA[/media/835/darren-ferguson_david-conlisk_thumb.jpg]]></data>
+          <data alias="umbracoUrlName" />
+          <data alias="umbracoUrlAlias" />
+          <data alias="metaDescription"><![CDATA[]]></data>
+          <data alias="metaKeywords"><![CDATA[]]></data>
+          <data alias="umbracoRedirect" />
+          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        </node>
+        <node id="1091" level="4" nodeName="Codegarden 08 T-Shirt" urlName="codegarden-08-t-shirt" nodeTypeAlias="CWS_Photo">
+          <data alias="photoText"><![CDATA[Credit: Warren Buckley]]></data>
+          <data alias="photo"><![CDATA[/media/394/codegarden08-t-shirt.jpg]]></data>
+          <data alias="photoThumbnail"><![CDATA[/media/799/codegarden08-t-shirt_thumb.jpg]]></data>
+          <data alias="umbracoUrlName" />
+          <data alias="umbracoUrlAlias" />
+          <data alias="metaDescription"><![CDATA[]]></data>
+          <data alias="metaKeywords"><![CDATA[]]></data>
+          <data alias="umbracoRedirect" />
+          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        </node>
+        <node id="1092" level="4" nodeName="The Umbraco BINGO callers" urlName="the-umbraco-bingo-callers" nodeTypeAlias="CWS_Photo">
+          <data alias="photoText"><![CDATA[Credit: Douglas Robar]]></data>
+          <data alias="photo"><![CDATA[/media/852/bingo-callers.jpg]]></data>
+          <data alias="photoThumbnail"><![CDATA[/media/871/bingo-callers_thumb.jpg]]></data>
+          <data alias="umbracoUrlName" />
+          <data alias="umbracoUrlAlias" />
+          <data alias="metaDescription"><![CDATA[]]></data>
+          <data alias="metaKeywords"><![CDATA[]]></data>
+          <data alias="umbracoRedirect" />
+          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        </node>
+        <node id="1093" level="4" nodeName="Christian Palm chatting" urlName="christian-palm-chatting" nodeTypeAlias="CWS_Photo">
+          <data alias="photoText"><![CDATA[Credit: Douglas Robar]]></data>
+          <data alias="photo"><![CDATA[/media/879/christian-palm.jpg]]></data>
+          <data alias="photoThumbnail"><![CDATA[/media/889/christian-palm_thumb.jpg]]></data>
+          <data alias="umbracoUrlName" />
+          <data alias="umbracoUrlAlias" />
+          <data alias="metaDescription"><![CDATA[]]></data>
+          <data alias="metaKeywords"><![CDATA[]]></data>
+          <data alias="umbracoRedirect" />
+          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        </node>
+      </node>
+      <node id="1094" level="3" nodeName="Bath, UK" urlName="bath,-uk" nodeTypeAlias="CWS_Gallery">
+        <data alias="umbracoUrlName" />
+        <data alias="umbracoUrlAlias" />
+        <data alias="metaDescription"><![CDATA[]]></data>
+        <data alias="metaKeywords"><![CDATA[]]></data>
+        <data alias="umbracoRedirect" />
+        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        <data alias="headerText"><![CDATA[
+<p>Photos from a trip to Bath in November 2008</p>
+]]></data>
+        <data alias="sortBy"><![CDATA[updateDate]]></data>
+        <data alias="sortOrder"><![CDATA[ascending]]></data>
+        <data alias="galleryThumbnail"><![CDATA[/media/935/bath_gallery.jpg]]></data>
+        <node id="1095" level="4" nodeName="Royal Crescent" urlName="royal-crescent" nodeTypeAlias="CWS_Photo">
+          <data alias="photoText"><![CDATA[Credit: Warren Buckley]]></data>
+          <data alias="photo"><![CDATA[/media/995/royal-crescent.jpg]]></data>
+          <data alias="photoThumbnail"><![CDATA[/media/1014/royal-crescent_thumb.jpg]]></data>
+          <data alias="umbracoUrlName" />
+          <data alias="umbracoUrlAlias" />
+          <data alias="metaDescription"><![CDATA[]]></data>
+          <data alias="metaKeywords"><![CDATA[]]></data>
+          <data alias="umbracoRedirect" />
+          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+        </node>
+      </node>
+    </node>
+    <node id="1096" level="2" nodeName="News and Events" urlName="news-and-events" nodeTypeAlias="CWS_NewsEventsList">
+      <data alias="umbracoUrlName" />
+      <data alias="umbracoUrlAlias" />
+      <data alias="metaDescription"><![CDATA[]]></data>
+      <data alias="metaKeywords"><![CDATA[]]></data>
+      <data alias="umbracoRedirect" />
+      <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+      <data alias="sortBy"><![CDATA[sortOrder]]></data>
+      <data alias="sortOrder"><![CDATA[ascending]]></data>
+      <data alias="headerText"><![CDATA[
+<p>Please browse through our news archive and event listings
+below.</p>
+]]></data>
+      <node id="1097" level="3" nodeName="Codegarden 09" urlName="codegarden-09" nodeTypeAlias="CWS_EventItem">
+        <data alias="eventDate"><![CDATA[2009-06-22T00:00:00]]></data>
+        <data alias="bodyText"><![CDATA[
+<h3>Come join the annual umbraco developer conference in Wonderful
+Copenhagen on June 22nd - 23rd. Two days for insights, eye-openers,
+great conversations and friendly people.</h3>
+
+<p>The who's who of umbraco will be gathered and share their
+knowledge through talks, tutorials and via un-conference formats
+like open space or hacking sessions. We have booked a cool, old and
+huge industrial venue in central Copenhagen where we'll have one
+huge room, three rooms for breakout sessions and a Caf&eacute; that
+serves your taste of espresso.</p>
+
+<p>Come join the annual umbraco developer conference in Wonderful
+Copenhagen on June 22nd - 23rd. Two days for insights, eye-openers,
+great conversations and friendly people.</p>
+
+<p>We've planned a program that fits both experienced umbraco users
+as well as new comers. The conference is kicked off with a Keynote
+and after that we'll have two or three tracks of sessions and the
+first day is rounded with an open Q/A session with the umbraco core
+team.</p>
+
+<p>The second day features an un-conference format called open
+space, which we also used with great success at last year's
+conference. It's a format where everybody can suggest a topic and
+as we have plenty of break-out rooms rest assured that there'll be
+room for your topic as well. Last year's more than 20 topics
+covered Silverlight, High performance websites with umbraco,
+building custom data types and much more.</p>
+
+<p>But it doesn't ends there. We've ensured that we can stay at the
+venue until midnight both days which means that when the first day
+ends, the fun begins. With more than hundred people gathered at a
+place with loads of umbraco knowledge, wifi, great food and plenty
+of space, who knows what could happen. A BBQ, new packages,
+improvised demos and talks, or...?</p>
+
+<p>&nbsp;</p>
+]]></data>
+        <data alias="articlePhoto"><![CDATA[/media/445/umbraco_tshirt.jpg]]></data>
+        <data alias="umbracoUrlName" />
+        <data alias="umbracoUrlAlias" />
+        <data alias="metaDescription"><![CDATA[]]></data>
+        <data alias="metaKeywords"><![CDATA[]]></data>
+        <data alias="umbracoRedirect" />
+        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+      </node>
+      <node id="1098" level="3" nodeName="CWS2 is released" urlName="cws2-is-released" nodeTypeAlias="CWS_NewsItem">
+        <data alias="bodyText"><![CDATA[
+<h3>After Warren Buckley's success of the first Creative Website
+Starter site package, with over 20K downloads he has decided to
+work on CWS2.</h3>
+
+<p>As of today Wednesday the 4th March 2009, the CWS2 package is
+now available to download from the built in package repository
+inside Umbraco.</p>
+
+<p>With this new version comes the following:</p>
+
+<ul>
+<li>A <strong>BRAND NEW</strong> spanking design from ex-collegue
+<a href="http://www.g-72.co.uk"
+title="Designer Sam Grady of G72">Sam Grady of G-72</a></li>
+
+<li>A focus for this site to be used to help teach new users to the
+Umbraco CMS platform.</li>
+
+<li>.NET usercontrols written in C#</li>
+
+<li>XSLT &amp; .NET code heavily commented to help understand what
+is going on.</li>
+
+<li>With supporting documentation coming in the near future.</li>
+</ul>
+]]></data>
+        <data alias="articlePhoto" />
+        <data alias="umbracoUrlName" />
+        <data alias="umbracoUrlAlias" />
+        <data alias="metaDescription"><![CDATA[]]></data>
+        <data alias="metaKeywords"><![CDATA[]]></data>
+        <data alias="umbracoRedirect" />
+        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+      </node>
+    </node>
+    <node id="1099" level="2" nodeName="Contact" urlName="contact" nodeTypeAlias="CWS_Contact">
+      <data alias="emailTo"><![CDATA[you@yourcompany.co.uk]]></data>
+      <data alias="emailSubject"><![CDATA[Email from Contact form on website]]></data>
+      <data alias="emailBody"><![CDATA[Hello a user of your site has filled in your contact form on [Date] @ [Time]
+
+Name: [Name]
+Address: [AddressLine1], [AddressLine2]
+Email: [Email]
+Message: [Message]]]></data>
+      <data alias="emailReplyFrom"><![CDATA[you@yourcompany.co.uk]]></data>
+      <data alias="emailReplySubject"><![CDATA[Thank you for your message]]></data>
+      <data alias="emailReplyBody"><![CDATA[Hello [Name]
+Thanks for contacting us, we will reply shortly.
+
+Your Company Name
+www.yourcompany.co.uk]]></data>
+      <data alias="enableSSL"><![CDATA[0]]></data>
+      <data alias="umbracoUrlName" />
+      <data alias="umbracoUrlAlias" />
+      <data alias="metaDescription"><![CDATA[]]></data>
+      <data alias="metaKeywords"><![CDATA[]]></data>
+      <data alias="umbracoRedirect" />
+      <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+      <data alias="headerText"><![CDATA[
+<p>Everything you need to<br />
+ get in touch.</p>
+]]></data>
+      <data alias="formText"><![CDATA[
+<h3>Enquiry Form</h3>
+
+<p>If you have a particular enquiry, please fill out the form below
+and provide as much information as you can, so that one of our
+representatives can deal with your enquiry as effciently as
+possible.</p>
+]]></data>
+      <data alias="thankYouHeaderText"><![CDATA[
+<p><strong>Thank you.</strong> We will be in touch shortly.</p>
+]]></data>
+      <data alias="thankYouMessageText"><![CDATA[
+<p>Thanks for filling out our contact form we will get back to you
+shortly.</p>
+
+<p>Regards,<br />
+ My Company</p>
+]]></data>
+    </node>
+    <node id="1100" level="2" nodeName="Email a Friend" urlName="email-a-friend" nodeTypeAlias="CWS_EmailAFriend">
+      <data alias="emailFrom"><![CDATA[you@yourcompany.co.uk]]></data>
+      <data alias="emailSubjectToFriend"><![CDATA[[YourName] has sent you a link to read]]></data>
+      <data alias="emailMessageToFriend"><![CDATA[Hello [FriendName], [YourName] has sent you this link to read.
+
+URL: [URL]
+Message: [Message]
+
+--------------------------------------------------------
+Your Company Name
+www.yourcompany.co.uk]]></data>
+      <data alias="enableSSL"><![CDATA[0]]></data>
+      <data alias="umbracoUrlName" />
+      <data alias="umbracoUrlAlias" />
+      <data alias="metaDescription"><![CDATA[]]></data>
+      <data alias="metaKeywords"><![CDATA[]]></data>
+      <data alias="umbracoRedirect" />
+      <data alias="umbracoNaviHide"><![CDATA[1]]></data>
+      <data alias="headerText"><![CDATA[
+<p>Send a page onto your friend.</p>
+]]></data>
+      <data alias="thankYouHeaderText"><![CDATA[
+<p><strong>Thank you.</strong> We appreciate the love you are
+giving our site.</p>
+]]></data>
+      <data alias="thankYouMessageText"><![CDATA[
+<p>Thanks for sending that link onto your friend, we really
+appreciate it here at My Company.</p>
+]]></data>
+    </node>
+  </node>
+  <node id="1109" level="1" nodeName="xmldump" urlName="xmldump" nodeTypeAlias="XMLDump" />
+</root>
