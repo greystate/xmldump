@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
-	<!ENTITY standardAttributes "@id | @level | @nodeName | @urlName | @nodeTypeAlias | @alias">
+	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
+	<!ENTITY standardAttributes "@id | @nodeName | @level | @urlName | @nodeTypeAlias | @alias">
 	<!ENTITY packageVersion "0.6">
 	<!ENTITY umbracoNaviHide "umbracoNaviHide">
 ]>
@@ -65,6 +66,13 @@
 	</xsl:variable>
 	<xsl:variable name="hiddenOnly" select="boolean($hidden = 'yes' or $hidden = 'true' or $hidden = '1')" />
 	
+	<xsl:variable name="sitemap">
+		<xsl:if test="$queryStringAvailable">
+			<xsl:value-of select="umb:RequestQueryString('sitemap')" />
+		</xsl:if>
+	</xsl:variable>
+	<xsl:variable name="navOnly" select="boolean($sitemap = 'yes' or $sitemap = 'true' or $sitemap = '1')" />
+	
 	<!-- Secret option - not ready for prime time yet :-) -->
 	<xsl:variable name="memberId">
 		<xsl:if test="$queryStringAvailable">
@@ -92,6 +100,7 @@
 	- node:		Grab a node by its id, e.g.: node=1080
 	- type:		Grab node(s) by their DocumentType (nodeTypeAlias), e.g.: type=GalleryItem
 	- media		View XML for media item, e.g.: media=1337
+	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden:	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
 <xsl:if test="not($verbosity)">
 	- Use 'verbose=yes' to show all attributes of <![CDATA[<node>]]> elements, by default only shows "&standardAttributes;".
@@ -109,7 +118,7 @@
 					<xsl:apply-templates select="$root//node[@nodeTypeAlias = $type]" />
 				</nodes>
 			</xsl:when>
-			
+
 			<xsl:when test="number($mediaId)">
 				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, 'false')" />
 				<xsl:if test="$mediaNode">
@@ -118,7 +127,13 @@
 					</media>					
 				</xsl:if>
 			</xsl:when>
-			
+
+			<xsl:when test="$navOnly">
+				<navigation>
+					<xsl:apply-templates select="$root/node[1]" mode="sitemap" />
+				</navigation>					
+			</xsl:when>
+
 			<xsl:when test="number($memberId)">
 				<members>
 					<xsl:copy-of select="umb:GetCurrentMember()" />
@@ -172,6 +187,17 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>
+	</xsl:template>
+	
+	<xsl:template match="node" mode="sitemap">
+		<node>
+			<xsl:copy-of select="&sitemapAttributes;" />
+			<xsl:copy-of select="data[@alias = '&umbracoNaviHide;']" />
+			<xsl:apply-templates select="node" mode="sitemap" />
+		</node>
+	</xsl:template>
+	
+	<xsl:template match="node[data[@alias = '&umbracoNaviHide;'] = 1]" mode="sitemap">
 	</xsl:template>
 
 </xsl:stylesheet>
