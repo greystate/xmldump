@@ -192,12 +192,10 @@
 	<xsl:template match="node" mode="sitemap">
 		<node>
 			<xsl:copy-of select="&sitemapAttributes;" />
-			<xsl:copy-of select="data[@alias = '&umbracoNaviHide;']" />
 			<xsl:apply-templates select="node" mode="sitemap" />
 		</node>
 	</xsl:template>
 	
-	<xsl:template match="node[data[@alias = '&umbracoNaviHide;'] = 1]" mode="sitemap">
-	</xsl:template>
+	<xsl:template match="node[data[@alias = '&umbracoNaviHide;'] = 1]" mode="sitemap" />
 
 </xsl:stylesheet>
