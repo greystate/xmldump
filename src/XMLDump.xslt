@@ -121,17 +121,17 @@
 
 			<xsl:when test="number($mediaId)">
 				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, 'false')" />
-				<xsl:if test="$mediaNode">
 					<media>
-						<xsl:apply-templates select="$mediaNode" />
+						<xsl:if test="not($mediaNode[error])">
+							<xsl:apply-templates select="$mediaNode" />
+						</xsl:if>
 					</media>					
-				</xsl:if>
 			</xsl:when>
 
 			<xsl:when test="$navOnly">
-				<navigation>
+				<root id="-1">
 					<xsl:apply-templates select="$root/node[1]" mode="sitemap" />
-				</navigation>					
+				</root>					
 			</xsl:when>
 
 			<xsl:when test="number($memberId)">
