@@ -2,7 +2,7 @@
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
 	<!ENTITY standardAttributes "@id | @level | @nodeName | @urlName | @nodeTypeAlias | @alias">
-	<!ENTITY packageVersion "0.5">
+	<!ENTITY packageVersion "0.6">
 	<!ENTITY umbracoNaviHide "umbracoNaviHide">
 ]>
 <xsl:stylesheet

@@ -12,7 +12,8 @@ leave it open on your secondary screen :-)
 
 Revision History
 ----------------
-v0.5:	Initial version, supporting the options: node, type & hidden
+	v0.6:	Added options: media & sitemap
+	v0.5:	Initial version, supporting the options: node, type & hidden
 
 
 Chriztian Steinmeier, November 2009
