@@ -52,6 +52,12 @@
 		</xsl:if>
 	</xsl:variable>
 	
+	<xsl:variable name="mediaId">
+		<xsl:if test="$queryStringAvailable">
+			<xsl:value-of select="umb:RequestQueryString('media')" />
+		</xsl:if>
+	</xsl:variable>
+
 	<xsl:variable name="hidden">
 		<xsl:if test="$queryStringAvailable">
 			<xsl:value-of select="umb:RequestQueryString('hidden')" />
@@ -85,6 +91,7 @@
 	Options (QueryString parameters):
 	- node:		Grab a node by its id, e.g.: node=1080
 	- type:		Grab node(s) by their DocumentType (nodeTypeAlias), e.g.: type=GalleryItem
+	- media		View XML for media item, e.g.: media=1337
 	- hidden:	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
 <xsl:if test="not($verbosity)">
 	- Use 'verbose=yes' to show all attributes of <![CDATA[<node>]]> elements, by default only shows "&standardAttributes;".
@@ -96,22 +103,35 @@
 			<xsl:when test="number($nodeId)">
 				<xsl:apply-templates select="$root//node[@id = $nodeId]" />
 			</xsl:when>
+			
 			<xsl:when test="normalize-space($type)">
 				<nodes nodeTypeAlias="{$type}">
 					<xsl:apply-templates select="$root//node[@nodeTypeAlias = $type]" />
 				</nodes>
 			</xsl:when>
+			
+			<xsl:when test="number($mediaId)">
+				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, 'false')" />
+				<xsl:if test="$mediaNode">
+					<media>
+						<xsl:apply-templates select="$mediaNode" />
+					</media>					
+				</xsl:if>
+			</xsl:when>
+			
 			<xsl:when test="number($memberId)">
 				<members>
 					<xsl:copy-of select="umb:GetCurrentMember()" />
 				</members>
 			</xsl:when>
+			
 			<xsl:when test="$hiddenOnly">
 				<nodes>
 					<xsl:attribute name="&umbracoNaviHide;">1</xsl:attribute>
 					<xsl:apply-templates select="$root//node[data[@alias = '&umbracoNaviHide;'] = 1]" />					
 				</nodes>
 			</xsl:when>
+			
 			<xsl:otherwise>
 				<!-- Okay, no specific nodes selected - show complete tree -->
 				<xsl:apply-templates select="$root" />
