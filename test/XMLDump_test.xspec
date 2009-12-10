@@ -5,13 +5,32 @@
 	xmlns:x="http://www.jenitennison.com/xslt/xspec"
 >
 	<x:scenario label="when processing a node and no options are set">
-		<x:context>
-			<node id="1080" version="53a08103dabdc5d47454592fc1437b27" parentID="-1" level="1" writerID="0" creatorID="0" nodeType="1066" template="1051" sortOrder="2" createDate="2009-02-26T18:39:39" updateDate="2009-11-11T23:58:49" nodeName="Home" urlName="home" writerName="Administrator" creatorName="Administrator" nodeTypeAlias="HomePage" path="-1,1080">
-				<data alias="umbracoNaviHide">0</data>
-			</node>
-		</x:context>
+		<x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-cws.xml" select="/root//node[@id = 1083]" />
 		<x:expect label="it should only copy the specified attributes">
-			<node id="1080" level="1" nodeName="Home" urlName="home" nodeTypeAlias="HomePage">
+			<node id='1080' level='1' nodeName='Home' urlName='home' nodeTypeAlias='CWS_Home'>
+				...
+			</node>
+		</x:expect>
+	</x:scenario>
+	
+	<x:scenario label="when run with the 'node' option specified">
+		<x:context select="/root">
+			<root>
+			<node id="1080">
+				<node id="1088"></node>
+				<node id="1388">
+					<data alias="umbracoNaviHide">0</data>
+					<node id="1038"></node>
+					<node id="1083"></node>
+					<node id="1488"></node>
+					<node id="1048"></node>
+				</node>
+				<node id="2088"></node>
+				<node id="1288"></node>
+			</node></root>
+		</x:context>
+		<x:expect label="it should only output the specified node">
+			<node id="1388">
 				<data alias="umbracoNaviHide">0</data>
 			</node>
 		</x:expect>
