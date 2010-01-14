@@ -58,6 +58,18 @@
 			<xsl:value-of select="umb:RequestQueryString('media')" />
 		</xsl:if>
 	</xsl:variable>
+	
+	<xsl:variable name="property">
+		<xsl:if test="$queryStringAvailable">
+			<xsl:value-of select="umb:RequestQueryString('property')" />
+		</xsl:if>
+	</xsl:variable>
+	
+	<xsl:variable name="xpath">
+		<xsl:if test="$queryStringAvailable">
+			<xsl:value-of select="umb:RequestQueryString('xpath')" />
+		</xsl:if>
+	</xsl:variable>
 
 	<xsl:variable name="hidden">
 		<xsl:if test="$queryStringAvailable">
@@ -87,7 +99,7 @@
 	</xsl:variable>
 	<xsl:variable name="verbosity" select="boolean($verbose = 'yes' or $verbose = 'true' or $verbose = '1')" />
 
-	<xsl:variable name="processChildNodes" select="not($hiddenOnly or number($nodeId) or normalize-space($type))" />
+	<xsl:variable name="processChildNodes" select="not($hiddenOnly or number($nodeId) or normalize-space($type) or normalize-space($property) or normalize-space($xpath))" />
 
 <!-- :: Templates :: -->
 	
@@ -97,20 +109,36 @@
 	XML Dump for Umbraco (v&packageVersion;)
 	======================================================================================
 	Options (QueryString parameters):
-	- node:		Grab a node by its id, e.g.: node=1080
-	- type:		Grab node(s) by their DocumentType (nodeTypeAlias), e.g.: type=GalleryItem
+	- node		Grab a node by its id, e.g.: node=1080
+	- type		Grab node(s) by their DocumentType (nodeTypeAlias), e.g.: type=GalleryItem
+	- property	Find nodes that have a <![CDATA[<data>]]> node with the specific alias, e.g.: property=metaDescription
 	- media		View XML for media item, e.g.: media=1337
 	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
-	- hidden:	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
-<xsl:if test="not($verbosity)">
-	- Use 'verbose=yes' to show all attributes of <![CDATA[<node>]]> elements, by default only shows "&standardAttributes;".
-</xsl:if>
-	(You can use 'yes', 'true' or '1' interchangeably)
+	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
+	
+	- verbose	Show all attributes of <![CDATA[<node>]]> elements (by default only shows "&standardAttributes;").
+	======================================================================================
+	Experimental Option (XPath knowledge required - typos may cause the "Error parsing XSLT file" error):
+	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//node[@nodeName = 'Home']
+
+	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
 </xsl:comment>
 		<!-- Now decide what to output, determined by the supplied options (if any) -->
 		<xsl:choose>
 			<xsl:when test="number($nodeId)">
 				<xsl:apply-templates select="$root//node[@id = $nodeId]" />
+			</xsl:when>
+			
+			<xsl:when test="normalize-space($xpath)">
+				<nodes select="{$xpath}">
+					<xsl:apply-templates select="umb:GetXmlNodeByXPath($xpath)" />
+				</nodes>					
+			</xsl:when>
+			
+			<xsl:when test="normalize-space($property)">
+				<nodes property="{$property}">
+					<xsl:apply-templates select="$root//node[data[@alias = $property]]" />
+				</nodes>
 			</xsl:when>
 			
 			<xsl:when test="normalize-space($type)">
@@ -180,9 +208,7 @@
 				<xsl:otherwise>
 					<xsl:if test="node">
 						<xsl:variable name="nodecount" select="count(node)" />
-	<xsl:comment>
-		(<xsl:value-of select="$nodecount" /> <![CDATA[<node>]]> element<xsl:if test="$nodecount &gt; 1">s</xsl:if> below this)
-	</xsl:comment>
+	<xsl:comment xml:space="preserve"> (<xsl:value-of select="$nodecount" /> <![CDATA[<node>]]> element<xsl:if test="$nodecount &gt; 1">s</xsl:if> below this)</xsl:comment>
 					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
