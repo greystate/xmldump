@@ -3,7 +3,7 @@
 	<!ENTITY nbsp "&#160;">
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
 	<!ENTITY standardAttributes "@id | @nodeName | @level | @urlName | @nodeTypeAlias | @alias">
-	<!ENTITY packageVersion "0.6">
+	<!ENTITY packageVersion "0.7">
 	<!ENTITY umbracoNaviHide "umbracoNaviHide">
 ]>
 <xsl:stylesheet
@@ -130,9 +130,22 @@
 			</xsl:when>
 			
 			<xsl:when test="normalize-space($xpath)">
+				<!-- <xsl:variable name="queryXPath">
+					<xsl:choose>
+						<xsl:when test="starts-with($xpath, './')">
+							<xsl:value-of select="concat('/root//node[@id = ', $currentPage/@id, ']', substring($xpath, 2))" />
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="$xpath" />
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+				<nodes select="{$queryXPath}">
+					<xsl:apply-templates select="umb:GetXmlNodeByXPath($queryXPath)" />
+				</nodes> -->
 				<nodes select="{$xpath}">
 					<xsl:apply-templates select="umb:GetXmlNodeByXPath($xpath)" />
-				</nodes>					
+				</nodes>
 			</xsl:when>
 			
 			<xsl:when test="normalize-space($property)">
