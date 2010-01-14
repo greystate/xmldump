@@ -10,7 +10,7 @@
   <info>
     <package>
       <name>XML Dump</name>
-      <version>0.6</version>
+      <version>0.7</version>
       <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
       <url>http://greystate.dk/resources/umbraco/xmldump/</url>
       <requirements>
