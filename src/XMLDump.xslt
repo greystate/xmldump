@@ -118,7 +118,8 @@
 	
 	- verbose	Show all attributes of <![CDATA[<node>]]> elements (by default only shows "&standardAttributes;").
 	======================================================================================
-	Experimental Option (XPath knowledge required - typos may cause the "Error parsing XSLT file" error):
+	Experimental Option (XPath knowledge required - typos may wreak havoc!):
+	Note that you can't use variables (for now).
 	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//node[@nodeName = 'Home']
 
 	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
