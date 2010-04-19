@@ -1,0 +1,6 @@
+<!-- Entities for easy migration to Umbraco 4.1 XML Schema -->
+<!ENTITY umbracoNaviHide "umbracoNaviHide">
+<!ENTITY node "node">
+<!ENTITY data "data">
+<!ENTITY docType "@nodeTypeAlias">
+<!ENTITY hidden "data[@alias = '&umbracoNaviHide;'] = 1">

@@ -4,7 +4,10 @@
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
 	<!ENTITY standardAttributes "@id | @nodeName | @level | @urlName | @nodeTypeAlias | @alias">
 	<!ENTITY packageVersion "0.7">
-	<!ENTITY umbracoNaviHide "umbracoNaviHide">
+
+	<!ENTITY % compatibility SYSTEM "compatibility.ent">
+	%compatibility;
+	
 ]>
 <xsl:stylesheet
 	version="1.0"
@@ -24,7 +27,7 @@
 	Umbraco supplies this parameter.
 	The select attribute is used when no value is supplied from "outside" (i.e. local development)
 -->
-	<xsl:param name="currentPage" select="/root/node[1]/node[1]" />
+	<xsl:param name="currentPage" select="/root/&node;[1]/&node;[1]" />
 	
 	<!-- Test if we can detect QueryString parameters -->
 	<xsl:variable name="queryStringAvailable" select="function-available('umb:RequestQueryString')" />
@@ -127,7 +130,7 @@
 		<!-- Now decide what to output, determined by the supplied options (if any) -->
 		<xsl:choose>
 			<xsl:when test="number($nodeId)">
-				<xsl:apply-templates select="$root//node[@id = $nodeId]" />
+				<xsl:apply-templates select="$root//&node;[@id = $nodeId]" />
 			</xsl:when>
 			
 			<xsl:when test="normalize-space($xpath)">
@@ -151,18 +154,18 @@
 			
 			<xsl:when test="normalize-space($property)">
 				<nodes property="{$property}">
-					<xsl:apply-templates select="$root//node[data[@alias = $property]]" />
+					<xsl:apply-templates select="$root//&node;[data[@alias = $property]]" />
 				</nodes>
 			</xsl:when>
 			
 			<xsl:when test="normalize-space($type)">
 				<nodes nodeTypeAlias="{$type}">
-					<xsl:apply-templates select="$root//node[@nodeTypeAlias = $type]" />
+					<xsl:apply-templates select="$root//&node;[&docType; = $type]" />
 				</nodes>
 			</xsl:when>
 
 			<xsl:when test="number($mediaId)">
-				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, 'false')" />
+				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, false())" />
 					<media>
 						<xsl:if test="not($mediaNode[error])">
 							<xsl:apply-templates select="$mediaNode" />
@@ -172,7 +175,7 @@
 
 			<xsl:when test="$navOnly">
 				<root id="-1">
-					<xsl:apply-templates select="$root/node[1]" mode="sitemap" />
+					<xsl:apply-templates select="$root/&node;[1]" mode="sitemap" />
 				</root>					
 			</xsl:when>
 
@@ -185,7 +188,7 @@
 			<xsl:when test="$hiddenOnly">
 				<nodes>
 					<xsl:attribute name="&umbracoNaviHide;">1</xsl:attribute>
-					<xsl:apply-templates select="$root//node[data[@alias = '&umbracoNaviHide;'] = 1]" />					
+					<xsl:apply-templates select="$root//&node;[&hidden;]" />					
 				</nodes>
 			</xsl:when>
 			
@@ -212,30 +215,30 @@
 			</xsl:choose>
 			
 			<!-- Process the data elements or their text nodes -->
-			<xsl:apply-templates select="data | text()" />
+			<xsl:apply-templates select="&data; | text()" />
 			
 			<!-- Only continue copying nested 'node' elements if applicable -->
 			<xsl:choose>
 				<xsl:when test="$processChildNodes">
-					<xsl:apply-templates select="node" />
+					<xsl:apply-templates select="&node;" />
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="node">
-						<xsl:variable name="nodecount" select="count(node)" />
-	<xsl:comment xml:space="preserve"> (<xsl:value-of select="$nodecount" /> <![CDATA[<node>]]> element<xsl:if test="$nodecount &gt; 1">s</xsl:if> below this)</xsl:comment>
+					<xsl:if test="&node;">
+						<xsl:variable name="nodecount" select="count(&node;)" />
+	<xsl:comment xml:space="preserve"> (<xsl:value-of select="$nodecount" /> element<xsl:if test="$nodecount &gt; 1">s</xsl:if> below this)</xsl:comment>
 					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:copy>
 	</xsl:template>
 	
-	<xsl:template match="node" mode="sitemap">
+	<xsl:template match="&node;" mode="sitemap">
 		<node>
 			<xsl:copy-of select="&sitemapAttributes;" />
-			<xsl:apply-templates select="node" mode="sitemap" />
+			<xsl:apply-templates select="&node;" mode="sitemap" />
 		</node>
 	</xsl:template>
 	
-	<xsl:template match="node[data[@alias = '&umbracoNaviHide;'] = 1]" mode="sitemap" />
+	<xsl:template match="&node;[&hidden;]" mode="sitemap" />
 
 </xsl:stylesheet>

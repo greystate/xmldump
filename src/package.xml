@@ -6,6 +6,11 @@
       <orgPath>/xslt</orgPath>
       <orgName>XMLDump.xslt</orgName>
     </file>
+    <file>
+      <guid>compatibility.ent</guid>
+      <orgPath>/xslt</orgPath>
+      <orgName>compatibility.ent</orgName>
+    </file>
   </files>
   <info>
     <package>
