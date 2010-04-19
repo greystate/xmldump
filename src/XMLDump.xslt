@@ -3,7 +3,7 @@
 	<!ENTITY nbsp "&#160;">
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
 	<!ENTITY standardAttributes "@id | @nodeName | @level | @urlName | @nodeTypeAlias | @alias">
-	<!ENTITY packageVersion "0.7">
+	<!ENTITY packageVersion "0.8">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
