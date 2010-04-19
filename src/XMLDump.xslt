@@ -113,8 +113,8 @@
 	======================================================================================
 	Options (QueryString parameters):
 	- node		Grab a node by its id, e.g.: node=1080
-	- type		Grab node(s) by their DocumentType (nodeTypeAlias), e.g.: type=GalleryItem
-	- property	Find nodes that have a <![CDATA[<data>]]> node with the specific alias, e.g.: property=metaDescription
+	- type		Grab node(s) by their DocumentType, e.g.: type=GalleryItem
+	- property	Find nodes that have a specific prop, e.g.: property=metaDescription
 	- media		View XML for media item, e.g.: media=1337
 	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
@@ -123,7 +123,7 @@
 	======================================================================================
 	Experimental Option (XPath knowledge required - typos may wreak havoc!):
 	Note that you can't use variables (for now).
-	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//node[@nodeName = 'Home']
+	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
 
 	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
 </xsl:comment>
