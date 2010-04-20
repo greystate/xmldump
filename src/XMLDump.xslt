@@ -134,21 +134,29 @@
 			</xsl:when>
 			
 			<xsl:when test="normalize-space($xpath)">
-				<!-- <xsl:variable name="queryXPath">
+				<xsl:variable name="queryXPath">
 					<xsl:choose>
+						<!-- Convert shorthand './' (if present) to the equivalent of $currentPage -->
 						<xsl:when test="starts-with($xpath, './')">
-							<xsl:value-of select="concat('/root//node[@id = ', $currentPage/@id, ']', substring($xpath, 2))" />
+							<xsl:value-of select="concat('/root//*[@id = ', $currentPage/@id, ']', substring($xpath, 2))" />
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:value-of select="$xpath" />
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:variable>
-				<nodes select="{$queryXPath}">
+				<xsl:variable name="umbXPath">
+					<xsl:choose>
+						<xsl:when test="starts-with($xpath, './')">
+							<xsl:value-of select="concat('$currentPage', substring($xpath, 2))" />
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="$queryXPath" />
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+				<nodes select="{$umbXPath}">
 					<xsl:apply-templates select="umb:GetXmlNodeByXPath($queryXPath)" />
-				</nodes> -->
-				<nodes select="{$xpath}">
-					<xsl:apply-templates select="umb:GetXmlNodeByXPath($xpath)" />
 				</nodes>
 			</xsl:when>
 			
