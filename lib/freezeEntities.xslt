@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE xsl:stylesheet [
+	<!ENTITY % version SYSTEM "../src/version.ent">
+	%version;
+]>
 <xsl:stylesheet
 	version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -7,7 +11,7 @@
 
 	<xsl:output method="xml"
 		indent="yes"
-		omit-xml-declaration="yes"
+		omit-xml-declaration="no"
 		cdata-section-elements="Design readme"
 	/>
 
@@ -25,6 +29,13 @@
 	
 	<xsl:template match="comment() | processing-instruction()">
 		<xsl:copy-of select="." />
+	</xsl:template>
+	
+	<xsl:template match="processing-instruction('umbraco-package')">
+		<xsl:processing-instruction name="umbraco-package">
+			<xsl:text>"&XMLDumpVersionHeader;"</xsl:text>
+		</xsl:processing-instruction>
+		<xsl:text>&#x0A;</xsl:text>
 	</xsl:template>
 	
 </xsl:stylesheet>

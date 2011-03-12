@@ -13,6 +13,7 @@
 	<!ENTITY % version SYSTEM "version.ent">
 	%version;
 ]>
+<?umbraco-package?>
 <xsl:stylesheet
 	version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -274,7 +275,7 @@
 <!-- :: Utility templates :: -->
 	<xsl:template name="usage-comment">
 <xsl:comment xml:space="preserve">
-	XML Dump for Umbraco (v&packageVersion;)
+	&XMLDumpVersionHeader;
 	======================================================================================
 	Options (QueryString parameters):
 	- id		Grab a node by its id, e.g.: id=1080
