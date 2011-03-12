@@ -6,11 +6,12 @@
 	<!ENTITY verboseBOOL "$verbose = 'yes' or $verbose = 'true' or $verbose = '1'">
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
 	<!ENTITY standardAttributes "@id | @nodeName | @isDoc | @level | @urlName | @nodeTypeAlias | @alias">
-	<!ENTITY packageVersion "0.8beta">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
-	
+
+	<!ENTITY % version SYSTEM "version.ent">
+	%version;
 ]>
 <xsl:stylesheet
 	version="1.0"
