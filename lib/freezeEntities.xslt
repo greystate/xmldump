@@ -5,6 +5,12 @@
 	xmlns:x="http://www.w3.org/1999/XSL/TransformAlias"
 >
 
+	<xsl:output method="xml"
+		indent="yes"
+		omit-xml-declaration="yes"
+		cdata-section-elements="Design readme"
+	/>
+
 	<!-- Identity transform -->
 	<xsl:template match="/">
 		<xsl:apply-templates select="* | text() | comment() | processing-instruction()" />
