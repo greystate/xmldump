@@ -15,7 +15,7 @@
   <info>
     <package>
       <name>XML Dump</name>
-      <version>0.8</version>
+      <version>0.8beta</version>
       <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
       <url>http://greystate.dk/resources/umbraco/xmldump/</url>
       <requirements>
@@ -28,7 +28,7 @@
       <name>Chriztian Steinmeier</name>
       <website>http://greystate.dk/who/</website>
     </author>
-    <readme><![CDATA[With this simple package you’ll have access to all published nodes, selectable by id or nodeTypeAlias.]]></readme>
+    <readme><![CDATA[With this package you’ll have access to all published nodes, selectable by a range of options.]]></readme>
   </info>
   <DocumentTypes>
     <DocumentType>

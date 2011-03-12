@@ -4,36 +4,47 @@
 	xslt-version="1.0"
 	xmlns:x="http://www.jenitennison.com/xslt/xspec"
 >
+
+	<x:param name="currentPage" select="/root/node[1]/node[1]" />
+
+	<x:param name="property" select="'articlePhotoColOne'" />
+
 	<x:scenario label="when processing a node and no options are set">
 		<x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-cws.xml" select="/root//node[@id = 1083]" />
 		<x:expect label="it should only copy the specified attributes">
-			<node id='1080' level='1' nodeName='Home' urlName='home' nodeTypeAlias='CWS_Home'>
-				...
-			</node>
+			<node id="1083" level="3" nodeName="About this project" urlName="about-this-project" nodeTypeAlias="CWS_TextpageTwoCol">...</node>
 		</x:expect>
 	</x:scenario>
 	
-	<x:scenario label="when run with the 'node' option specified">
-		<x:context select="/root">
-			<root>
-			<node id="1080">
-				<node id="1088"></node>
-				<node id="1388">
-					<data alias="umbracoNaviHide">0</data>
-					<node id="1038"></node>
-					<node id="1083"></node>
-					<node id="1488"></node>
-					<node id="1048"></node>
-				</node>
-				<node id="2088"></node>
-				<node id="1288"></node>
-			</node></root>
-		</x:context>
-		<x:expect label="it should only output the specified node">
-			<node id="1388">
-				<data alias="umbracoNaviHide">0</data>
-			</node>
+	<x:scenario label="when processing an XML file in the 4.5 format with no options">
+		<x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-v45.xml" select="/root/*[1]" />
+		<x:expect label="it should only copy the standard set of attributes">
+			<CWS_Home id="1080" level="1" nodeName="Home" urlName="home" isDoc="">...</CWS_Home>
 		</x:expect>
+		<x:expect label="it should not copy any of writerID, creatorID or nodeType attributes" test="not(/*[@writerID | @creatorID | @nodeType])" />
 	</x:scenario>
-
+	
+	<x:scenario label="when using the property option" pending="off for now">
+		<!-- <x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-cws.xml" select="/" /> -->
+		<x:context select="/">
+			<root>
+				<node id="12">
+					<node id="2">
+						<data alias="articlePhotoColOne">Test</data>
+						<data alias="umbracoNaviHide">0</data>
+					</node>
+				</node>
+			</root>
+		</x:context>
+		<x:expect label="only nodes with that property whould be copied">
+			<!--...-->
+			<output property="articlePhotoColOne" isLegacy="..." isNewXML="...">
+				<node id="...">
+					<data alias="articlePhotoColOne">...</data>
+				</node>
+			</output>
+		</x:expect>
+		
+	</x:scenario>
+	
 </x:description>

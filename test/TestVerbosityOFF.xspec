@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<x:description
+	stylesheet="../src/XMLDump.xslt"
+	xslt-version="1.0"
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"
+>
+
+	<x:param name="root" select="/root" />
+	<x:param name="nodeId" select="1084" />
+	
+	<x:scenario label="when processing a specific node with no other options (legacyXML)">
+		<x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-cws.xml" select="//node[@id = 1084]" />
+		<x:expect label="it should show only that node and print a comment with the number of children">
+			<node id="1084" level="2" nodeName="Gallery" urlName="gallery" nodeTypeAlias="CWS_Galleries">
+				<data alias="umbracoUrlName" />
+				<data alias="umbracoUrlAlias" />
+				<data alias="metaDescription"><![CDATA[]]></data>
+				<data alias="metaKeywords"><![CDATA[]]></data>
+				<data alias="umbracoRedirect" />
+				<data alias="umbracoNaviHide"><![CDATA[0]]></data>
+				<data alias="headerText">...</data>
+				<data alias="sortBy"><![CDATA[sortOrder]]></data>
+				<data alias="sortOrder"><![CDATA[ascending]]></data>
+				<!-- (3 elements below this)-->
+		    </node>
+		</x:expect>
+	</x:scenario>
+	
+	<x:scenario label="when processing a specific node with no other options (newXML)">
+		<x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-v45.xml" select="//*[@id = 1084]" />
+		<x:expect label="it should show only that node and print a comment with the number of children">
+			<CWS_Galleries isDoc="" id="1084" level="2" nodeName="Gallery" urlName="gallery">
+				<umbracoUrlName />
+				<umbracoUrlAlias />
+				<metaDescription><![CDATA[]]></metaDescription>
+				<metaKeywords><![CDATA[]]></metaKeywords>
+				<umbracoRedirect />
+				<umbracoNaviHide><![CDATA[0]]></umbracoNaviHide>
+				<headerText>...</headerText>
+				<sortBy><![CDATA[sortOrder]]></sortBy>
+				<sortOrder><![CDATA[ascending]]></sortOrder>
+				<!-- (3 elements below this)-->
+		    </CWS_Galleries>
+		</x:expect>
+	</x:scenario>
+	
+
+</x:description>

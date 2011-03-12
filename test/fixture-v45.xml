@@ -1,0 +1,604 @@
+<?xml version="1.0"?>
+<root id="-1">
+  <CWS_Home isDoc="" id="1080" level="1" nodeName="Home" urlName="home">
+    <umbracoUrlName/>
+    <umbracoUrlAlias/>
+    <metaDescription/>
+    <metaKeywords/>
+    <umbracoRedirect/>
+    <umbracoNaviHide>0</umbracoNaviHide>
+    <siteName>Your logo/name</siteName>
+    <headerText>
+&lt;p&gt;&lt;strong&gt;Sam Grady designed this for Warren Buckley.&lt;/strong&gt;
+"This" idea was first created by the incredible Robert Brownjohn
+and has been copied many times since.&lt;/p&gt;
+</headerText>
+    <homepagePhoto>/media/49/home_photo.jpg</homepagePhoto>
+    <bodyText>
+&lt;p&gt;Thank you for installing the umbraco website package created and
+developed by Warren Buckley. This should website package be used to
+help you understand how all the components of an Umbraco site
+works.&lt;/p&gt;
+</bodyText>
+    <CWS_Textpage isDoc="" id="1081" level="2" nodeName="About" urlName="about">
+      <umbracoUrlName/>
+      <umbracoUrlAlias/>
+      <metaDescription>This is the META description for the about page.</metaDescription>
+      <metaKeywords>about, creative web specialist, umbraco, warren buckley, sam grady</metaKeywords>
+      <umbracoRedirect/>
+      <umbracoNaviHide>0</umbracoNaviHide>
+      <headerText>
+&lt;p&gt;This is a good place to put a service message or something to
+help define your site or company.&lt;/p&gt;
+</headerText>
+      <articlePhoto/>
+      <bodyText>
+&lt;p&gt;&lt;strong&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aliquam ullamcorper condimentum lorem. Curabitur placerat nunc ut
+leo. Integer eros ligula, vestibulum at, eleifend id, dignissim
+vel, est.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;?UMBRACO_MACRO macroAlias="TestMacroInRTEMode" /&gt; 
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Saving once more to test.&lt;/p&gt;
+
+&lt;p&gt;Fusce tristique. Cras faucibus porta nunc. Aliquam ultrices,
+arcu quis ornare sagittis, lectus augue ornare nulla, eu lobortis
+velit lectus id nibh. Aliquam condimentum aliquet purus. Quisque
+blandit ante non sapien. Sed justo libero, sollicitudin ac, pretium
+et, luctus nec, nisl. Nulla semper neque nec magna. Cras ut nibh ut
+urna bibendum sodales. Quisque venenatis euismod lacus.
+Pellentesque dapibus turpis at urna.&lt;/p&gt;
+
+&lt;h3&gt;Sub Header&lt;/h3&gt;
+
+&lt;p&gt;Sed scelerisque adipiscing mauris. Mauris egestas dapibus quam.
+Integer in libero eget eros dignissim pretium. Proin luctus sem nec
+lorem. Praesent lorem. Vivamus eget nunc quis sapien condimentum
+egestas. Maecenas facilisis, nunc at sodales facilisis, quam magna
+pretium nibh, vel ultrices lectus lorem quis neque. Nam sit amet
+leo ac lectus gravida convallis. Phasellus at enim vel dui porta
+porttitor. Morbi id dolor adipiscing erat egestas consequat.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://www.google.co.uk"&gt;Phasellus diam. Morbi
+dolor.&lt;/a&gt; Donec consequat sodales nunc. Nam dapibus lectus id
+lectus. Sed ultrices metus sit amet est. Morbi porttitor. Proin vel
+risus. Phasellus sodales convallis justo. &lt;em&gt;Sed luctus hendrerit
+risus. Sed est lorem, feugiat et, rutrum quis, condimentum non,
+nunc.&lt;/em&gt; Aenean urna leo, sagittis a, commodo eget, lobortis nec,
+eros. Vivamus pharetra, lectus eu ultrices pulvinar, nunc quam
+consectetur nibh, sed pulvinar leo dolor ut felis.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Item one&lt;/li&gt;
+
+&lt;li&gt;Item two&lt;/li&gt;
+
+&lt;li&gt;Item three&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nullam lobortis, mi nec feugiat congue, dolor diam cursus lacus,
+a elementum ligula dolor vitae sem. Suspendisse at quam. Praesent
+neque. Vestibulum at justo. Nulla rutrum velit et eros.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Integer convallis augue in tellus&lt;/li&gt;
+
+&lt;li&gt;Magna quam sollicitudin mauris&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nullam lobortis, mi nec feugiat congue, dolor diam cursus lacus,
+a elementum ligula dolor vitae sem. Suspendisse at quam.&lt;/p&gt;
+</bodyText>
+      <CWS_Textpage isDoc="" id="1082" level="3" nodeName="About Umbraco" urlName="about-umbraco">
+        <umbracoUrlName/>
+        <umbracoUrlAlias/>
+        <metaDescription/>
+        <metaKeywords/>
+        <umbracoRedirect/>
+        <umbracoNaviHide>0</umbracoNaviHide>
+        <headerText>
+&lt;p&gt;It's the &lt;strong&gt;KING&lt;/strong&gt; of all CMS's, what more do you
+need to know about it?&lt;/p&gt;
+</headerText>
+        <articlePhoto>/media/171/umbraco_tshirt.jpg</articlePhoto>
+        <bodyText>
+&lt;h3&gt;Umbraco CMS is free&lt;/h3&gt;
+
+&lt;p&gt;It means that you are not bound and locked to the licensing
+rules about the number of content items / processors / web /
+domains, etc. Many products are very expensive as the license cost
+escalates with the number of websites. In many cases, one is soon
+up in the 500' before one can even start to implement the
+solution.&lt;/p&gt;
+
+&lt;h3&gt;Umbraco is Open Source&lt;/h3&gt;
+
+&lt;p&gt;In an Open Source product one has at any time full access to
+source code. This provides insight and leads to better quality, as
+"shortcuts" and bad code can easily be penetrated. Moreover, one
+has the ability to influence and further develop the product.&lt;/p&gt;
+
+&lt;p&gt;Umbraco is based on open source and is therefore not
+lisence-plated or subject to an enterprise's ownership. The Umbraco
+publishing tool places great emphasis on simplicity, standards,
+flexibility and integration. Umbraco was launched in 2005 and has
+had a tremendous growth since that time. Umbraco is today among the
+most popular systems based on open source for Microsoft. NET
+platform.&lt;/p&gt;
+
+&lt;h3&gt;100% Microsoft .NET&lt;/h3&gt;
+
+&lt;p&gt;Umbraco is built 100% on the Microsoft. NET 2.0. This means that
+you can use 3rd party .NET components directly in Umbraco.
+Moreover, integration with other .NET-based solutions is well
+adapted from Umbracos part. Umbraco won an award for the
+Integration possibilities on BNP Awards 2006.&lt;/p&gt;
+
+&lt;h3&gt;Fast results&lt;/h3&gt;
+
+&lt;p&gt;Umbraco is a powerful tool with a focus on core functionality
+and openness. This efficiently allows you to achieve exactly what
+you want - rather than be restricted to a "finished" module, which
+makes only half of what you really wanted.&lt;/p&gt;
+
+&lt;h3&gt;Easy-to-use&lt;/h3&gt;
+
+&lt;p&gt;Umbraco has a focus on content and facilitate rapid and
+intuitive content management. The system strives to be elegant,
+usable and effective.&lt;/p&gt;
+
+&lt;h3&gt;Based on standards&lt;/h3&gt;
+
+&lt;p&gt;Umbraco is based on standards from the W3C as XHTML, CSS, XML
+and XSLT. This gives a greater flexibility and independence, which
+in turn provides more value for the money.&lt;/p&gt;
+
+&lt;h3&gt;Integration&lt;/h3&gt;
+
+&lt;p&gt;Umbraco is known to be among the best CMS on integration. Much
+of the reason for this is the way to expose Microsoft ASP.NET
+components as elements of, or so-called "macro's" for use in
+templates, as well as in the WYSIWYG editor that writers and
+editors use. Elements is also possible to "cache" on several levels
+and is based on standard Microsoft .NET technology. Below are some
+examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;External XML sources (ex RSS) can be directly implemented via
+XSLT elements (macros).&lt;/li&gt;
+
+&lt;li&gt;ASP.NET controls that retrieve data from external or internal
+posterior systems via standard Web Services.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</bodyText>
+      </CWS_Textpage>
+      <CWS_TextpageTwoCol isDoc="" id="1083" level="3" nodeName="About this project" urlName="about-this-project">
+        <articlePhotoColOne>/media/227/warren-buckley.jpg</articlePhotoColOne>
+        <articlePhotoColTwo>/media/228/sam-grady.jpg</articlePhotoColTwo>
+        <bodyTextColTwo>
+&lt;h3&gt;Sam Grady&lt;/h3&gt;
+
+&lt;p&gt;Sam Grady, me, is a graphic designer. I loves graphic design.
+Great graphic design and simple solutions makes this man very
+happy. Photography is also very close to my heart and I'd like to
+be better, so I practice a lot and annoy people with my
+requests.&lt;br /&gt;
+&lt;br /&gt;
+ I haven't got a blog, yet, don't Twitter and cancelled my Facebook
+account as I felt uncomfortable with people knowing my business.
+Anyone else feel that way? I do, however, have a Flickr account, so
+go check it out: &lt;a
+href="http://www.flickr.com/photos/mrgrady"&gt;www.flickr.com/photos/mrgrady&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+ I also have my own business, G72, which has a website that
+desperately needs updating. Also, as of today (03/03/09), it's
+currently down due to inept web hosts. Hopefully it won't be if you
+want to take a look: &lt;a
+href="http://www.g-72.co.uk"&gt;www.g-72.co.uk&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+ Regarding this project, Warren asked me if I wanted to design his
+website starter package for the fantastic Umbraco CMS, which I
+jumped at the chance to do. Hopefully you'll find the design
+appropriate and the package very useful, as that's what we really
+want from this project.&lt;br /&gt;
+&lt;br /&gt;
+ Finally, Warren says the layout is work in progress and I have a,
+typically fussy, list of designer layout requests that I've asked
+Warren to do, but time being what it is, these changes won't be
+made on version 2.0, so if you spot anything, do mail the man as
+we'll be compiling a list of tweaks to be made.&lt;br /&gt;
+&lt;br /&gt;
+ Enjoy.&lt;/p&gt;
+</bodyTextColTwo>
+        <bodyTextColOne>
+&lt;h3&gt;Warren Buckley&lt;/h3&gt;
+
+&lt;p&gt;Warren Buckley is a web developer who specialises in using the
+Umbraco CMS platform to build content managed websites for Xeed in
+Norway. I run a blog called &lt;a
+href="http://www.creativewebspecialist.co.uk"&gt;Creative Web
+Specialist&lt;/a&gt;, where I mainly write tips and tutorial articles
+around Umbraco.&lt;/p&gt;
+
+&lt;p&gt;I have teamed up with ex-collegue Sam Grady to help me design
+the new version of CWS as he produces wonderfully sexy designs for
+the web. If you have seen my previous version/s of CWS you will
+know that my design skills are far from stunning.&lt;/p&gt;
+
+&lt;p&gt;I decided to create this website starter site nicknamed CWS
+(Creative Website Starter site) as a learning tool to help you
+understand how all the elements of a site work together in
+Umbraco.&lt;/p&gt;
+
+&lt;p&gt;From this &lt;strong&gt;NEW&lt;/strong&gt; CWS package comes the
+following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Obviously a &lt;strong&gt;BRAND NEW&lt;/strong&gt; spanking design from
+ex-collegue Sam Grady of G-72&lt;/li&gt;
+
+&lt;li&gt;A focus for this site to be used to help teach new users to the
+Umbraco CMS platform.&lt;/li&gt;
+
+&lt;li&gt;.NET usercontrols written in C#&lt;/li&gt;
+
+&lt;li&gt;XSLT &amp;amp; .NET code heavily commented to help understand what
+is going on.&lt;/li&gt;
+
+&lt;li&gt;With supporting documentation coming in the near future.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Want to see where else you can find me on the net?&lt;br /&gt;
+ Blog - &lt;a
+href="http://www.creativewebspecialist.co.uk"&gt;www.creativewebspecialist.co.uk&lt;/a&gt;&lt;br /&gt;
+ Flickr - &lt;a
+href="http://www.flickr.com/photos/warrenbuckley"&gt;www.flickr.com/photos/warrenbuckley&lt;/a&gt;&lt;br /&gt;
+ Last.FM - &lt;a
+href="http://www.last.fm/user/warrenbuckley"&gt;www.last.fm/user/warrenbuckley&lt;/a&gt;&lt;br /&gt;
+ Twitter - &lt;a
+href="http://twitter.com/warrenbuckley"&gt;twitter.com/warrenbuckley&lt;/a&gt;&lt;/p&gt;
+</bodyTextColOne>
+        <umbracoUrlName/>
+        <umbracoUrlAlias/>
+        <metaDescription/>
+        <metaKeywords/>
+        <umbracoRedirect/>
+        <umbracoNaviHide>0</umbracoNaviHide>
+        <headerText>
+&lt;p&gt;This website has been produced to help you understand
+Umbraco.&lt;/p&gt;
+</headerText>
+      </CWS_TextpageTwoCol>
+    </CWS_Textpage>
+    <CWS_Galleries isDoc="" id="1084" level="2" nodeName="Gallery" urlName="gallery">
+      <umbracoUrlName/>
+      <umbracoUrlAlias/>
+      <metaDescription/>
+      <metaKeywords/>
+      <umbracoRedirect/>
+      <umbracoNaviHide>0</umbracoNaviHide>
+      <headerText>
+&lt;p&gt;This first page displays all the albums featured within your
+site.&lt;br /&gt;
+ Please have a browse through.&lt;/p&gt;
+</headerText>
+      <sortBy>sortOrder</sortBy>
+      <sortOrder>ascending</sortOrder>
+      <CWS_Gallery isDoc="" id="1085" level="3" nodeName="The Bookhouse Boys" urlName="the-bookhouse-boys">
+        <umbracoUrlName/>
+        <umbracoUrlAlias/>
+        <metaDescription>I am the description</metaDescription>
+        <metaKeywords>keywords, here</metaKeywords>
+        <umbracoRedirect/>
+        <umbracoNaviHide>0</umbracoNaviHide>
+        <headerText>
+&lt;p&gt;The Bookhouse Boys. Live at the ICA, London.&lt;/p&gt;
+</headerText>
+        <sortBy>sortOrder</sortBy>
+        <sortOrder>ascending</sortOrder>
+        <galleryThumbnail>/media/1239/bookhouse-boys_gallery.jpg</galleryThumbnail>
+        <CWS_Photo isDoc="" id="1086" level="4" nodeName="Catherine Turner and Paul Van Oestren" urlName="catherine-turner-and-paul-van-oestren">
+          <photoText>Credit: Sam Grady</photoText>
+          <photo>/media/1277/bookhouse-boys_3.jpg</photo>
+          <photoThumbnail>/media/1314/bookhouse-boys_3_thumb.jpg</photoThumbnail>
+          <umbracoUrlName/>
+          <umbracoUrlAlias/>
+          <metaDescription/>
+          <metaKeywords/>
+          <umbracoRedirect/>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </CWS_Photo>
+        <CWS_Photo isDoc="" id="1087" level="4" nodeName="J.P.Fellows" urlName="jpfellows">
+          <photoText>Credit: Sam Grady</photoText>
+          <photo>/media/1250/bookhouse-boys_1.jpg</photo>
+          <photoThumbnail>/media/1296/bookhouse-boys_1_thumb.jpg</photoThumbnail>
+          <umbracoUrlName/>
+          <umbracoUrlAlias/>
+          <metaDescription/>
+          <metaKeywords/>
+          <umbracoRedirect/>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </CWS_Photo>
+        <CWS_Photo isDoc="" id="1088" level="4" nodeName="Catherine Turner" urlName="catherine-turner">
+          <photoText>Credit: Sam Grady</photoText>
+          <photo>/media/1331/bookhouse-boys_2.jpg</photo>
+          <photoThumbnail>/media/1350/bookhouse-boys_2_thumb.jpg</photoThumbnail>
+          <umbracoUrlName/>
+          <umbracoUrlAlias/>
+          <metaDescription/>
+          <metaKeywords/>
+          <umbracoRedirect/>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </CWS_Photo>
+      </CWS_Gallery>
+      <CWS_Gallery isDoc="" id="1089" level="3" nodeName="Codegarden 08" urlName="codegarden-08">
+        <umbracoUrlName/>
+        <umbracoUrlAlias/>
+        <metaDescription/>
+        <metaKeywords/>
+        <umbracoRedirect/>
+        <umbracoNaviHide>0</umbracoNaviHide>
+        <headerText>
+&lt;p&gt;Where all the great minds of umbraco meet!&lt;/p&gt;
+</headerText>
+        <sortBy>sortOrder</sortBy>
+        <sortOrder>ascending</sortOrder>
+        <galleryThumbnail>/media/993/codegarden-08_gallery.jpg</galleryThumbnail>
+        <CWS_Photo isDoc="" id="1090" level="4" nodeName="Darren and David have a chat" urlName="darren-and-david-have-a-chat">
+          <photoText>Credit: Douglas Robar</photoText>
+          <photo>/media/825/darren-ferguson_david-conlisk.jpg</photo>
+          <photoThumbnail>/media/835/darren-ferguson_david-conlisk_thumb.jpg</photoThumbnail>
+          <umbracoUrlName/>
+          <umbracoUrlAlias/>
+          <metaDescription/>
+          <metaKeywords/>
+          <umbracoRedirect/>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </CWS_Photo>
+        <CWS_Photo isDoc="" id="1091" level="4" nodeName="Codegarden 08 T-Shirt" urlName="codegarden-08-t-shirt">
+          <photoText>Credit: Warren Buckley</photoText>
+          <photo>/media/394/codegarden08-t-shirt.jpg</photo>
+          <photoThumbnail>/media/799/codegarden08-t-shirt_thumb.jpg</photoThumbnail>
+          <umbracoUrlName/>
+          <umbracoUrlAlias/>
+          <metaDescription/>
+          <metaKeywords/>
+          <umbracoRedirect/>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </CWS_Photo>
+        <CWS_Photo isDoc="" id="1092" level="4" nodeName="The Umbraco BINGO callers" urlName="the-umbraco-bingo-callers">
+          <photoText>Credit: Douglas Robar</photoText>
+          <photo>/media/852/bingo-callers.jpg</photo>
+          <photoThumbnail>/media/871/bingo-callers_thumb.jpg</photoThumbnail>
+          <umbracoUrlName/>
+          <umbracoUrlAlias/>
+          <metaDescription/>
+          <metaKeywords/>
+          <umbracoRedirect/>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </CWS_Photo>
+        <CWS_Photo isDoc="" id="1093" level="4" nodeName="Christian Palm chatting" urlName="christian-palm-chatting">
+          <photoText>Credit: Douglas Robar</photoText>
+          <photo>/media/879/christian-palm.jpg</photo>
+          <photoThumbnail>/media/889/christian-palm_thumb.jpg</photoThumbnail>
+          <umbracoUrlName/>
+          <umbracoUrlAlias/>
+          <metaDescription/>
+          <metaKeywords/>
+          <umbracoRedirect/>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </CWS_Photo>
+      </CWS_Gallery>
+      <CWS_Gallery isDoc="" id="1094" level="3" nodeName="Bath, UK" urlName="bath,-uk">
+        <umbracoUrlName/>
+        <umbracoUrlAlias/>
+        <metaDescription/>
+        <metaKeywords/>
+        <umbracoRedirect/>
+        <umbracoNaviHide>0</umbracoNaviHide>
+        <headerText>
+&lt;p&gt;Photos from a trip to Bath in November 2008&lt;/p&gt;
+</headerText>
+        <sortBy>updateDate</sortBy>
+        <sortOrder>ascending</sortOrder>
+        <galleryThumbnail>/media/935/bath_gallery.jpg</galleryThumbnail>
+        <CWS_Photo isDoc="" id="1095" level="4" nodeName="Royal Crescent" urlName="royal-crescent">
+          <photoText>Credit: Warren Buckley</photoText>
+          <photo>/media/995/royal-crescent.jpg</photo>
+          <photoThumbnail>/media/1014/royal-crescent_thumb.jpg</photoThumbnail>
+          <umbracoUrlName/>
+          <umbracoUrlAlias/>
+          <metaDescription/>
+          <metaKeywords/>
+          <umbracoRedirect/>
+          <umbracoNaviHide>0</umbracoNaviHide>
+        </CWS_Photo>
+      </CWS_Gallery>
+    </CWS_Galleries>
+    <CWS_NewsEventsList isDoc="" id="1096" level="2" nodeName="News and Events" urlName="news-and-events">
+      <umbracoUrlName/>
+      <umbracoUrlAlias/>
+      <metaDescription/>
+      <metaKeywords/>
+      <umbracoRedirect/>
+      <umbracoNaviHide>0</umbracoNaviHide>
+      <sortBy>sortOrder</sortBy>
+      <sortOrder>ascending</sortOrder>
+      <headerText>
+&lt;p&gt;Please browse through our news archive and event listings
+below.&lt;/p&gt;
+</headerText>
+      <CWS_EventItem isDoc="" id="1097" level="3" nodeName="Codegarden 09" urlName="codegarden-09">
+        <eventDate>2009-06-22T00:00:00</eventDate>
+        <bodyText>
+&lt;h3&gt;Come join the annual umbraco developer conference in Wonderful
+Copenhagen on June 22nd - 23rd. Two days for insights, eye-openers,
+great conversations and friendly people.&lt;/h3&gt;
+
+&lt;p&gt;The who's who of umbraco will be gathered and share their
+knowledge through talks, tutorials and via un-conference formats
+like open space or hacking sessions. We have booked a cool, old and
+huge industrial venue in central Copenhagen where we'll have one
+huge room, three rooms for breakout sessions and a Caf&amp;eacute; that
+serves your taste of espresso.&lt;/p&gt;
+
+&lt;p&gt;Come join the annual umbraco developer conference in Wonderful
+Copenhagen on June 22nd - 23rd. Two days for insights, eye-openers,
+great conversations and friendly people.&lt;/p&gt;
+
+&lt;p&gt;We've planned a program that fits both experienced umbraco users
+as well as new comers. The conference is kicked off with a Keynote
+and after that we'll have two or three tracks of sessions and the
+first day is rounded with an open Q/A session with the umbraco core
+team.&lt;/p&gt;
+
+&lt;p&gt;The second day features an un-conference format called open
+space, which we also used with great success at last year's
+conference. It's a format where everybody can suggest a topic and
+as we have plenty of break-out rooms rest assured that there'll be
+room for your topic as well. Last year's more than 20 topics
+covered Silverlight, High performance websites with umbraco,
+building custom data types and much more.&lt;/p&gt;
+
+&lt;p&gt;But it doesn't ends there. We've ensured that we can stay at the
+venue until midnight both days which means that when the first day
+ends, the fun begins. With more than hundred people gathered at a
+place with loads of umbraco knowledge, wifi, great food and plenty
+of space, who knows what could happen. A BBQ, new packages,
+improvised demos and talks, or...?&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</bodyText>
+        <articlePhoto>/media/445/umbraco_tshirt.jpg</articlePhoto>
+        <umbracoUrlName/>
+        <umbracoUrlAlias/>
+        <metaDescription/>
+        <metaKeywords/>
+        <umbracoRedirect/>
+        <umbracoNaviHide>0</umbracoNaviHide>
+      </CWS_EventItem>
+      <CWS_NewsItem isDoc="" id="1098" level="3" nodeName="CWS2 is released" urlName="cws2-is-released">
+        <bodyText>
+&lt;h3&gt;After Warren Buckley's success of the first Creative Website
+Starter site package, with over 20K downloads he has decided to
+work on CWS2.&lt;/h3&gt;
+
+&lt;p&gt;As of today Wednesday the 4th March 2009, the CWS2 package is
+now available to download from the built in package repository
+inside Umbraco.&lt;/p&gt;
+
+&lt;p&gt;With this new version comes the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;BRAND NEW&lt;/strong&gt; spanking design from ex-collegue
+&lt;a href="http://www.g-72.co.uk"
+title="Designer Sam Grady of G72"&gt;Sam Grady of G-72&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;A focus for this site to be used to help teach new users to the
+Umbraco CMS platform.&lt;/li&gt;
+
+&lt;li&gt;.NET usercontrols written in C#&lt;/li&gt;
+
+&lt;li&gt;XSLT &amp;amp; .NET code heavily commented to help understand what
+is going on.&lt;/li&gt;
+
+&lt;li&gt;With supporting documentation coming in the near future.&lt;/li&gt;
+&lt;/ul&gt;
+</bodyText>
+        <articlePhoto/>
+        <umbracoUrlName/>
+        <umbracoUrlAlias/>
+        <metaDescription/>
+        <metaKeywords/>
+        <umbracoRedirect/>
+        <umbracoNaviHide>0</umbracoNaviHide>
+      </CWS_NewsItem>
+    </CWS_NewsEventsList>
+    <CWS_Contact isDoc="" id="1099" level="2" nodeName="Contact" urlName="contact">
+      <emailTo>you@yourcompany.co.uk</emailTo>
+      <emailSubject>Email from Contact form on website</emailSubject>
+      <emailBody>Hello a user of your site has filled in your contact form on [Date] @ [Time]
+
+Name: [Name]
+Address: [AddressLine1], [AddressLine2]
+Email: [Email]
+Message: [Message]</emailBody>
+      <emailReplyFrom>you@yourcompany.co.uk</emailReplyFrom>
+      <emailReplySubject>Thank you for your message</emailReplySubject>
+      <emailReplyBody>Hello [Name]
+Thanks for contacting us, we will reply shortly.
+
+Your Company Name
+www.yourcompany.co.uk</emailReplyBody>
+      <enableSSL>0</enableSSL>
+      <umbracoUrlName/>
+      <umbracoUrlAlias/>
+      <metaDescription/>
+      <metaKeywords/>
+      <umbracoRedirect/>
+      <umbracoNaviHide>0</umbracoNaviHide>
+      <headerText>
+&lt;p&gt;Everything you need to&lt;br /&gt;
+ get in touch.&lt;/p&gt;
+</headerText>
+      <formText>
+&lt;h3&gt;Enquiry Form&lt;/h3&gt;
+
+&lt;p&gt;If you have a particular enquiry, please fill out the form below
+and provide as much information as you can, so that one of our
+representatives can deal with your enquiry as effciently as
+possible.&lt;/p&gt;
+</formText>
+      <thankYouHeaderText>
+&lt;p&gt;&lt;strong&gt;Thank you.&lt;/strong&gt; We will be in touch shortly.&lt;/p&gt;
+</thankYouHeaderText>
+      <thankYouMessageText>
+&lt;p&gt;Thanks for filling out our contact form we will get back to you
+shortly.&lt;/p&gt;
+
+&lt;p&gt;Regards,&lt;br /&gt;
+ My Company&lt;/p&gt;
+</thankYouMessageText>
+    </CWS_Contact>
+    <CWS_EmailAFriend isDoc="" id="1100" level="2" nodeName="Email a Friend" urlName="email-a-friend">
+      <emailFrom>you@yourcompany.co.uk</emailFrom>
+      <emailSubjectToFriend>[YourName] has sent you a link to read</emailSubjectToFriend>
+      <emailMessageToFriend>Hello [FriendName], [YourName] has sent you this link to read.
+
+URL: [URL]
+Message: [Message]
+
+--------------------------------------------------------
+Your Company Name
+www.yourcompany.co.uk</emailMessageToFriend>
+      <enableSSL>0</enableSSL>
+      <umbracoUrlName/>
+      <umbracoUrlAlias/>
+      <metaDescription/>
+      <metaKeywords/>
+      <umbracoRedirect/>
+      <umbracoNaviHide>1</umbracoNaviHide>
+      <headerText>
+&lt;p&gt;Send a page onto your friend.&lt;/p&gt;
+</headerText>
+      <thankYouHeaderText>
+&lt;p&gt;&lt;strong&gt;Thank you.&lt;/strong&gt; We appreciate the love you are
+giving our site.&lt;/p&gt;
+</thankYouHeaderText>
+      <thankYouMessageText>
+&lt;p&gt;Thanks for sending that link onto your friend, we really
+appreciate it here at My Company.&lt;/p&gt;
+</thankYouMessageText>
+    </CWS_EmailAFriend>
+  </CWS_Home>
+  <XMLDump isDoc="" id="1109" level="1" nodeName="xmldump" urlName="xmldump"/>
+</root>

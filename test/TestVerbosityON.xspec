@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<x:description
+	stylesheet="../src/XMLDump.xslt"
+	xslt-version="1.0"
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"
+>
+
+	<x:param name="root" select="/root" />
+	<x:param name="nodeId" select="1084" />
+	<x:param name="verbosity" select="true()" />
+	
+	<x:scenario label="when processing a specific node with verbose=yes (legacyXML)">
+		<x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-cws.xml" select="//node[@id = 1084]" />
+		<x:expect label="it should show all childnodes">
+			<node id="1084" level="2" nodeName="Gallery" urlName="gallery" nodeTypeAlias="CWS_Galleries">
+		      <data alias="umbracoUrlName" />
+		      <data alias="umbracoUrlAlias" />
+		      <data alias="metaDescription"><![CDATA[]]></data>
+		      <data alias="metaKeywords"><![CDATA[]]></data>
+		      <data alias="umbracoRedirect" />
+		      <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		      <data alias="headerText">...</data>
+		      <data alias="sortBy"><![CDATA[sortOrder]]></data>
+		      <data alias="sortOrder"><![CDATA[ascending]]></data>
+		      <node id="1085" level="3" nodeName="The Bookhouse Boys" urlName="the-bookhouse-boys" nodeTypeAlias="CWS_Gallery">
+		        <data alias="umbracoUrlName" />
+		        <data alias="umbracoUrlAlias" />
+		        <data alias="metaDescription"><![CDATA[I am the description]]></data>
+		        <data alias="metaKeywords"><![CDATA[keywords, here]]></data>
+		        <data alias="umbracoRedirect" />
+		        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        <data alias="headerText"><![CDATA[
+<p>The Bookhouse Boys. Live at the ICA, London.</p>
+]]></data>
+		        <data alias="sortBy"><![CDATA[sortOrder]]></data>
+		        <data alias="sortOrder"><![CDATA[ascending]]></data>
+		        <data alias="galleryThumbnail"><![CDATA[/media/1239/bookhouse-boys_gallery.jpg]]></data>
+		        <node id="1086" level="4" nodeName="Catherine Turner and Paul Van Oestren" urlName="catherine-turner-and-paul-van-oestren" nodeTypeAlias="CWS_Photo">
+		          <data alias="photoText"><![CDATA[Credit: Sam Grady]]></data>
+		          <data alias="photo"><![CDATA[/media/1277/bookhouse-boys_3.jpg]]></data>
+		          <data alias="photoThumbnail"><![CDATA[/media/1314/bookhouse-boys_3_thumb.jpg]]></data>
+		          <data alias="umbracoUrlName" />
+		          <data alias="umbracoUrlAlias" />
+		          <data alias="metaDescription"><![CDATA[]]></data>
+		          <data alias="metaKeywords"><![CDATA[]]></data>
+		          <data alias="umbracoRedirect" />
+		          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        </node>
+		        <node id="1087" level="4" nodeName="J.P.Fellows" urlName="jpfellows" nodeTypeAlias="CWS_Photo">
+		          <data alias="photoText"><![CDATA[Credit: Sam Grady]]></data>
+		          <data alias="photo"><![CDATA[/media/1250/bookhouse-boys_1.jpg]]></data>
+		          <data alias="photoThumbnail"><![CDATA[/media/1296/bookhouse-boys_1_thumb.jpg]]></data>
+		          <data alias="umbracoUrlName" />
+		          <data alias="umbracoUrlAlias" />
+		          <data alias="metaDescription"><![CDATA[]]></data>
+		          <data alias="metaKeywords"><![CDATA[]]></data>
+		          <data alias="umbracoRedirect" />
+		          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        </node>
+		        <node id="1088" level="4" nodeName="Catherine Turner" urlName="catherine-turner" nodeTypeAlias="CWS_Photo">
+		          <data alias="photoText"><![CDATA[Credit: Sam Grady]]></data>
+		          <data alias="photo"><![CDATA[/media/1331/bookhouse-boys_2.jpg]]></data>
+		          <data alias="photoThumbnail"><![CDATA[/media/1350/bookhouse-boys_2_thumb.jpg]]></data>
+		          <data alias="umbracoUrlName" />
+		          <data alias="umbracoUrlAlias" />
+		          <data alias="metaDescription"><![CDATA[]]></data>
+		          <data alias="metaKeywords"><![CDATA[]]></data>
+		          <data alias="umbracoRedirect" />
+		          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        </node>
+		      </node>
+		      <node id="1089" level="3" nodeName="Codegarden 08" urlName="codegarden-08" nodeTypeAlias="CWS_Gallery">
+		        <data alias="umbracoUrlName" />
+		        <data alias="umbracoUrlAlias" />
+		        <data alias="metaDescription"><![CDATA[]]></data>
+		        <data alias="metaKeywords"><![CDATA[]]></data>
+		        <data alias="umbracoRedirect" />
+		        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        <data alias="headerText"><![CDATA[
+<p>Where all the great minds of umbraco meet!</p>
+]]></data>
+		        <data alias="sortBy"><![CDATA[sortOrder]]></data>
+		        <data alias="sortOrder"><![CDATA[ascending]]></data>
+		        <data alias="galleryThumbnail"><![CDATA[/media/993/codegarden-08_gallery.jpg]]></data>
+		        <node id="1090" level="4" nodeName="Darren and David have a chat" urlName="darren-and-david-have-a-chat" nodeTypeAlias="CWS_Photo">
+		          <data alias="photoText"><![CDATA[Credit: Douglas Robar]]></data>
+		          <data alias="photo"><![CDATA[/media/825/darren-ferguson_david-conlisk.jpg]]></data>
+		          <data alias="photoThumbnail"><![CDATA[/media/835/darren-ferguson_david-conlisk_thumb.jpg]]></data>
+		          <data alias="umbracoUrlName" />
+		          <data alias="umbracoUrlAlias" />
+		          <data alias="metaDescription"><![CDATA[]]></data>
+		          <data alias="metaKeywords"><![CDATA[]]></data>
+		          <data alias="umbracoRedirect" />
+		          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        </node>
+		        <node id="1091" level="4" nodeName="Codegarden 08 T-Shirt" urlName="codegarden-08-t-shirt" nodeTypeAlias="CWS_Photo">
+		          <data alias="photoText"><![CDATA[Credit: Warren Buckley]]></data>
+		          <data alias="photo"><![CDATA[/media/394/codegarden08-t-shirt.jpg]]></data>
+		          <data alias="photoThumbnail"><![CDATA[/media/799/codegarden08-t-shirt_thumb.jpg]]></data>
+		          <data alias="umbracoUrlName" />
+		          <data alias="umbracoUrlAlias" />
+		          <data alias="metaDescription"><![CDATA[]]></data>
+		          <data alias="metaKeywords"><![CDATA[]]></data>
+		          <data alias="umbracoRedirect" />
+		          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        </node>
+		        <node id="1092" level="4" nodeName="The Umbraco BINGO callers" urlName="the-umbraco-bingo-callers" nodeTypeAlias="CWS_Photo">
+		          <data alias="photoText"><![CDATA[Credit: Douglas Robar]]></data>
+		          <data alias="photo"><![CDATA[/media/852/bingo-callers.jpg]]></data>
+		          <data alias="photoThumbnail"><![CDATA[/media/871/bingo-callers_thumb.jpg]]></data>
+		          <data alias="umbracoUrlName" />
+		          <data alias="umbracoUrlAlias" />
+		          <data alias="metaDescription"><![CDATA[]]></data>
+		          <data alias="metaKeywords"><![CDATA[]]></data>
+		          <data alias="umbracoRedirect" />
+		          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        </node>
+		        <node id="1093" level="4" nodeName="Christian Palm chatting" urlName="christian-palm-chatting" nodeTypeAlias="CWS_Photo">
+		          <data alias="photoText"><![CDATA[Credit: Douglas Robar]]></data>
+		          <data alias="photo"><![CDATA[/media/879/christian-palm.jpg]]></data>
+		          <data alias="photoThumbnail"><![CDATA[/media/889/christian-palm_thumb.jpg]]></data>
+		          <data alias="umbracoUrlName" />
+		          <data alias="umbracoUrlAlias" />
+		          <data alias="metaDescription"><![CDATA[]]></data>
+		          <data alias="metaKeywords"><![CDATA[]]></data>
+		          <data alias="umbracoRedirect" />
+		          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        </node>
+		      </node>
+		      <node id="1094" level="3" nodeName="Bath, UK" urlName="bath,-uk" nodeTypeAlias="CWS_Gallery">
+		        <data alias="umbracoUrlName" />
+		        <data alias="umbracoUrlAlias" />
+		        <data alias="metaDescription"><![CDATA[]]></data>
+		        <data alias="metaKeywords"><![CDATA[]]></data>
+		        <data alias="umbracoRedirect" />
+		        <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        <data alias="headerText"><![CDATA[
+<p>Photos from a trip to Bath in November 2008</p>
+]]></data>
+		        <data alias="sortBy"><![CDATA[updateDate]]></data>
+		        <data alias="sortOrder"><![CDATA[ascending]]></data>
+		        <data alias="galleryThumbnail"><![CDATA[/media/935/bath_gallery.jpg]]></data>
+		        <node id="1095" level="4" nodeName="Royal Crescent" urlName="royal-crescent" nodeTypeAlias="CWS_Photo">
+		          <data alias="photoText"><![CDATA[Credit: Warren Buckley]]></data>
+		          <data alias="photo"><![CDATA[/media/995/royal-crescent.jpg]]></data>
+		          <data alias="photoThumbnail"><![CDATA[/media/1014/royal-crescent_thumb.jpg]]></data>
+		          <data alias="umbracoUrlName" />
+		          <data alias="umbracoUrlAlias" />
+		          <data alias="metaDescription"><![CDATA[]]></data>
+		          <data alias="metaKeywords"><![CDATA[]]></data>
+		          <data alias="umbracoRedirect" />
+		          <data alias="umbracoNaviHide"><![CDATA[0]]></data>
+		        </node>
+		      </node>
+		    </node>
+		</x:expect>
+	</x:scenario>
+	
+	<x:scenario label="when processing a specific node with verbose=yes (newXML)">
+		<x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-v45.xml" select="//*[@id = 1084]" />
+		<x:expect label="it should show all childnodes">
+			    <CWS_Galleries isDoc="" id="1084" level="2" nodeName="Gallery" urlName="gallery">
+			      <umbracoUrlName/>
+			      <umbracoUrlAlias/>
+			      <metaDescription/>
+			      <metaKeywords/>
+			      <umbracoRedirect/>
+			      <umbracoNaviHide>0</umbracoNaviHide>
+			      <headerText>
+&lt;p&gt;This first page displays all the albums featured within your
+site.&lt;br /&gt;
+ Please have a browse through.&lt;/p&gt;
+</headerText>
+			      <sortBy>sortOrder</sortBy>
+			      <sortOrder>ascending</sortOrder>
+			      <CWS_Gallery isDoc="" id="1085" level="3" nodeName="The Bookhouse Boys" urlName="the-bookhouse-boys">
+			        <umbracoUrlName/>
+			        <umbracoUrlAlias/>
+			        <metaDescription>I am the description</metaDescription>
+			        <metaKeywords>keywords, here</metaKeywords>
+			        <umbracoRedirect/>
+			        <umbracoNaviHide>0</umbracoNaviHide>
+			        <headerText>
+&lt;p&gt;The Bookhouse Boys. Live at the ICA, London.&lt;/p&gt;
+</headerText>
+			        <sortBy>sortOrder</sortBy>
+			        <sortOrder>ascending</sortOrder>
+			        <galleryThumbnail>/media/1239/bookhouse-boys_gallery.jpg</galleryThumbnail>
+			        <CWS_Photo isDoc="" id="1086" level="4" nodeName="Catherine Turner and Paul Van Oestren" urlName="catherine-turner-and-paul-van-oestren">
+			          <photoText>Credit: Sam Grady</photoText>
+			          <photo>/media/1277/bookhouse-boys_3.jpg</photo>
+			          <photoThumbnail>/media/1314/bookhouse-boys_3_thumb.jpg</photoThumbnail>
+			          <umbracoUrlName/>
+			          <umbracoUrlAlias/>
+			          <metaDescription/>
+			          <metaKeywords/>
+			          <umbracoRedirect/>
+			          <umbracoNaviHide>0</umbracoNaviHide>
+			        </CWS_Photo>
+			        <CWS_Photo isDoc="" id="1087" level="4" nodeName="J.P.Fellows" urlName="jpfellows">
+			          <photoText>Credit: Sam Grady</photoText>
+			          <photo>/media/1250/bookhouse-boys_1.jpg</photo>
+			          <photoThumbnail>/media/1296/bookhouse-boys_1_thumb.jpg</photoThumbnail>
+			          <umbracoUrlName/>
+			          <umbracoUrlAlias/>
+			          <metaDescription/>
+			          <metaKeywords/>
+			          <umbracoRedirect/>
+			          <umbracoNaviHide>0</umbracoNaviHide>
+			        </CWS_Photo>
+			        <CWS_Photo isDoc="" id="1088" level="4" nodeName="Catherine Turner" urlName="catherine-turner">
+			          <photoText>Credit: Sam Grady</photoText>
+			          <photo>/media/1331/bookhouse-boys_2.jpg</photo>
+			          <photoThumbnail>/media/1350/bookhouse-boys_2_thumb.jpg</photoThumbnail>
+			          <umbracoUrlName/>
+			          <umbracoUrlAlias/>
+			          <metaDescription/>
+			          <metaKeywords/>
+			          <umbracoRedirect/>
+			          <umbracoNaviHide>0</umbracoNaviHide>
+			        </CWS_Photo>
+			      </CWS_Gallery>
+			      <CWS_Gallery isDoc="" id="1089" level="3" nodeName="Codegarden 08" urlName="codegarden-08">
+			        <umbracoUrlName/>
+			        <umbracoUrlAlias/>
+			        <metaDescription/>
+			        <metaKeywords/>
+			        <umbracoRedirect/>
+			        <umbracoNaviHide>0</umbracoNaviHide>
+			        <headerText>
+&lt;p&gt;Where all the great minds of umbraco meet!&lt;/p&gt;
+</headerText>
+			        <sortBy>sortOrder</sortBy>
+			        <sortOrder>ascending</sortOrder>
+			        <galleryThumbnail>/media/993/codegarden-08_gallery.jpg</galleryThumbnail>
+			        <CWS_Photo isDoc="" id="1090" level="4" nodeName="Darren and David have a chat" urlName="darren-and-david-have-a-chat">
+			          <photoText>Credit: Douglas Robar</photoText>
+			          <photo>/media/825/darren-ferguson_david-conlisk.jpg</photo>
+			          <photoThumbnail>/media/835/darren-ferguson_david-conlisk_thumb.jpg</photoThumbnail>
+			          <umbracoUrlName/>
+			          <umbracoUrlAlias/>
+			          <metaDescription/>
+			          <metaKeywords/>
+			          <umbracoRedirect/>
+			          <umbracoNaviHide>0</umbracoNaviHide>
+			        </CWS_Photo>
+			        <CWS_Photo isDoc="" id="1091" level="4" nodeName="Codegarden 08 T-Shirt" urlName="codegarden-08-t-shirt">
+			          <photoText>Credit: Warren Buckley</photoText>
+			          <photo>/media/394/codegarden08-t-shirt.jpg</photo>
+			          <photoThumbnail>/media/799/codegarden08-t-shirt_thumb.jpg</photoThumbnail>
+			          <umbracoUrlName/>
+			          <umbracoUrlAlias/>
+			          <metaDescription/>
+			          <metaKeywords/>
+			          <umbracoRedirect/>
+			          <umbracoNaviHide>0</umbracoNaviHide>
+			        </CWS_Photo>
+			        <CWS_Photo isDoc="" id="1092" level="4" nodeName="The Umbraco BINGO callers" urlName="the-umbraco-bingo-callers">
+			          <photoText>Credit: Douglas Robar</photoText>
+			          <photo>/media/852/bingo-callers.jpg</photo>
+			          <photoThumbnail>/media/871/bingo-callers_thumb.jpg</photoThumbnail>
+			          <umbracoUrlName/>
+			          <umbracoUrlAlias/>
+			          <metaDescription/>
+			          <metaKeywords/>
+			          <umbracoRedirect/>
+			          <umbracoNaviHide>0</umbracoNaviHide>
+			        </CWS_Photo>
+			        <CWS_Photo isDoc="" id="1093" level="4" nodeName="Christian Palm chatting" urlName="christian-palm-chatting">
+			          <photoText>Credit: Douglas Robar</photoText>
+			          <photo>/media/879/christian-palm.jpg</photo>
+			          <photoThumbnail>/media/889/christian-palm_thumb.jpg</photoThumbnail>
+			          <umbracoUrlName/>
+			          <umbracoUrlAlias/>
+			          <metaDescription/>
+			          <metaKeywords/>
+			          <umbracoRedirect/>
+			          <umbracoNaviHide>0</umbracoNaviHide>
+			        </CWS_Photo>
+			      </CWS_Gallery>
+			      <CWS_Gallery isDoc="" id="1094" level="3" nodeName="Bath, UK" urlName="bath,-uk">
+			        <umbracoUrlName/>
+			        <umbracoUrlAlias/>
+			        <metaDescription/>
+			        <metaKeywords/>
+			        <umbracoRedirect/>
+			        <umbracoNaviHide>0</umbracoNaviHide>
+			        <headerText>
+&lt;p&gt;Photos from a trip to Bath in November 2008&lt;/p&gt;
+</headerText>
+			        <sortBy>updateDate</sortBy>
+			        <sortOrder>ascending</sortOrder>
+			        <galleryThumbnail>/media/935/bath_gallery.jpg</galleryThumbnail>
+			        <CWS_Photo isDoc="" id="1095" level="4" nodeName="Royal Crescent" urlName="royal-crescent">
+			          <photoText>Credit: Warren Buckley</photoText>
+			          <photo>/media/995/royal-crescent.jpg</photo>
+			          <photoThumbnail>/media/1014/royal-crescent_thumb.jpg</photoThumbnail>
+			          <umbracoUrlName/>
+			          <umbracoUrlAlias/>
+			          <metaDescription/>
+			          <metaKeywords/>
+			          <umbracoRedirect/>
+			          <umbracoNaviHide>0</umbracoNaviHide>
+			        </CWS_Photo>
+			      </CWS_Gallery>
+			    </CWS_Galleries>
+		</x:expect>
+	</x:scenario>
+	
+	
+
+</x:description>
