@@ -9,11 +9,6 @@
       <orgPath>/xslt</orgPath>
       <orgName>XMLDump.xslt</orgName>
     </file>
-    <file>
-      <guid>compatibility.ent</guid>
-      <orgPath>/xslt</orgPath>
-      <orgName>compatibility.ent</orgName>
-    </file>
   </files>
   <info>
     <package>
@@ -33,31 +28,7 @@
     </author>
     <readme><![CDATA[With this package you’ll have access to all published nodes, selectable by a range of options.]]></readme>
   </info>
-  <DocumentTypes>
-    <DocumentType>
-      <Info>
-        <Name>XML Dump</Name>
-        <Alias>XMLDump</Alias>
-        <Icon>settingXML.gif</Icon>
-        <Thumbnail>xml.png</Thumbnail>
-        <Description>
-        	Creates a page for easy viewing of the XML structure of the content.
-        </Description>
-        <Master></Master>
-        <AllowedTemplates>
-          <Template>XMLDump</Template>
-        </AllowedTemplates>
-        <DefaultTemplate>
-          <Template>XMLDump</Template>
-        </DefaultTemplate>
-      </Info>
-      <Structure />
-      <GenericProperties>
-      </GenericProperties>
-      <Tabs>
-      </Tabs>
-    </DocumentType>
-  </DocumentTypes>
+  <DocumentTypes />
   <Templates>
     <Template>
       <Name>XML Dump</Name>
