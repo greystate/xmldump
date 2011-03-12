@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
+	<!ENTITY hiddenBOOL "$hidden = 'yes' or $hidden = 'true' or $hidden = '1'">
+	<!ENTITY sitemapBOOL "$sitemap = 'yes' or $sitemap = 'true' or $sitemap = '1'">
+	<!ENTITY verboseBOOL "$verbose = 'yes' or $verbose = 'true' or $verbose = '1'">
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
-	<!ENTITY standardAttributes "@id | @nodeName | @level | @urlName | @nodeTypeAlias | @alias">
-	<!ENTITY packageVersion "0.8">
+	<!ENTITY standardAttributes "@id | @nodeName | @isDoc | @level | @urlName | @nodeTypeAlias | @alias">
+	<!ENTITY packageVersion "0.8beta">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
@@ -13,27 +16,30 @@
 	version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:umb="urn:umbraco.library"
-	exclude-result-prefixes="umb"
+	extension-element-prefixes="umb"
 >
 	
 	<xsl:output
 		method="xml"
 		indent="yes"
 		omit-xml-declaration="yes"
-		cdata-section-elements="data"
 	/>
 	
 <!--
 	Umbraco supplies this parameter.
 	The select attribute is used when no value is supplied from "outside" (i.e. local development)
 -->
-	<xsl:param name="currentPage" select="/root/&node;[1]/&node;[1]" />
+	<xsl:param name="currentPage" select="/root/&node;[1]" />
 	
 	<!-- Test if we can detect QueryString parameters -->
 	<xsl:variable name="queryStringAvailable" select="function-available('umb:RequestQueryString')" />
 
 	<!-- Grab the root node -->
 	<xsl:variable name="root" select="$currentPage/ancestor::root" />
+	
+	<!-- Determine if using legacy or v4.5 XML Schema -->
+	<xsl:variable name="isLegacyXML" select="boolean(not(/$root/*[@isDoc][1]))" />
+	<xsl:variable name="isNewXML" select="not($isLegacyXML)" />
 	
 <!-- :: Configuration variables :: -->
 <!--
@@ -46,7 +52,7 @@
 
 	<xsl:variable name="nodeId">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('node')" />
+			<xsl:value-of select="umb:RequestQueryString('id')" />
 		</xsl:if>
 	</xsl:variable>
 
@@ -79,14 +85,14 @@
 			<xsl:value-of select="umb:RequestQueryString('hidden')" />
 		</xsl:if>
 	</xsl:variable>
-	<xsl:variable name="hiddenOnly" select="boolean($hidden = 'yes' or $hidden = 'true' or $hidden = '1')" />
+	<xsl:variable name="hiddenOnly" select="boolean(&hiddenBOOL;)" />
 	
 	<xsl:variable name="sitemap">
 		<xsl:if test="$queryStringAvailable">
 			<xsl:value-of select="umb:RequestQueryString('sitemap')" />
 		</xsl:if>
 	</xsl:variable>
-	<xsl:variable name="navOnly" select="boolean($sitemap = 'yes' or $sitemap = 'true' or $sitemap = '1')" />
+	<xsl:variable name="navOnly" select="boolean(&sitemapBOOL;)" />
 	
 	<!-- Secret option - not ready for prime time yet :-) -->
 	<xsl:variable name="memberId">
@@ -100,40 +106,33 @@
 			<xsl:value-of select="umb:RequestQueryString('verbose')" />
 		</xsl:if>
 	</xsl:variable>
-	<xsl:variable name="verbosity" select="boolean($verbose = 'yes' or $verbose = 'true' or $verbose = '1')" />
-
-	<xsl:variable name="processChildNodes" select="not($hiddenOnly or number($nodeId) or normalize-space($type) or normalize-space($property) or normalize-space($xpath))" />
-
+	<xsl:variable name="verbosity" select="boolean(&verboseBOOL;)" />
+	
+	<xsl:variable name="processChildNodes" select="
+		not(
+			$hiddenOnly
+			or number($nodeId)
+			or normalize-space($type)
+			or normalize-space($property)
+			or normalize-space($xpath)
+		) or $verbosity" />
+	
 <!-- :: Templates :: -->
 	
 	<xsl:template match="/">
 		<!-- Start by writing a 'usage' comment to the output  -->
-<xsl:comment xml:space="preserve">
-	XML Dump for Umbraco (v&packageVersion;)
-	======================================================================================
-	Options (QueryString parameters):
-	- node		Grab a node by its id, e.g.: node=1080
-	- type		Grab node(s) by their DocumentType, e.g.: type=GalleryItem
-	- property	Find nodes that have a specific prop, e.g.: property=metaDescription
-	- media		View XML for media item, e.g.: media=1337
-	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
-	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
-	
-	- verbose	Show all attributes of <![CDATA[<node>]]> elements (by default only shows "&standardAttributes;").
-	======================================================================================
-	Experimental Option (XPath knowledge required - typos may wreak havoc!):
-	Note that you can't use variables (for now).
-	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
-
-	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
-</xsl:comment>
+		<xsl:call-template name="usage-comment" />
+		
 		<!-- Now decide what to output, determined by the supplied options (if any) -->
 		<xsl:choose>
+			<!-- Was a specific node requested by id? -->
 			<xsl:when test="number($nodeId)">
 				<xsl:apply-templates select="$root//&node;[@id = $nodeId]" />
 			</xsl:when>
 			
+			<!-- Was an XPath specified? -->
 			<xsl:when test="normalize-space($xpath)">
+				<!-- We need to build an XPath we can use with the library method GetXmlNodeByXPath() -->
 				<xsl:variable name="queryXPath">
 					<xsl:choose>
 						<!-- Convert shorthand './' (if present) to the equivalent of $currentPage -->
@@ -145,6 +144,7 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:variable>
+				<!-- Next we create the printed XPath that you'll end up copying for your XSLT -->
 				<xsl:variable name="umbXPath">
 					<xsl:choose>
 						<xsl:when test="starts-with($xpath, './')">
@@ -155,49 +155,58 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:variable>
-				<nodes select="{$umbXPath}">
+				
+				<output select="{$umbXPath}">
 					<xsl:apply-templates select="umb:GetXmlNodeByXPath($queryXPath)" />
-				</nodes>
+				</output>
 			</xsl:when>
 			
+			<!-- Do we only want a specific property? -->
 			<xsl:when test="normalize-space($property)">
-				<nodes property="{$property}">
+				<output property="{$property}" isLegacy="{$isLegacyXML}" isNewXML="{$isNewXML}">
+					<!-- Using the "Mutually Exclusive Hack" -->
 					<xsl:apply-templates select="$root//&node;[data[@alias = $property]]" />
-				</nodes>
+					<xsl:apply-templates select="$root//&node;[*[name() = $property]]" />
+				</output>
 			</xsl:when>
 			
+			<!-- Requested a DocumentType? -->
 			<xsl:when test="normalize-space($type)">
-				<nodes nodeTypeAlias="{$type}">
+				<output documentType="{$type}">
 					<xsl:apply-templates select="$root//&node;[&docType; = $type]" />
-				</nodes>
+				</output>
 			</xsl:when>
 
+			<!-- Specific Media id? -->
 			<xsl:when test="number($mediaId)">
-				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, false())" />
+				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, true())" />
 					<media>
 						<xsl:if test="not($mediaNode[error])">
 							<xsl:apply-templates select="$mediaNode" />
 						</xsl:if>
-					</media>					
+					</media>
 			</xsl:when>
-
+			
+			<!-- Only show sitemap-style nodes? -->
 			<xsl:when test="$navOnly">
 				<root id="-1">
 					<xsl:apply-templates select="$root/&node;[1]" mode="sitemap" />
 				</root>					
 			</xsl:when>
-
+			
+			<!-- Member node? quirky, but let's try to get the current member... -->
 			<xsl:when test="number($memberId)">
 				<members>
 					<xsl:copy-of select="umb:GetCurrentMember()" />
 				</members>
 			</xsl:when>
 			
+			<!-- Show only hidden nodes? -->
 			<xsl:when test="$hiddenOnly">
-				<nodes>
+				<output>
 					<xsl:attribute name="&umbracoNaviHide;">1</xsl:attribute>
-					<xsl:apply-templates select="$root//&node;[&hidden;]" />					
-				</nodes>
+					<xsl:apply-templates select="$root//&node;[&hidden;]" />
+				</output>
 			</xsl:when>
 			
 			<xsl:otherwise>
@@ -206,10 +215,10 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-
+	
 	<!-- Template for copying nodes -->
 	<xsl:template match="*">
-		<!-- Copy the current node ('node' or 'data') -->
+		<!-- Copy the current node (whatever it's called) -->
 		<xsl:copy>
 			<xsl:choose>
 				<xsl:when test="$verbosity">
@@ -222,10 +231,17 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			
-			<!-- Process the data elements or their text nodes -->
-			<xsl:apply-templates select="&data; | text()" />
+			<!-- Process the properties or their text nodes -->
+			<xsl:choose>
+				<xsl:when test="&isNewXMLParam;">
+					<xsl:apply-templates select="*[not(@isDoc)] | self::*[not(@isDoc)]/text()" />
+				</xsl:when>
+				<xsl:when test="&isLegacyXMLParam;">
+					<xsl:apply-templates select="data | self::data/text()" />
+				</xsl:when>
+			</xsl:choose>
 			
-			<!-- Only continue copying nested 'node' elements if applicable -->
+			<!-- Only continue copying nested DocumentType elements if applicable -->
 			<xsl:choose>
 				<xsl:when test="$processChildNodes">
 					<xsl:apply-templates select="&node;" />
@@ -240,13 +256,42 @@
 		</xsl:copy>
 	</xsl:template>
 	
+	<xsl:template match="&data;/text()">
+		<xsl:value-of select="." />
+	</xsl:template>
+	
+	<!-- Template for 'sitemap' mode -->
 	<xsl:template match="&node;" mode="sitemap">
-		<node>
+		<xsl:element name="{name()}">
 			<xsl:copy-of select="&sitemapAttributes;" />
 			<xsl:apply-templates select="&node;" mode="sitemap" />
-		</node>
+		</xsl:element>
 	</xsl:template>
 	
 	<xsl:template match="&node;[&hidden;]" mode="sitemap" />
+	
+<!-- :: Utility templates :: -->
+	<xsl:template name="usage-comment">
+<xsl:comment xml:space="preserve">
+	XML Dump for Umbraco (v&packageVersion;)
+	======================================================================================
+	Options (QueryString parameters):
+	- id		Grab a node by its id, e.g.: id=1080
+	- type		Grab node(s) by their DocumentType, e.g.: type=GalleryItem
+	- property	Find nodes that have a specific property, e.g.: property=metaDescription
+	- media		View XML for media item, e.g.: media=1337
+	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
+	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
+	
+	- verbose	Show all attributes of Document nodes (by default only shows "&standardAttributes;").
+	======================================================================================
+	Experimental Option (XPath knowledge required - typos may wreak havoc!):
+	Note that you can't use variables (for now).
+	Start with "./" to use $currentPage as context node.
+	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
+
+	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
+</xsl:comment>
+	</xsl:template>
 
 </xsl:stylesheet>
