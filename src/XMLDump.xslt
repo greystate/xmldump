@@ -40,7 +40,7 @@
 	<xsl:variable name="root" select="$currentPage/ancestor::root" />
 	
 	<!-- Determine if using legacy or v4.5 XML Schema -->
-	<xsl:variable name="isLegacyXML" select="boolean(not(/$root/*[@isDoc][1]))" />
+	<xsl:variable name="isLegacyXML" select="boolean(not($root/*[@isDoc][1]))" />
 	<xsl:variable name="isNewXML" select="not($isLegacyXML)" />
 	
 <!-- :: Configuration variables :: -->
