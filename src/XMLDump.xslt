@@ -165,7 +165,7 @@
 			
 			<!-- Do we only want a specific property? -->
 			<xsl:when test="normalize-space($property)">
-				<output property="{$property}" isLegacy="{$isLegacyXML}" isNewXML="{$isNewXML}">
+				<output property="{$property}">
 					<!-- Using the "Mutually Exclusive Hack" -->
 					<xsl:apply-templates select="$root//&node;[data[@alias = $property]]" />
 					<xsl:apply-templates select="$root//&node;[*[name() = $property]]" />
