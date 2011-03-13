@@ -4,8 +4,9 @@
 	<!ENTITY hiddenBOOL "$hidden = 'yes' or $hidden = 'true' or $hidden = '1'">
 	<!ENTITY sitemapBOOL "$sitemap = 'yes' or $sitemap = 'true' or $sitemap = '1'">
 	<!ENTITY verboseBOOL "$verbose = 'yes' or $verbose = 'true' or $verbose = '1'">
+	<!ENTITY xmldumpAllowed "xmldumpAllowed">
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
-	<!ENTITY standardAttributes "@id | @nodeName | @isDoc | @level | @urlName | @nodeTypeAlias | @alias">
+	<!ENTITY standardAttributes "@id | @nodeName | @isDoc | @level | @urlName | @nodeTypeAlias | @alias | @url | @name">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
@@ -38,6 +39,9 @@
 
 	<!-- Grab the root node -->
 	<xsl:variable name="root" select="$currentPage/ancestor::root" />
+	
+	<!-- Allowed for this node? -->
+	<xsl:variable name="xmldumpAllowed" select="boolean($currentPage/ancestor-or-self::*[&xmldumpAllowed; = 1] | $currentPage/ancestor-or-self::node[data[@alias = '&xmldumpAllowed;'] = 1])" />
 	
 	<!-- Determine if using legacy or v4.5 XML Schema -->
 	<xsl:variable name="isLegacyXML" select="boolean(not($root/*[@isDoc][1]))" />
@@ -120,8 +124,16 @@
 		) or $verbosity" />
 	
 <!-- :: Templates :: -->
-	
+
 	<xsl:template match="/">
+		<!-- Start up the engines... -->
+		<xsl:apply-templates select="macro[$xmldumpAllowed]" />
+		
+		<!-- ...or show them the door -->
+		<xsl:apply-templates select="macro[not($xmldumpAllowed)]" mode="unauthorized" />
+	</xsl:template>
+	
+	<xsl:template match="macro">
 		<!-- Start by writing a 'usage' comment to the output  -->
 		<xsl:call-template name="usage-comment" />
 		
@@ -294,6 +306,21 @@
 
 	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
 </xsl:comment>
+	</xsl:template>
+	
+	<xsl:template match="macro" mode="unauthorized">
+		<output>
+<xsl:comment xml:space="preserve">
+	XMLDump is not allowed for this node
+	====================================
+	To enable, add a boolean property with the alias "&xmldumpAllowed;" on your top-level Document Type.
+	Then go to the corresponding Content node and check that box. Hit "Save and Publish" to allow XMLDump.
+
+	* Don't forget to uncheck the box again, prior to taking your site live! *
+
+	&XMLDumpVersionHeader;
+</xsl:comment>
+		</output>
 	</xsl:template>
 
 </xsl:stylesheet>
