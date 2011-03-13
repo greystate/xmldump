@@ -3,6 +3,11 @@
 	<!ENTITY % version SYSTEM "../src/version.ent">
 	%version;
 ]>
+<!--
+	The development version of "XMLDump.xslt" relies heavily on a bunch of entity definitions.
+	This stylesheet is a modified "Identity Transform" used for freezing the entities to their
+	"RELEASE" values so the release version doesn't rely on any external entities.
+-->
 <xsl:stylesheet
 	version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -31,6 +36,10 @@
 		<xsl:copy-of select="." />
 	</xsl:template>
 	
+<!--
+	Converts the dummy processing-instruction to a versioned header.
+	(Entities in comments + processing-instructions are not resolved by the XML parser.)
+-->
 	<xsl:template match="processing-instruction('umbraco-package')">
 		<xsl:processing-instruction name="umbraco-package">
 			<xsl:text>"&XMLDumpVersionHeader;"</xsl:text>
