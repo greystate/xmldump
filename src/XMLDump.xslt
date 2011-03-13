@@ -212,8 +212,8 @@
 			</xsl:when>
 			
 			<xsl:otherwise>
-				<!-- Okay, no specific nodes selected - show complete tree -->
-				<xsl:apply-templates select="$root" />
+				<!-- Okay, no specific nodes selected - show tree from $currentPage -->
+				<xsl:apply-templates select="$currentPage" />
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
