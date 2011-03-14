@@ -2,7 +2,7 @@ XMLDump for Umbraco
 ===================
 
 If you’ve been developing XSLT for Umbraco, you’ve probably already done your share
-of &lt;textarea&gt;&lt;xsl:copy-of select="." /&gt;&lt;/textarea&gt; to examine the XML you’re transforming...
+of <code>&lt;textarea&gt;&lt;xsl:copy-of select="." /&gt;&lt;/textarea&gt;</code> to examine the XML you’re transforming...
 let’s get rid of that habit and do something much better.
 
 With this simple package you’ll have instant access to all
