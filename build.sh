@@ -6,6 +6,6 @@ if [[ ! -d package ]]
 fi
 
 xsltproc --novalid --output package/XMLDump.xslt lib/freezeEntities.xslt src/XMLDump.xslt 
-xsltproc --novalid --output package/package.xml lib/freezeEntities.xslt src/package.xml 
+xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xslt src/package.xml 
 
 zip -j dist/XMLDump package/*

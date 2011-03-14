@@ -2,7 +2,7 @@ XMLDump for Umbraco
 ===================
 
 If you’ve been developing XSLT for Umbraco, you’ve probably already done your share
-of `<textarea><xsl:copy-of select="." /></textarea>` to examine the XML you’re transforming...
+of &lt;textarea&gt;&lt;xsl:copy-of select="." /&gt;&lt;/textarea&gt; to examine the XML you’re transforming...
 let’s get rid of that habit and do something much better.
 
 With this simple package you’ll have instant access to all
@@ -53,9 +53,9 @@ Revision History
 ----------------
 
 * v0.8:	"Universal Binary" (compatible with both XML formats). Changed to use altTemplate syntax (e.g., to just get $currentPage). Added "activation" for security reasons
-* v0.7:	Added options: xpath & property
-* v0.6:	Added options: media & sitemap
-* v0.5:	Initial version, supporting the options: node, type & hidden
+* v0.7:	Added options: xpath &amp; property
+* v0.6:	Added options: media &amp; sitemap
+* v0.5:	Initial version, supporting the options: node, type &amp; hidden
 
 
 Chriztian Steinmeier, March 2011
