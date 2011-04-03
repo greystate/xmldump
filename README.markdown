@@ -1,5 +1,4 @@
-XMLDump for Umbraco
-===================
+# XMLDump for Umbraco
 
 If you’ve been developing XSLT for Umbraco, you’ve probably already done your share
 of <code>&lt;textarea&gt;&lt;xsl:copy-of select="." /&gt;&lt;/textarea&gt;</code> to examine the XML you’re transforming...
@@ -10,8 +9,7 @@ published nodes, selectable by id or document type - many browsers support viewi
 in a nice color-coded fashion, so now you can let IE6 do the only thing it’s good at and
 leave it open on your secondary screen :-)
 
-Files Installed
----------------
+## Files Installed
 
 The package installs a Template and an XSLT Macro - the files are:
 
