@@ -8,7 +8,7 @@
 	
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
 	<!ENTITY imageCropperAttributes "@url | @name">
-	<!ENTITY relatedLinkAttributes "@link">
+	<!ENTITY relatedLinkAttributes "@title | @link">
 	<!ENTITY documentAttributes "@isDoc | @level | @nodeTypeAlias">
 	<!ENTITY propertyAttributes "@alias">
 	
