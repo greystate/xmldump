@@ -5,8 +5,14 @@
 	<!ENTITY sitemapBOOL "$sitemap = 'yes' or $sitemap = 'true' or $sitemap = '1'">
 	<!ENTITY verboseBOOL "$verbose = 'yes' or $verbose = 'true' or $verbose = '1'">
 	<!ENTITY xmldumpAllowed "xmldumpAllowed">
+	
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
-	<!ENTITY standardAttributes "@id | @nodeName | @isDoc | @level | @urlName | @nodeTypeAlias | @alias | @url | @name">
+	<!ENTITY imageCropperAttributes "@url | @name">
+	<!ENTITY relatedLinkAttributes "@link">
+	<!ENTITY documentAttributes "@isDoc | @level | @nodeTypeAlias">
+	<!ENTITY propertyAttributes "@alias">
+	
+	<!ENTITY standardAttributes "&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
