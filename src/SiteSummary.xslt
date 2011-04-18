@@ -40,10 +40,12 @@
 				body { font-size: 75%; }
 				.wrap {
 					width: 220px;
-					margin: 5px;
+					margin: 10px 5px;
 					float: left;
-					height: 200px;
+					height: 166px;
+					overflow: hidden;
 				}
+				.wrap:hover { overflow: visible; }
 				.doc, .doc h3 {
 					-webkit-border-radius: 6px;
 					-moz-border-radius: 6px;
@@ -53,9 +55,10 @@
 					border: 2px solid rgba(0, 0, 0, 0.1);
 					background: #ccc;
 					min-height: 200px;
-					opacity: 0.5;
+					opacity: 0.6;
 					-webkit-transform: scale(0.8);
 					-webkit-transition: all 0.1s ease-in-out;
+					-webkit-transform-origin: center top;
 					position: relative;
 				}
 				.doc:hover {
@@ -151,7 +154,9 @@
 				</xsl:if>
 			
 				<div class="props">
-					<xsl:apply-templates select="self::*[&property;]" mode="properties" />
+					<xsl:apply-templates select="self::*[&property;]" mode="properties">
+						<xsl:sort select="name()" />
+					</xsl:apply-templates>
 				</div>
 			
 			</div>
