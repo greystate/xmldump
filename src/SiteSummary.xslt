@@ -38,6 +38,12 @@
 			<style>
 				html, body, h1, h2, h3, h4, ul, ol, li { margin: 0; padding: 0; }
 				body { font-size: 75%; }
+				.wrap {
+					width: 220px;
+					margin: 5px;
+					float: left;
+					height: 200px;
+				}
 				.doc, .doc h3 {
 					-webkit-border-radius: 6px;
 					-moz-border-radius: 6px;
@@ -45,22 +51,20 @@
 				}
 				.doc {
 					border: 2px solid rgba(0, 0, 0, 0.1);
-					background: rgba(0, 0, 0, 0.2);
-					width: 220px;
-					margin: 5px;
-					float: left;
+					background: #ccc;
 					min-height: 200px;
+					opacity: 0.5;
 					-webkit-transform: scale(0.8);
-					-webkit-transition: all 0.3s ease-in;
+					-webkit-transition: all 0.1s ease-in-out;
+					position: relative;
 				}
 				.doc:hover {
 					-webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
 					-moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
 					box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
 					-webkit-transform: scale(1.0);
-				}
-				.doc:hover .props {
-					overflow: hidden;
+					opacity: 1.0;
+					z-index: 10;
 				}
 				.doc h3 {
 					height: 30px;
@@ -133,22 +137,24 @@
 
 	<xsl:template match="&Document;" mode="summary">
 		<xsl:variable name="publishedDocs" select="key('document-by-name', &docName;)" />
-		<div class="doc">
-			<h3><xsl:value-of select="&docName;" /></h3>
-			<p onclick="toggle('{generate-id()}')">
-				<xsl:value-of select="count($publishedDocs)" /> nodes published.<xsl:text />
-			</p>
-			<xsl:if test="$publishedDocs">
-				<ul id="{generate-id()}" style="display:none">
-					<xsl:apply-templates select="$publishedDocs" mode="ref" />
-				</ul>
-				<hr />
-			</xsl:if>
+		<div class="wrap">
+			<div class="doc">
+				<h3><xsl:value-of select="&docName;" /></h3>
+				<p onclick="toggle('{generate-id()}')">
+					<xsl:value-of select="count($publishedDocs)" /> nodes published.<xsl:text />
+				</p>
+				<xsl:if test="$publishedDocs">
+					<ul id="{generate-id()}" style="display:none">
+						<xsl:apply-templates select="$publishedDocs" mode="ref" />
+					</ul>
+					<hr />
+				</xsl:if>
 			
-			<div class="props">
-				<xsl:apply-templates select="self::*[&property;]" mode="properties" />
+				<div class="props">
+					<xsl:apply-templates select="self::*[&property;]" mode="properties" />
+				</div>
+			
 			</div>
-			
 		</div>
 	</xsl:template>
 	
