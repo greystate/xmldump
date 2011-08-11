@@ -38,6 +38,8 @@
 			<style>
 				html, body, h1, h2, h3, h4, ul, ol, li { margin: 0; padding: 0; }
 				body { font-size: 75%; }
+				h1 { text-align: center; line-height: 1.6em; border-bottom: 2px solid #999; }
+				h2 { margin: 1em; }
 				.wrap {
 					width: 220px;
 					margin: 10px 5px;
@@ -124,7 +126,7 @@
 	</xsl:template>
 
 	<xsl:template match="root">
-		<h1>Site Summary</h1>
+		<h1>Umbraco Site Summary</h1>
 		<h2>Document Types</h2>
 		
 		<xsl:apply-templates select="." mode="doctypes" />
