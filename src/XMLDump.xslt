@@ -41,7 +41,7 @@
 	<xsl:param name="currentPage" select="/root/&node;[1]" />
 	
 	<!-- Test if we can detect QueryString parameters -->
-	<xsl:variable name="queryStringAvailable" select="function-available('umb:RequestQueryString')" />
+	<xsl:variable name="queryStringAvailable" select="function-available('&QueryString;')" />
 
 	<!-- Grab the root node -->
 	<xsl:variable name="root" select="$currentPage/ancestor::root" />
@@ -64,44 +64,44 @@
 
 	<xsl:variable name="nodeId">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('id')" />
+			<xsl:value-of select="&QueryString;('id')" />
 		</xsl:if>
 	</xsl:variable>
 
 	<xsl:variable name="type">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('type')" />
+			<xsl:value-of select="&QueryString;('type')" />
 		</xsl:if>
 	</xsl:variable>
 	
 	<xsl:variable name="mediaId">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('media')" />
+			<xsl:value-of select="&QueryString;('media')" />
 		</xsl:if>
 	</xsl:variable>
 	
 	<xsl:variable name="property">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('property')" />
+			<xsl:value-of select="&QueryString;('property')" />
 		</xsl:if>
 	</xsl:variable>
 	
 	<xsl:variable name="xpath">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('xpath')" />
+			<xsl:value-of select="&QueryString;('xpath')" />
 		</xsl:if>
 	</xsl:variable>
 
 	<xsl:variable name="hidden">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('hidden')" />
+			<xsl:value-of select="&QueryString;('hidden')" />
 		</xsl:if>
 	</xsl:variable>
 	<xsl:variable name="hiddenOnly" select="boolean(&hiddenBOOL;)" />
 	
 	<xsl:variable name="sitemap">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('sitemap')" />
+			<xsl:value-of select="&QueryString;('sitemap')" />
 		</xsl:if>
 	</xsl:variable>
 	<xsl:variable name="navOnly" select="boolean(&sitemapBOOL;)" />
@@ -109,13 +109,13 @@
 	<!-- Secret option - not ready for prime time yet :-) -->
 	<xsl:variable name="memberId">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('member')" />
+			<xsl:value-of select="&QueryString;('member')" />
 		</xsl:if>
 	</xsl:variable>
 
 	<xsl:variable name="verbose">
 		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="umb:RequestQueryString('verbose')" />
+			<xsl:value-of select="&QueryString;('verbose')" />
 		</xsl:if>
 	</xsl:variable>
 	<xsl:variable name="verbosity" select="boolean(&verboseBOOL;)" />

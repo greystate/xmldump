@@ -40,10 +40,12 @@
 	<!-- <!ENTITY isLegacyXMLParam "boolean(not(/$root/*[@isDoc][1]))"> -->
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
+	<!ENTITY QueryString "string">
 ]]>
 
 <![ %RELEASE; [
 	<!-- In Release Build -->
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
+	<!ENTITY QueryString "umb:RequestQueryString">
 ]]>
