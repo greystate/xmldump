@@ -33,17 +33,17 @@ the corresponding content node before XMLDump will render anything.
 ### Viewing the XML
 
 After you've successfully installed the package, you can use the altTemplate syntax to view the underlying XML of your
-Umbraco website - just open your site in a web browser and go to one of the following URLs:
+Umbraco website - just open your site in a web browser and go to the following URL:
+
+* http://yourwebsite.com/xmldump
+
+Or, if you're not using Directory URLs:
 
 * http://yourwebsite.com/xmldump.aspx
-* http://yourwebsite.com/?alttemplate=xmldump 
 
 You can also view the XML for a specific page by doing the same thing, e.g.:
 
-* http://yourwebsite.com/about/xmldump.aspx
-* http://yourwebsite.com/about.aspx?alttemplate=xmldump 
-
-If you're using Directory URLs you can omit the ".aspx" from the above examples.
+* http://yourwebsite.com/about/xmldump
 
 XMLDump allows a set of options on the query string and conveniently displays what they are at the top of its output.
 
