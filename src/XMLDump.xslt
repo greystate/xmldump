@@ -215,7 +215,7 @@
 			<!-- Member node? quirky, but let's try to get the current member... -->
 			<xsl:when test="number($memberId)">
 				<members>
-					<xsl:copy-of select="umb:GetCurrentMember()" />
+					<xsl:copy-of select="&GetCurrentMember;()" />
 				</members>
 			</xsl:when>
 			

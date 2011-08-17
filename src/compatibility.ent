@@ -42,6 +42,7 @@
 	<!ENTITY isNewXMLParam "$isNewXML">
 	<!ENTITY QueryString "string">
 	<!ENTITY GetMedia "concat">
+	<!ENTITY GetCurrentMember "true">
 ]]>
 
 <![ %RELEASE; [
@@ -50,4 +51,5 @@
 	<!ENTITY isNewXMLParam "$isNewXML">
 	<!ENTITY QueryString "umb:RequestQueryString">
 	<!ENTITY GetMedia "umb:GetMedia">
+	<!ENTITY GetCurrentMember "umb:GetCurrentMember">
 ]]>
