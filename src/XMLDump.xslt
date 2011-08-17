@@ -199,7 +199,7 @@
 
 			<!-- Specific Media id? -->
 			<xsl:when test="number($mediaId)">
-				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, true())" />
+				<xsl:variable name="mediaNode" select="&GetMedia;($mediaId, true())" />
 					<media>
 						<xsl:apply-templates select="$mediaNode[not(error)]" />
 					</media>

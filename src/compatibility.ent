@@ -41,6 +41,7 @@
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
 	<!ENTITY QueryString "string">
+	<!ENTITY GetMedia "concat">
 ]]>
 
 <![ %RELEASE; [
@@ -48,4 +49,5 @@
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
 	<!ENTITY QueryString "umb:RequestQueryString">
+	<!ENTITY GetMedia "umb:GetMedia">
 ]]>
