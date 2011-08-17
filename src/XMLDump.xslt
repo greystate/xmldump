@@ -201,9 +201,7 @@
 			<xsl:when test="number($mediaId)">
 				<xsl:variable name="mediaNode" select="umb:GetMedia($mediaId, true())" />
 					<media>
-						<xsl:if test="not($mediaNode[error])">
-							<xsl:apply-templates select="$mediaNode" />
-						</xsl:if>
+						<xsl:apply-templates select="$mediaNode[not(error)]" />
 					</media>
 			</xsl:when>
 			
