@@ -43,6 +43,7 @@
 	<!ENTITY QueryString "string">
 	<!ENTITY GetMedia "concat">
 	<!ENTITY GetCurrentMember "true">
+	<!ENTITY GetXmlNodeByXPath "current">
 ]]>
 
 <![ %RELEASE; [
@@ -52,4 +53,5 @@
 	<!ENTITY QueryString "umb:RequestQueryString">
 	<!ENTITY GetMedia "umb:GetMedia">
 	<!ENTITY GetCurrentMember "umb:GetCurrentMember">
+	<!ENTITY GetXmlNodeByXPath "umb:GetXmlNodeByXPath">
 ]]>

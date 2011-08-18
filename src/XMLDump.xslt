@@ -177,7 +177,7 @@
 				</xsl:variable>
 				
 				<output select="{$umbXPath}">
-					<xsl:apply-templates select="umb:GetXmlNodeByXPath($queryXPath)" />
+					<xsl:apply-templates select="&GetXmlNodeByXPath;($queryXPath)" />
 				</output>
 			</xsl:when>
 			
