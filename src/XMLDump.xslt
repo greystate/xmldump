@@ -154,26 +154,18 @@
 			<xsl:when test="normalize-space($xpath)">
 				<!-- We need to build an XPath we can use with the library method GetXmlNodeByXPath() -->
 				<xsl:variable name="queryXPath">
-					<xsl:choose>
-						<!-- Convert shorthand './' (if present) to the equivalent of $currentPage -->
-						<xsl:when test="starts-with($xpath, './')">
-							<xsl:value-of select="concat('/root//*[@id = ', $currentPage/@id, ']', substring($xpath, 2))" />
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of select="$xpath" />
-						</xsl:otherwise>
-					</xsl:choose>
+					<!-- Base XPath off of $currentPage, unless it starts with a slash -->
+					<xsl:if test="not(starts-with($xpath, '/'))">
+						<xsl:value-of select="concat('id(', $currentPage/@id, ')/')" />
+					</xsl:if>
+					<xsl:value-of select="$xpath" />
 				</xsl:variable>
 				<!-- Next we create the printed XPath that you'll end up copying for your XSLT -->
 				<xsl:variable name="umbXPath">
-					<xsl:choose>
-						<xsl:when test="starts-with($xpath, './')">
-							<xsl:value-of select="concat('$currentPage', substring($xpath, 2))" />
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of select="$queryXPath" />
-						</xsl:otherwise>
-					</xsl:choose>
+					<xsl:if test="not(starts-with($xpath, '/'))">
+						<xsl:text>$currentPage/</xsl:text>
+					</xsl:if>
+					<xsl:value-of select="$xpath" />
 				</xsl:variable>
 				
 				<output select="{$umbXPath}">
@@ -304,8 +296,8 @@
 	- verbose	Show all attributes of Document nodes (by default only shows "&standardAttributes;").
 	======================================================================================
 	Experimental Option (XPath knowledge required - typos may wreak havoc!):
-	Note that you can't use variables (for now).
-	Start with "./" to use $currentPage as context node.
+	Note that you can't use variables.
+	Will use $currentPage as context node.
 	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
 
 	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
