@@ -146,7 +146,7 @@
 			<div class="doc">
 				<h3><xsl:value-of select="&docName;" /></h3>
 				<p onclick="toggle('{generate-id()}')">
-					<xsl:value-of select="count($publishedDocs)" /> nodes published.<xsl:text />
+					<xsl:value-of select="count($publishedDocs)" /> node<xsl:if test="count($publishedDocs) &gt; 1">s</xsl:if> published.<xsl:text />
 				</p>
 				<xsl:if test="$publishedDocs">
 					<ul id="{generate-id()}" style="display:none">
