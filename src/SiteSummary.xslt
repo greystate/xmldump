@@ -94,6 +94,12 @@
 					font-size: 9px;
 					overflow: auto; 
 				}
+				.doc .hide, .doc .show {
+					display: none;
+				}
+				.doc:hover .show {
+					display: block;
+				}
 			</style>
 			<script><![CDATA[
 				function $(node) {
@@ -104,18 +110,8 @@
 					}
 				}
 				function toggle(element) {
-					var s = $(element).style;
-					if (s.display == 'none') {
-						show(element);
-					} else {
-						hide(element);
-					}					
-				}
-				function hide(element) {
-					$(element).style.display = 'none';
-				}
-				function show(element) {
-					$(element).style.display = 'block';
+					var c = $(element).className;
+					$(element).className = c == 'hide' ? 'show' : 'hide';
 				}]]>
 			</script>
 		</head>
@@ -149,7 +145,7 @@
 					<xsl:value-of select="count($publishedDocs)" /> node<xsl:if test="count($publishedDocs) &gt; 1">s</xsl:if> published.<xsl:text />
 				</p>
 				<xsl:if test="$publishedDocs">
-					<ul id="{generate-id()}" style="display:none">
+					<ul id="{generate-id()}" class="hide">
 						<xsl:apply-templates select="$publishedDocs" mode="ref" />
 					</ul>
 					<hr />
