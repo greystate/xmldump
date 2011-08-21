@@ -43,7 +43,10 @@
 	<!ENTITY QueryString "string">
 	<!ENTITY GetMedia "concat">
 	<!ENTITY GetCurrentMember "true">
-	<!ENTITY GetXmlNodeByXPath "current">
+	<!ENTITY GetXmlNodeByXPath "string">
+	<!ENTITY nodeset-ns-uri "http://exslt.org/common">
+	<!ENTITY tokenize "str:tokenize">
+	<!ENTITY token "token">
 ]]>
 
 <![ %RELEASE; [
@@ -54,4 +57,7 @@
 	<!ENTITY GetMedia "umb:GetMedia">
 	<!ENTITY GetCurrentMember "umb:GetCurrentMember">
 	<!ENTITY GetXmlNodeByXPath "umb:GetXmlNodeByXPath">
+	<!ENTITY nodeset-ns-uri "urn:schemas-microsoft-com:xslt">
+	<!ENTITY tokenize "umb:Split">
+	<!ENTITY token "value">
 ]]>

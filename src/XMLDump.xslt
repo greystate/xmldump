@@ -25,7 +25,9 @@
 	version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:umb="urn:umbraco.library"
-	extension-element-prefixes="umb"
+	xmlns:make="&nodeset-ns-uri;"
+	xmlns:str="http://exslt.org/strings"
+	extension-element-prefixes="umb make str"
 >
 	
 	<xsl:output
@@ -302,6 +304,24 @@
 
 	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
 </xsl:comment>
+	</xsl:template>
+	
+	<!-- Options Parsing -->
+	<xsl:template name="parseOptions">
+		<xsl:param name="options" select="''" />
+		<options>
+			<xsl:apply-templates select="&tokenize;($options, '&amp;')" />
+		</options>
+	</xsl:template>
+	
+	<xsl:template match="&token;">
+		<option key="{substring-before(., '=')}">
+			<xsl:value-of select="substring-after(., '=')" />
+		</option>
+	</xsl:template>
+	
+	<xsl:template match="&token;[contains('|yes|true|1|', concat('|', substring-after(., '='), '|'))]">
+		<option key="{substring-before(., '=')}">yes</option>
 	</xsl:template>
 	
 	<xsl:template match="macro" mode="unauthorized">
