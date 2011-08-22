@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
-	<!ENTITY hiddenBOOL "$hidden = 'yes' or $hidden = 'true' or $hidden = '1'">
-	<!ENTITY sitemapBOOL "$sitemap = 'yes' or $sitemap = 'true' or $sitemap = '1'">
-	<!ENTITY verboseBOOL "$verbose = 'yes' or $verbose = 'true' or $verbose = '1'">
+	<!ENTITY hiddenBOOL "$hidden = 'yes'">
+	<!ENTITY sitemapBOOL "$sitemap = 'yes'">
+	<!ENTITY verboseBOOL "$verbose = 'yes'">
 	<!ENTITY xmldumpAllowed "xmldumpAllowed">
 	
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
@@ -13,6 +13,8 @@
 	<!ENTITY propertyAttributes "@alias">
 	
 	<!ENTITY standardAttributes "&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
+
+	<!ENTITY CompleteQueryString "umb:RequestServerVariables('QUERY_STRING')">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
@@ -61,66 +63,31 @@
 	URL parameters - e.g. to check a specific node (by id), or you need to
 	see all nodes of a specific Document Type.
 	
-	The following variables handle these.
+	The following variables handle these by collecting all URL parameters into
+	an options XML variable. This enables referring to options like this: $options[@key = 'id']
 -->
 
-	<xsl:variable name="nodeId">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('id')" />
-		</xsl:if>
+	<xsl:variable name="optionsProxy">
+		<xsl:call-template name="parseOptions">
+			<xsl:with-param name="options" select="&CompleteQueryString;" />
+		</xsl:call-template>
 	</xsl:variable>
+	<xsl:variable name="options" select="make:node-set($optionsProxy)/options/option" />
 
-	<xsl:variable name="type">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('type')" />
-		</xsl:if>
-	</xsl:variable>
-	
-	<xsl:variable name="mediaId">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('media')" />
-		</xsl:if>
-	</xsl:variable>
-	
-	<xsl:variable name="property">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('property')" />
-		</xsl:if>
-	</xsl:variable>
-	
-	<xsl:variable name="xpath">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('xpath')" />
-		</xsl:if>
-	</xsl:variable>
-
-	<xsl:variable name="hidden">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('hidden')" />
-		</xsl:if>
-	</xsl:variable>
+	<xsl:variable name="nodeId"		select="$options[@key = 'id']" />
+	<xsl:variable name="type"		select="$options[@key = 'type']" />
+	<xsl:variable name="mediaId"	select="$options[@key = 'media']" />
+	<xsl:variable name="property"	select="$options[@key = 'property']" />
+	<xsl:variable name="xpath"		select="$options[@key = 'xpath']" />
+	<xsl:variable name="hidden"		select="$options[@key = 'hidden']" />
 	<xsl:variable name="hiddenOnly" select="boolean(&hiddenBOOL;)" />
-	
-	<xsl:variable name="sitemap">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('sitemap')" />
-		</xsl:if>
-	</xsl:variable>
-	<xsl:variable name="navOnly" select="boolean(&sitemapBOOL;)" />
-	
-	<!-- Secret option - not ready for prime time yet :-) -->
-	<xsl:variable name="memberId">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('member')" />
-		</xsl:if>
-	</xsl:variable>
+	<xsl:variable name="sitemap"	select="$options[@key = 'sitemap']" />
+	<xsl:variable name="navOnly"	select="boolean(&sitemapBOOL;)" />
+	<xsl:variable name="verbose"	select="$options[@key = 'verbose']" />
+	<xsl:variable name="verbosity"	select="boolean(&verboseBOOL;)" />
 
-	<xsl:variable name="verbose">
-		<xsl:if test="$queryStringAvailable">
-			<xsl:value-of select="&QueryString;('verbose')" />
-		</xsl:if>
-	</xsl:variable>
-	<xsl:variable name="verbosity" select="boolean(&verboseBOOL;)" />
+	<!-- Secret option - not ready for prime time yet :-) -->
+	<xsl:variable name="memberId"	select="$options[@key = 'member']" />
 	
 	<xsl:variable name="processChildNodes" select="
 		not(
@@ -310,13 +277,14 @@
 	<xsl:template name="parseOptions">
 		<xsl:param name="options" select="''" />
 		<options>
-			<xsl:apply-templates select="&tokenize;($options, '&amp;')" />
+			<xsl:apply-templates select="&tokenize;($options, '&amp;')/&token;" />
 		</options>
 	</xsl:template>
 	
 	<xsl:template match="&token;">
-		<option key="{substring-before(., '=')}">
-			<xsl:value-of select="substring-after(., '=')" />
+		<xsl:variable name="key" select="substring-before(., '=')" />
+		<option key="{$key}">
+			<xsl:value-of select="&QueryString;($key)" />
 		</option>
 	</xsl:template>
 	
