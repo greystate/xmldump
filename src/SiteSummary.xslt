@@ -91,6 +91,12 @@
 					list-style: square;
 					margin-left: 3em;
 				}
+				.doc ul li {
+					
+				}
+				.doc li a {
+					text-decoration: none;
+				}
 				.doc pre {
 					font-size: 9px;
 					overflow: auto; 
@@ -177,9 +183,9 @@
 	
 	<xsl:template match="&Document;" mode="ref">
 		<li>
-			<a href="{&NiceUrl;(@id)}" title="Go to page in site"><xsl:value-of select="@nodeName" /></a>
-			<xsl:text /> (<a href="{&NiceUrl;(@id)}/xmldump" title="View this page's XML">XML</a>)<xsl:text />
-			<xsl:text /> (<a href="/umbraco/editContent.aspx?id={@id}" title="Edit this page">Edit</a>)<xsl:text />
+			<a class="go" href="{&NiceUrl;(@id)}" title="Go to page in site"><xsl:value-of select="@nodeName" /></a>
+			<xsl:text /> [<a class="xmlview" href="{&NiceUrl;(@id)}/xmldump" title="View this page's XML">XML</a>]<xsl:text />
+			<xsl:text /> [<a class="editnode" href="/umbraco/editContent.aspx?id={@id}" title="Edit this page">Edit</a>]<xsl:text />
 		</li>
 	</xsl:template>
 
