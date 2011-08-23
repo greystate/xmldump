@@ -11,6 +11,7 @@
 	<!ENTITY propName "name()">
 
 	<!ENTITY NiceUrl "string">
+	<!ENTITY EditUrl "/umbraco/editNode.aspx?id={@id}">
 	
 	<!ENTITY Old_Document "node">
 	<!ENTITY Old_property "data">
@@ -178,6 +179,7 @@
 		<li>
 			<a href="{&NiceUrl;(@id)}" title="Go to page in site"><xsl:value-of select="@nodeName" /></a>
 			<xsl:text /> (<a href="{&NiceUrl;(@id)}/xmldump" title="View this page's XML">XML</a>)<xsl:text />
+			<xsl:text /> (<a href="/umbraco/editContent.aspx?id={@id}" title="Edit this page">Edit</a>)<xsl:text />
 		</li>
 	</xsl:template>
 
