@@ -288,7 +288,8 @@
 		</option>
 	</xsl:template>
 	
-	<xsl:template match="&token;[contains('|yes|true|1|', concat('|', substring-after(., '='), '|'))]">
+	<!-- Make sure catch sane attempts to set a BOOL option to something truthy -->
+	<xsl:template match="&token;[contains('|yes|true|1|on', concat('|', translate(substring-after(., '='), 'NOTRUESY', 'notruesy'), '|'))]">
 		<option key="{substring-before(., '=')}">yes</option>
 	</xsl:template>
 	
