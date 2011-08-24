@@ -77,7 +77,7 @@
 	<xsl:variable name="nodeId"		select="$options[@key = 'id']" />
 	<xsl:variable name="type"		select="$options[@key = 'type']" />
 	<xsl:variable name="mediaId"	select="$options[@key = 'media']" />
-	<xsl:variable name="property"	select="$options[@key = 'property']" />
+	<xsl:variable name="property"	select="($options[@key = 'property'] | $options[@key = 'prop'])[1]" />
 	<xsl:variable name="xpath"		select="$options[@key = 'xpath']" />
 	<xsl:variable name="hidden"		select="$options[@key = 'hidden']" />
 	<xsl:variable name="hiddenOnly" select="boolean(&hiddenBOOL;)" />
@@ -257,7 +257,7 @@
 	Options (QueryString parameters):
 	- id		Grab a node by its id, e.g.: id=1080
 	- type		Grab node(s) by their DocumentType, e.g.: type=GalleryItem
-	- property	Find nodes that have a specific property, e.g.: property=metaDescription
+	- prop		Find nodes that have a specific property, e.g.: prop=metaDescription
 	- media		View XML for media item, e.g.: media=1337
 	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
@@ -269,7 +269,7 @@
 	Will use $currentPage as context node.
 	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
 
-	(For all boolean options, the values 'yes', 'true' and '1' all work as expected)
+	(For all boolean options, the values 'yes', 'true', 'on' and '1' will work as expected)
 </xsl:comment>
 	</xsl:template>
 	
