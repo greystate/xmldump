@@ -6,6 +6,9 @@
 	<!ENTITY verboseBOOL "$verbose = 'yes'">
 	<!ENTITY xmldumpAllowed "xmldumpAllowed">
 	
+	<!ENTITY upper "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
+	<!ENTITY lower "abcdefghijklmnopqrstuvwxyzæøå">
+	
 	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
 	<!ENTITY imageCropperAttributes "@url | @name">
 	<!ENTITY relatedLinkAttributes "@title | @link">
@@ -57,6 +60,9 @@
 	<xsl:variable name="isLegacyXML" select="boolean(not($root/*[@isDoc][1]))" />
 	<xsl:variable name="isNewXML" select="not($isLegacyXML)" />
 	
+	<xsl:variable name="upper" select="'&upper;'" />
+	<xsl:variable name="lower" select="'&lower;'" />
+	
 <!-- :: Configuration variables :: -->
 <!--
 	You can tailor the XML output to your needs by specifying some
@@ -85,6 +91,7 @@
 	<xsl:variable name="navOnly"	select="boolean(&sitemapBOOL;)" />
 	<xsl:variable name="verbose"	select="$options[@key = 'verbose']" />
 	<xsl:variable name="verbosity"	select="boolean(&verboseBOOL;)" />
+	<xsl:variable name="search"		select="$options[@key = 'search']" />
 
 	<!-- Secret option - not ready for prime time yet :-) -->
 	<xsl:variable name="memberId"	select="$options[@key = 'member']" />
@@ -164,6 +171,14 @@
 					<media>
 						<xsl:apply-templates select="$mediaNode[not(error)]" />
 					</media>
+			</xsl:when>
+			
+			<!-- Performing a search? -->
+			<xsl:when test="normalize-space($search)">
+				<root searc="{$search}">
+					<xsl:variable name="search-downcased" select="translate($search, $upper, $lower)" />
+					<xsl:apply-templates select="$root//&node;[&data;[contains(translate(., $upper, $lower), $search-downcased)]]"/>					
+				</root>
 			</xsl:when>
 			
 			<!-- Only show sitemap-style nodes? -->
@@ -259,6 +274,7 @@
 	- type		Grab node(s) by their DocumentType, e.g.: type=GalleryItem
 	- prop		Find nodes that have a specific property, e.g.: prop=metaDescription
 	- media		View XML for media item, e.g.: media=1337
+	- search	Search the properties of Documents for a string, e.g.: search=umbraco
 	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
 	
