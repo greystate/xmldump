@@ -47,9 +47,6 @@
 -->
 	<xsl:param name="currentPage" select="/root/&node;[1]" />
 	
-	<!-- Test if we can detect QueryString parameters -->
-	<xsl:variable name="queryStringAvailable" select="function-available('&QueryString;')" />
-
 	<!-- Grab the root node -->
 	<xsl:variable name="root" select="$currentPage/ancestor::root" />
 	
