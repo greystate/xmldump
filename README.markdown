@@ -45,6 +45,10 @@ You can also view the XML for a specific page by doing the same thing, e.g.:
 
 * http://yourwebsite.com/about/xmldump
 
+If the page you're viewing contains a content picker, you can see the XML for the page it's pointing at by putting the id on the Query String, e.g.:
+
+* http://yourwebsite.com/about/xmldump?id=1234
+
 XMLDump allows a set of options on the query string and conveniently displays what they are at the top of its output.
 
 Revision History
