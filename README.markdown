@@ -35,25 +35,40 @@ the corresponding content node before XMLDump will render anything.
 After you've successfully installed the package, you can use the altTemplate syntax to view the underlying XML of your
 Umbraco website - just open your site in a web browser and go to the following URL:
 
-* http://yourwebsite.com/xmldump
+	http://yourwebsite.com/xmldump
 
 Or, if you're not using Directory URLs:
 
-* http://yourwebsite.com/xmldump.aspx
+	http://yourwebsite.com/xmldump.aspx
 
 You can also view the XML for a specific page by doing the same thing, e.g.:
 
-* http://yourwebsite.com/about/xmldump
+	http://yourwebsite.com/about/xmldump
 
-If the page you're viewing contains a content picker, you can see the XML for the page it's pointing at by putting the id on the Query String, e.g.:
 
-* http://yourwebsite.com/about/xmldump?id=1234
+Options
+-------
+
+XMLDump allows a set of options on the query string and conveniently displays what they are at the top of its output. Currently, the options are:
+
+### id
+
+To see a specific page's XML you can just specify its nodeId to the id parameter:
+
+	http://yourwebsite.com/about/xmldump?id=1234
+
+### type
 
 If you want to see all nodes of a specific Document Type, use the type parameter:
 
-* http://yourwebsite.com/xmldump?type=NewsItem
+	http://yourwebsite.com/xmldump?type=NewsItem
+	
+### media
 
-XMLDump allows a set of options on the query string and conveniently displays what they are at the top of its output.
+The XML for media items isn't stored in the Umbraco XML cache, but you can see what a particular items' XML contains, using the media parameter:
+
+	http://yourwebsite.com/xmldump?media=1337
+
 
 Revision History
 ----------------
