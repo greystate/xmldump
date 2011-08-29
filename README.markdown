@@ -49,6 +49,10 @@ If the page you're viewing contains a content picker, you can see the XML for th
 
 * http://yourwebsite.com/about/xmldump?id=1234
 
+If you want to see all nodes of a specific Document Type, use the type parameter:
+
+* http://yourwebsite.com/xmldump?type=NewsItem
+
 XMLDump allows a set of options on the query string and conveniently displays what they are at the top of its output.
 
 Revision History
