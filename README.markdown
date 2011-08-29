@@ -53,21 +53,35 @@ XMLDump allows a set of options on the query string and conveniently displays wh
 
 ### id
 
-To see a specific page's XML you can just specify its nodeId to the id parameter:
+To see a specific page's XML you can just specify its nodeId to the `id` option, regardless of the page you're currently viewing:
 
 	http://yourwebsite.com/about/xmldump?id=1234
+	
+### verbose
+
+To keep the XML viewable, XMLDump will hide some of the attributes of a Document, e.g. @writerName, @createdDate etc. To view the complete XML you specify the `verbose` option:
+
+	http://yourwebsite.com/xmldump?id=1234&verbose=yes
 
 ### type
 
-If you want to see all nodes of a specific Document Type, use the type parameter:
+If you want to see all nodes of a specific Document Type, use the `type` option:
 
 	http://yourwebsite.com/xmldump?type=NewsItem
 	
 ### media
 
-The XML for media items isn't stored in the Umbraco XML cache, but you can see what a particular items' XML contains, using the media parameter:
+The XML for media items isn't stored in the Umbraco XML cache, but you can see what a particular items' XML contains, using the `media` parameter:
 
 	http://yourwebsite.com/xmldump?media=1337
+
+### property
+
+If you need to find Documents that have a specific property, use the `prop` option:
+
+	http://yourwebsite.com/xmldump?prop=googleAnalyticsCode
+
+(This is aliased as `property` - so you can use whichever suits you.)
 
 
 Revision History
