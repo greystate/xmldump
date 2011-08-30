@@ -86,7 +86,7 @@
 	<xsl:variable name="hiddenOnly" select="boolean(&hiddenBOOL;)" />
 	<xsl:variable name="sitemap"	select="$options[@key = 'sitemap']" />
 	<xsl:variable name="navOnly"	select="boolean(&sitemapBOOL;)" />
-	<xsl:variable name="verbose"	select="$options[@key = 'verbose']" />
+	<xsl:variable name="verbose"	select="($options[@key = 'v'] | $options[@key = 'verbose'])[1]" />
 	<xsl:variable name="verbosity"	select="boolean(&verboseBOOL;)" />
 	<xsl:variable name="search"		select="$options[@key = 'search']" />
 
@@ -275,7 +275,7 @@
 	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
 	
-	- verbose	Show all attributes of Document nodes (by default only shows "&standardAttributes;").
+	You can add 'v=yes' (or 'verbose=yes') to show all attributes of Document nodes (by default only shows "&standardAttributes;").
 	======================================================================================
 	Experimental Option (XPath knowledge required - typos may wreak havoc!):
 	Note that you can't use variables.
