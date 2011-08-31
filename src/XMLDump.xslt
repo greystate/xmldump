@@ -259,6 +259,24 @@
 		</xsl:element>
 	</xsl:template>
 	
+	<xsl:template match="MultiNodePicker/nodeId">
+		<xsl:variable name="node" select="id(.)" />
+		<xsl:apply-templates select="$node" mode="MNTP" />
+
+		<xsl:if test="not($node)">
+			<!-- Try to see if it's a Media node -->
+			<xsl:variable name="mediaNode" select="&GetMedia;(., false())" />
+			<xsl:apply-templates select="$mediaNode[not(error)]" mode="MNTP" />
+		</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="*" mode="MNTP">
+		<xsl:comment>Node referenced by MNTP</xsl:comment>
+		<xsl:copy>
+			<xsl:copy-of select="&standardAttributes;" />
+		</xsl:copy>
+	</xsl:template>
+	
 	<xsl:template match="&node;[&hidden;]" mode="sitemap" />
 	
 <!-- :: Utility templates :: -->
