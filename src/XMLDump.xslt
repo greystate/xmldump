@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
-	<!ENTITY hiddenBOOL "$hidden = 'yes'">
-	<!ENTITY sitemapBOOL "$sitemap = 'yes'">
-	<!ENTITY verboseBOOL "$verbose = 'yes'">
+	<!ENTITY hiddenBOOL		"$hidden = 'yes'">
+	<!ENTITY sitemapBOOL	"$sitemap = 'yes'">
+	<!ENTITY verboseBOOL	"$verbose = 'yes'">
+	<!ENTITY mntpBOOL		"$mntp = 'yes'">
 	<!ENTITY xmldumpAllowed "xmldumpAllowed">
 	
-	<!ENTITY upper "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
-	<!ENTITY lower "abcdefghijklmnopqrstuvwxyzæøå">
+	<!ENTITY upper			"ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
+	<!ENTITY lower			"abcdefghijklmnopqrstuvwxyzæøå">
 	
-	<!ENTITY sitemapAttributes "@id | @nodeName | @urlName">
-	<!ENTITY imageCropperAttributes "@url | @name">
-	<!ENTITY relatedLinkAttributes "@title | @link">
-	<!ENTITY documentAttributes "@isDoc | @level | @nodeTypeAlias">
-	<!ENTITY propertyAttributes "@alias">
+	<!ENTITY sitemapAttributes		"@id | @nodeName | @urlName">
+	<!ENTITY imageCropperAttributes	"@url | @name">
+	<!ENTITY relatedLinkAttributes	"@title | @link">
+	<!ENTITY documentAttributes		"@isDoc | @level | @nodeTypeAlias">
+	<!ENTITY propertyAttributes		"@alias">
 	
-	<!ENTITY standardAttributes "&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
+	<!ENTITY standardAttributes		"&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
 
-	<!ENTITY CompleteQueryString "umb:RequestServerVariables('QUERY_STRING')">
+	<!ENTITY CompleteQueryString	"umb:RequestServerVariables('QUERY_STRING')">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
@@ -89,6 +90,8 @@
 	<xsl:variable name="verbose"	select="($options[@key = 'v'] | $options[@key = 'verbose'])[1]" />
 	<xsl:variable name="verbosity"	select="boolean(&verboseBOOL;)" />
 	<xsl:variable name="search"		select="$options[@key = 'search']" />
+	<xsl:variable name="mntp"		select="$options[@key = 'mntp']" />
+	<xsl:variable name="expandMNTP"	select="boolean(&mntpBOOL;)" />
 
 	<!-- Secret option - not ready for prime time yet :-) -->
 	<xsl:variable name="memberId"	select="$options[@key = 'member']" />
@@ -260,14 +263,21 @@
 	</xsl:template>
 	
 	<xsl:template match="MultiNodePicker/nodeId">
-		<xsl:variable name="node" select="id(.)" />
-		<xsl:apply-templates select="$node" mode="MNTP" />
+		<xsl:choose>
+			<xsl:when test="$expandMNTP">
+				<xsl:variable name="node" select="id(.)" />
+				<xsl:apply-templates select="$node" mode="MNTP" />
 
-		<xsl:if test="not($node)">
-			<!-- Try to see if it's a Media node -->
-			<xsl:variable name="mediaNode" select="&GetMedia;(., false())" />
-			<xsl:apply-templates select="$mediaNode[not(error)]" mode="MNTP" />
-		</xsl:if>
+				<xsl:if test="not($node)">
+					<!-- Try to see if it's a Media node -->
+					<xsl:variable name="mediaNode" select="&GetMedia;(., false())" />
+					<xsl:apply-templates select="$mediaNode[not(error)]" mode="MNTP" />
+				</xsl:if>				
+			</xsl:when>
+			<xsl:otherwise>
+				<nodeId><xsl:value-of select="." /></nodeId>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template match="*" mode="MNTP">
@@ -292,6 +302,8 @@
 	- search	Search the properties of Documents for a string, e.g.: search=umbraco
 	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
+	
+	- mntp		Set to 'yes' to show nodes referenced by Multi-Node Tree Picker properties instead of just their node id 
 	
 	You can add 'v=yes' (or 'verbose=yes') to show all attributes of Document nodes (by default only shows "&standardAttributes;").
 	======================================================================================
