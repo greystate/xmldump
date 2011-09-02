@@ -262,6 +262,7 @@
 		</xsl:element>
 	</xsl:template>
 	
+	<!-- Hey - that's a Multi-Node Tree Picker (TM) - should we expand it? -->
 	<xsl:template match="MultiNodePicker/nodeId">
 		<xsl:choose>
 			<xsl:when test="$expandMNTP">
