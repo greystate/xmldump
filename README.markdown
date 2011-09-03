@@ -19,7 +19,7 @@ The package installs a Template and an XSLT Macro - the files are:
 How To Use
 ----------
 
-### A Note On Security
+### A Note On Security!!
 
 Because installing XMLDump will allow **anyone** to see the entire data structure of your site, I've decided
 to require an extra step that makes you, the developer, responsible for switching the feature on and off.
