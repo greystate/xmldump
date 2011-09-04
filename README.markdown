@@ -102,6 +102,12 @@ If you need a quick overview of the site, use the `sitemap` option:
 For those times where you need to do some hardcore scrutiny on the XML you can specify an XPath expression, e.g.:
 
 	http://yourwebsite.com/about/xmldump?xpath=ancestor-or-self::*[analyticsCode]
+	
+(If you don't start with a forward slash the expression will use `$currentPage` as context node, otherwise you'll need to specify a complete XPath)
+
+
+
+
 
 Revision History
 ----------------
