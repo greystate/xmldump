@@ -19,7 +19,7 @@ The package installs a Template and an XSLT Macro - the files are:
 How To Use
 ----------
 
-### A Note On Security!!
+### A Note On Security
 
 Because installing XMLDump will allow **anyone** to see the entire data structure of your site, I've decided
 to require an extra step that makes you, the developer, responsible for switching the feature on and off.
@@ -95,8 +95,13 @@ Use this to see all the Documents that have the `umbracoNaviHide` property set t
 
 If you need a quick overview of the site, use the `sitemap` option:
 
-	http://yourwebsite.com?sitemap=yes
-	
+	http://yourwebsite.com/xmldump?sitemap=yes
+
+### xpath
+
+For those times where you need to do some hardcore scrutiny on the XML you can specify an XPath expression, e.g.:
+
+	http://yourwebsite.com/about/xmldump?xpath=ancestor-or-self::*[analyticsCode]
 
 Revision History
 ----------------
