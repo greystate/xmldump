@@ -105,8 +105,13 @@ For those times where you need to do some hardcore scrutiny on the XML you can s
 	
 (If you don't start with a forward slash the expression will use `$currentPage` as context node, otherwise you'll need to specify a complete XPath)
 
+### search
 
+If you're looking for a specific piece of information, you can perform a search through the complete tree using the `search` option:
 
+	http://yourwebsite.com/xmldump?search=Contact
+	
+The search is performed case-insensitive on all properties but not attributes (so won't match any `@nodeName`s)
 
 
 Revision History
