@@ -113,7 +113,16 @@ If you're looking for a specific piece of information, you can perform a search 
 	
 The search is performed case-insensitive on all properties but not attributes (so won't match any `@nodeName`s)
 
+### mntp
 
+The `mntp` option is specific to using the [uComponents][1] "Multi-Node Tree Picker" datatype (which is very common now) - if you set this flag, XMLDump will render a simple representation of the actual node that's referenced, instead of only showing the Id. Best to use on specific pages e.g:
+
+	http://yourwebsite.com/projects/year2011/xmldump?mntp=yes
+
+or:
+
+	http://yourwebsite.com/xmldump/?id=8220&mntp=yes
+ 
 Revision History
 ----------------
 
