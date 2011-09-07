@@ -59,7 +59,7 @@ To see a specific page's XML you can just specify its nodeId to the `id` option,
 	
 ### verbose
 
-To keep the XML viewable, XMLDump will hide some of the attributes of a Document, e.g. @writerName, @createdDate etc. To view the complete XML you specify the `verbose` option:
+To keep the XML viewable, XMLDump will hide some of the attributes of a Document, e.g. `@writerName`, `@createdDate` etc. To view the complete XML you specify the `verbose` option:
 
 	http://yourwebsite.com/xmldump?id=1234&verbose=yes
 	
