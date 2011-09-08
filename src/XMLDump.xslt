@@ -177,7 +177,7 @@
 			<xsl:when test="normalize-space($search)">
 				<root search="{$search}">
 					<xsl:variable name="search-downcased" select="translate($search, $upper, $lower)" />
-					<xsl:apply-templates select="$root//&node;[&data;[contains(translate(., $upper, $lower), $search-downcased)]]"/>					
+					<xsl:apply-templates select="$root//&node;[&data;[contains(translate(., $upper, $lower), $search-downcased)]] | $root//&node;[contains(translate(@nodeName, $upper, $lower), $search-downcased)]"/>
 				</root>
 			</xsl:when>
 			
