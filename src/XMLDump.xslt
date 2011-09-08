@@ -89,7 +89,7 @@
 	<xsl:variable name="navOnly"	select="boolean(&sitemapBOOL;)" />
 	<xsl:variable name="verbose"	select="($options[@key = 'v'] | $options[@key = 'verbose'])[1]" />
 	<xsl:variable name="verbosity"	select="boolean(&verboseBOOL;)" />
-	<xsl:variable name="search"		select="$options[@key = 'search']" />
+	<xsl:variable name="search"		select="($options[@key = 'search'] | $options[@key = 's'])[1]" />
 	<xsl:variable name="mntp"		select="$options[@key = 'mntp']" />
 	<xsl:variable name="expandMNTP"	select="boolean(&mntpBOOL;)" />
 
@@ -300,7 +300,7 @@
 	- type		Grab node(s) by their DocumentType, e.g.: type=GalleryItem
 	- prop		Find nodes that have a specific property, e.g.: prop=metaDescription
 	- media		View XML for media item, e.g.: media=1337
-	- search	Search the properties of Documents for a string, e.g.: search=umbraco
+	- search	Search the name and properties of Documents for a string, e.g.: search=umbraco
 	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
 	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']

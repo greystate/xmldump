@@ -111,7 +111,7 @@ If you're looking for a specific piece of information, you can perform a search 
 
 	http://yourwebsite.com/xmldump?search=Contact
 	
-The search is performed case-insensitive on all properties but not attributes (so won't match any `@nodeName`s)
+The search is performed case-insensitive on `@nodeName` and all properties)
 
 ### mntp
 
