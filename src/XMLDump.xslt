@@ -303,15 +303,11 @@
 	- search	Search the properties of Documents for a string, e.g.: search=umbraco
 	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
+	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
 	
 	- mntp		Set to 'yes' to show nodes referenced by Multi-Node Tree Picker properties instead of just their node id 
 	
 	You can add 'v=yes' (or 'verbose=yes') to show all attributes of Document nodes (by default only shows "&standardAttributes;").
-	======================================================================================
-	Experimental Option (XPath knowledge required - typos may wreak havoc!):
-	Note that you can't use variables.
-	Will use $currentPage as context node.
-	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
 
 	(For all boolean options, the values 'yes', 'true', 'on' and '1' will work as expected)
 </xsl:comment>
