@@ -16,6 +16,9 @@ window.XMLDump = class XMLDump
   
   @nodesByXPath = (expression) ->
     @getResult { xpath: expression }
+  
+  @nodesWithProperty = (propertyName) ->
+    @getResult { prop: propertyName }
 
   
 
