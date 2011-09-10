@@ -1,6 +1,7 @@
 window.XMLDump = class XMLDump
   @DEFAULT_OPTIONS = {
     verbose: false
+    mntp: false
   }
   
   @getResult = (options) ->
@@ -20,8 +21,11 @@ window.XMLDump = class XMLDump
   @nodesWithProperty = (propertyName) ->
     @getResult { prop: propertyName }
 
-  
+  @mediaById = (mediaId) ->
+    @getResult { media: mediaId }
 
+  
+  
   
 
   
