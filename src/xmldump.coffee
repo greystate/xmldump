@@ -23,6 +23,12 @@ window.XMLDump = class XMLDump
 
   @mediaById = (mediaId) ->
     @getResult { media: mediaId }
+    
+  @searchFor = (query) ->
+    @getResult { search: query }
+    
+  @showSitemap = ->
+    @getResult { sitemap: true }
 
   
   
