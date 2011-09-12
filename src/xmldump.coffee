@@ -4,6 +4,17 @@ window.XMLDump = class XMLDump
     mntp: false
   }
   
+  @GUI = '''
+<div id="xmldumpGUI">
+  
+</div>
+'''
+  
+  @show = ->
+    @element = document.createElement 'div'
+    
+  
+  
   @getResult = (options) ->
     # options = options?.merge(@DEFAULT_OPTIONS)
     
