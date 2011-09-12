@@ -30,6 +30,9 @@ window.XMLDump = class XMLDump
   @showSitemap = ->
     @getResult { sitemap: true }
 
+  @showHiddenNodes = ->
+    @getResult { hidden: true }
+
   
   
   
