@@ -9,3 +9,5 @@ xsltproc --novalid --output package/XMLDump.xslt lib/freezeEntities.xslt src/XML
 xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xslt src/package.xml 
 
 zip -j dist/XMLDump package/* -x \*.DS_Store
+
+# coffee  -o package/ -c src/xmldump.coffee
