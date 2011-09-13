@@ -12,6 +12,7 @@ window.XMLDump = class XMLDump
   
   @show = ->
     @element = document.createElement 'div'
+    document.body.appendChild @element
     
   
   

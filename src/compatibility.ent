@@ -4,8 +4,8 @@
 <!ENTITY % legacyXML	"IGNORE">
 <!ENTITY % newXML		"IGNORE">
 
-<!ENTITY % TESTING		"INCLUDE">
-<!ENTITY % RELEASE		"IGNORE">
+<!ENTITY % TESTING		"IGNORE">
+<!ENTITY % RELEASE		"INCLUDE">
 
 <![ %legacyXML; [
 	<!-- Entities for the old XML Schema -->
