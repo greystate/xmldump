@@ -6,12 +6,21 @@ window.XMLDump = class XMLDump
   
   @GUI = '''
 <div id="xmldumpGUI">
-  
-</div>
-'''
+  <form action="xmldump" method="get">
+    <p>
+      <label for="options">Options:</label>
+      <input type="text" id="options" name="options" value="" placeholder="Type an ID, an XPath or an DocumentType Alias&#8230;" />
+    </p>
+    <p>
+      <input type="checkbox" id="v" name="v" value="yes" />
+      <label for="v">Verbose</label>
+    </p>
+  </form>
+</div>'''
   
   @show = ->
     @element = document.createElement 'div'
+    @element.outerHTML = @GUI
     document.body.appendChild @element
     
   
