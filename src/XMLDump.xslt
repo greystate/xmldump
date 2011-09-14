@@ -54,7 +54,7 @@
 	
 	<!-- Allowed for this node? -->
 	<xsl:variable name="remoteAddress" select="&remoteAddress;" />
-	<xsl:variable name="xmldumpAllowed" select="boolean($currentPage/ancestor-or-self::*[contains(&xmldumpAllowed;, $remoteAddress)] | $currentPage/ancestor-or-self::node[contains(data[@alias = '&xmldumpAllowed;'], $remoteAddress)]" />
+	<xsl:variable name="xmldumpAllowed" select="boolean($currentPage/ancestor-or-self::*[contains(&xmldumpAllowed;, $remoteAddress)] | $currentPage/ancestor-or-self::node[contains(data[@alias = '&xmldumpAllowed;'], $remoteAddress)])" />
 	
 	<!-- Determine if using legacy or v4.5 XML Schema -->
 	<xsl:variable name="isLegacyXML" select="boolean(not($root/*[@isDoc][1]))" />

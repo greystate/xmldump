@@ -25,9 +25,10 @@ Because installing XMLDump will allow **anyone** to see the entire data structur
 to require an extra step that makes you, the developer, responsible for switching the feature on and off.
 Here's how that works:
 
-XMLDump will look for a property called `xmldumpAllowed` recursively upwards from the
-start node selected for viewing (see below) and only if that property is set, it will render the XML. So you
-need to add a boolean (true/false) property to your "website" Document Type and subsequently check that box on
+XMLDump will look for a property called `xmldumpAllowedIPs` recursively upwards from the
+start node selected for viewing (see below) and if that property contains the IP address of the current request
+(the REMOTE_ADDR server variable), it will render the XML. So you
+need to add a textstring property to your "website" Document Type and subsequently fill in your IP address on
 the corresponding content node before XMLDump will render anything.
 
 ### Viewing the XML
