@@ -5,7 +5,7 @@
 	<!ENTITY sitemapBOOL	"$sitemap = 'yes'">
 	<!ENTITY verboseBOOL	"$verbose = 'yes'">
 	<!ENTITY mntpBOOL		"$mntp = 'yes'">
-	<!ENTITY xmldumpAllowed "xmldumpAllowed">
+	<!ENTITY xmldumpAllowed "xmldumpAllowedIPs">
 	
 	<!ENTITY upper			"ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
 	<!ENTITY lower			"abcdefghijklmnopqrstuvwxyzæøå">
@@ -19,6 +19,7 @@
 	<!ENTITY standardAttributes		"&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
 
 	<!ENTITY CompleteQueryString	"umb:RequestServerVariables('QUERY_STRING')">
+	<!ENTITY remoteAddress "umb:RequestServerVariables('REMOTE_ADDR')">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
@@ -52,7 +53,8 @@
 	<xsl:variable name="root" select="$currentPage/ancestor::root" />
 	
 	<!-- Allowed for this node? -->
-	<xsl:variable name="xmldumpAllowed" select="boolean($currentPage/ancestor-or-self::*[&xmldumpAllowed; = 1] | $currentPage/ancestor-or-self::node[data[@alias = '&xmldumpAllowed;'] = 1])" />
+	<xsl:variable name="remoteAddress" select="&remoteAddress;" />
+	<xsl:variable name="xmldumpAllowed" select="boolean($currentPage/ancestor-or-self::*[contains(&xmldumpAllowed;, $remoteAddress)] | $currentPage/ancestor-or-self::node[contains(data[@alias = '&xmldumpAllowed;'], $remoteAddress)]" />
 	
 	<!-- Determine if using legacy or v4.5 XML Schema -->
 	<xsl:variable name="isLegacyXML" select="boolean(not($root/*[@isDoc][1]))" />
@@ -338,10 +340,8 @@
 <xsl:comment xml:space="preserve">
 	XMLDump is not allowed for this node
 	====================================
-	To enable, add a boolean property with the alias "&xmldumpAllowed;" on your top-level Document Type.
-	Then go to the corresponding Content node and check that box. Hit "Save and Publish" to allow XMLDump.
-
-	* Don't forget to uncheck the box again, prior to taking your site live! *
+	To enable, add a textstring property with the alias "&xmldumpAllowed;" on your top-level Document Type.
+	Then go to the corresponding Content node and fill in your IP address (or more, comma-separated). Hit "Save and Publish" to enable XMLDump.
 
 	&XMLDumpVersionHeader;
 </xsl:comment>
