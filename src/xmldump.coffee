@@ -27,7 +27,8 @@ window.XMLDump = class XMLDump
   
   @getResult = (options) ->
     # options = options?.merge(@DEFAULT_OPTIONS)
-    
+
+    # FIXME: Need to add '&' to all but last
     document.location = ("?" + "#{key}=#{value}" for key, value of options)
   
   @nodeById = (nodeId) ->
