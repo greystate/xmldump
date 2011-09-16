@@ -31,6 +31,7 @@ window.XMLDump = class XMLDump
     # FIXME: Need to add '&' to all but last
     document.location = ("?" + "#{key}=#{value}" for key, value of options)
   
+  # Methods for all options
   @nodeById = (nodeId) ->
     @getResult { id: nodeId }
   
