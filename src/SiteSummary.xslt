@@ -184,7 +184,7 @@
 	<xsl:template match="&Document;" mode="ref">
 		<li>
 			<a class="go" href="{&NiceUrl;(@id)}" title="Go to page in site"><xsl:value-of select="@nodeName" /></a>
-			<xsl:text /> [<a class="xmlview" href="{&NiceUrl;(@id)}/xmldump" title="View this page's XML">XML</a>]<xsl:text />
+			<xsl:text /> [<xsl:apply-templates select="." mode="xmllink" />]<xsl:text />
 			<xsl:text /> [<xsl:apply-templates select="." mode="editlink" />]<xsl:text />
 		</li>
 	</xsl:template>
@@ -203,6 +203,10 @@
 	
 	<xsl:template match="*[@isDoc]" mode="editlink">
 		<a class="editnode" href="/umbraco/editContent.aspx?id={@id}" title="Edit this page">Edit</a>
+	</xsl:template>
+	
+	<xsl:template match="*[@isDoc]" mode="xmllink">
+		<a class="xmlview" href="{&NiceUrl;(@id)}/xmldump" title="View this page's XML">XML</a>
 	</xsl:template>
 	
 </xsl:stylesheet>
