@@ -319,11 +319,11 @@
 	<xsl:template name="parseOptions">
 		<xsl:param name="options" select="''" />
 		<options>
-			<xsl:apply-templates select="&tokenize;($options, '&amp;')/&token;" />
+			<xsl:apply-templates select="&tokenize;($options, '&amp;')/&token;" mode="parse" />
 		</options>
 	</xsl:template>
 	
-	<xsl:template match="&token;">
+	<xsl:template match="&token;" mode="parse">
 		<xsl:variable name="key" select="substring-before(., '=')" />
 		<option key="{$key}">
 			<xsl:value-of select="&QueryString;($key)" />
@@ -331,7 +331,7 @@
 	</xsl:template>
 	
 	<!-- Make sure to catch sane attempts to set a BOOL option to something truthy, and normalize to 'yes' -->
-	<xsl:template match="&token;[contains('|yes|true|1|on|', concat('|', translate(substring-after(., '='), 'NOTRUESY', 'notruesy'), '|'))]">
+	<xsl:template match="&token;[contains('|yes|true|1|on|', concat('|', translate(substring-after(., '='), 'NOTRUESY', 'notruesy'), '|'))]" mode="parse">
 		<option key="{substring-before(., '=')}">yes</option>
 	</xsl:template>
 	
