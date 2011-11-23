@@ -131,11 +131,12 @@ or:
 Revision History
 ----------------
 
-* v0.9: Lots of refactoring. Added options `search` &amp; `mntp`, changed some logic in `xpath` option.
-* v0.8:	"Universal Binary" (compatible with both XML formats). Changed to use altTemplate syntax (e.g., to just get $currentPage). Added activation for security reasons
-* v0.7:	Added options: `xpath` &amp; `property`
-* v0.6:	Added options: `media` &amp; `sitemap`
-* v0.5:	Initial version, supporting the options: `node`, `type` &amp; `hidden`
+* v0.9.1: Bugfix release
+* v0.9:   Lots of refactoring. Added options `search` &amp; `mntp`, changed some logic in `xpath` option.
+* v0.8:	  "Universal Binary" (compatible with both XML formats). Changed to use altTemplate syntax (e.g., to just get $currentPage). Added activation for security reasons
+* v0.7:	  Added options: `xpath` &amp; `property`
+* v0.6:	  Added options: `media` &amp; `sitemap`
+* v0.5:	  Initial version, supporting the options: `node`, `type` &amp; `hidden`
 
 
 Chriztian Steinmeier, March 2011
