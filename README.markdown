@@ -74,7 +74,7 @@ If you want to see all nodes of a specific Document Type, use the `type` option:
 	
 ### media
 
-The XML for media items isn't stored in the Umbraco XML cache, but you can see what a particular items' XML contains, using the `media` parameter:
+The XML for media items isn't stored in the Umbraco XML cache, but you can see what a particular item's XML contains, using the `media` parameter:
 
 	http://yourwebsite.com/xmldump?media=1337
 
