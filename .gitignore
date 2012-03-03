@@ -1,3 +1,8 @@
 dist/
 
 /package/
+
+.DS_Store
+test/fixture-ngal.xml
+
+test/fixture-vokseverk_complete.xml
