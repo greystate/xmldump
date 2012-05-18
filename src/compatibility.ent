@@ -1,11 +1,10 @@
+<!ENTITY % use.in.umbraco "IGNORE">
+<!ENTITY % use.in.textmate "INCLUDE">
 
 <!-- Swap INCLUDE / IGNORE here to switch format -->
 <!ENTITY % dualModeXML	"INCLUDE">
 <!ENTITY % legacyXML	"IGNORE">
 <!ENTITY % newXML		"IGNORE">
-
-<!ENTITY % TESTING		"IGNORE">
-<!ENTITY % RELEASE		"INCLUDE">
 
 <![ %legacyXML; [
 	<!-- Entities for the old XML Schema -->
@@ -26,7 +25,7 @@
 ]]>
 
 <![ %dualModeXML; [
-	<!-- Entities for the both Schemas (!) -->
+	<!-- Entities for both Schemas (!) -->
 	<!ENTITY umbracoNaviHide "umbracoNaviHide">
 	<!ENTITY node "*[@isDoc or self::node]">
 	<!ENTITY data "*[not(@isDoc) or name() = 'data']"> 
@@ -35,7 +34,7 @@
 ]]>
 
 
-<![ %TESTING; [
+<![ %use.in.textmate; [
 	<!-- When used with XSpec for tests -->
 	<!-- <!ENTITY isLegacyXMLParam "boolean(not(/$root/*[@isDoc][1]))"> -->
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
@@ -47,9 +46,11 @@
 	<!ENTITY nodeset-ns-uri "http://exslt.org/common">
 	<!ENTITY tokenize "str:tokenize">
 	<!ENTITY token "token">
+	<!ENTITY CompleteQueryString "'QUERY_STRING'">
+	<!ENTITY remoteAddress "'REMOTE_ADDR'">
 ]]>
 
-<![ %RELEASE; [
+<![ %use.in.umbraco; [
 	<!-- In Release Build -->
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
@@ -60,4 +61,6 @@
 	<!ENTITY nodeset-ns-uri "urn:schemas-microsoft-com:xslt">
 	<!ENTITY tokenize "umb:Split">
 	<!ENTITY token "value">
+	<!ENTITY CompleteQueryString "umb:RequestServerVariables('QUERY_STRING')">
+	<!ENTITY remoteAddress "umb:RequestServerVariables('REMOTE_ADDR')">
 ]]>

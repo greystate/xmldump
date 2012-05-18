@@ -18,9 +18,6 @@
 	
 	<!ENTITY standardAttributes		"&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
 
-	<!ENTITY CompleteQueryString	"umb:RequestServerVariables('QUERY_STRING')">
-	<!ENTITY remoteAddress "umb:RequestServerVariables('REMOTE_ADDR')">
-
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
 
