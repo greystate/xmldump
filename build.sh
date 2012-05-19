@@ -19,4 +19,5 @@ zip -j dist/XMLDump package/* -x \*.DS_Store
 # Copy the release XSLT into the dist dir for upgraders
 cp package/XMLDump.xslt dist/XMLDump.xslt
 
+# This is a future enhancement in the works ...
 # coffee  -o package/ -c src/xmldump.coffee
