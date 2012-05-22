@@ -265,8 +265,8 @@
 		</xsl:element>
 	</xsl:template>
 	
-	<!-- Hey - that's a Multi-Node Tree Picker (TM) - should we expand it? -->
-	<xsl:template match="MultiNodePicker/nodeId">
+	<!-- Hey - that's a uComponents picker - should we expand it? -->
+	<xsl:template match="MultiNodePicker/nodeId | XPathCheckBoxList/nodeId | CheckBoxTree/nodeId">
 		<xsl:choose>
 			<xsl:when test="$expandMNTP">
 				<xsl:variable name="node" select="id(.)" />
@@ -276,7 +276,7 @@
 					<!-- Try to see if it's a Media node -->
 					<xsl:variable name="mediaNode" select="&GetMedia;(., false())" />
 					<xsl:apply-templates select="$mediaNode[not(error)]" mode="MNTP" />
-				</xsl:if>				
+				</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>
 				<nodeId><xsl:value-of select="." /></nodeId>
@@ -285,7 +285,7 @@
 	</xsl:template>
 	
 	<xsl:template match="*" mode="MNTP">
-		<xsl:comment>Node referenced by MNTP</xsl:comment>
+		<xsl:comment>Node referenced by uComponents DataType</xsl:comment>
 		<xsl:copy>
 			<xsl:copy-of select="&standardAttributes;" />
 		</xsl:copy>
@@ -308,7 +308,7 @@
 	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
 	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
 	
-	- mntp		Set to 'yes' to show nodes referenced by Multi-Node Tree Picker properties instead of just their node id 
+	- mntp		Set to 'yes' to show nodes referenced by uComponents pickers instead of just their node id 
 	
 	You can add 'v=yes' (or 'verbose=yes') to show all attributes of Document nodes (by default only shows "&standardAttributes;").
 
