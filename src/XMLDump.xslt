@@ -146,8 +146,9 @@
 					<xsl:value-of select="$xpath" />
 				</xsl:variable>
 				
-				<output select="{$umbXPath}">
-					<xsl:apply-templates select="&GetXmlNodeByXPath;($queryXPath)" />
+				<xsl:variable name="matchedNodes" select="&GetXmlNodeByXPath;($queryXPath)" />
+				<output select="{$umbXPath}" total="{count($matchedNodes)}">
+					<xsl:apply-templates select="$matchedNodes" />
 				</output>
 			</xsl:when>
 			
