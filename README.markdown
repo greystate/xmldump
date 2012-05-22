@@ -116,7 +116,7 @@ The search is performed case-insensitive on `@nodeName` and all properties)
 
 ### mntp
 
-The `mntp` option is specific to using the [uComponents][1] "Multi-Node Tree Picker" datatype (which is very common now) - if you set this flag, XMLDump will render a simple representation of the actual node that's referenced, instead of only showing the Id. Best to use on specific pages e.g:
+The `mntp` option is specific to using some of the [uComponents][1] datatypes, specifically "Multi-Node Tree Picker", "XPath CheckBox List" and "CheckBox Tree" - if you set this flag, XMLDump will render a simple representation of the actual node that's referenced, instead of only showing the Id. Best to use on specific pages e.g:
 
 	http://yourwebsite.com/projects/year2011/xmldump?mntp=yes
 
@@ -131,8 +131,9 @@ or:
 Revision History
 ----------------
 
+* v0.9.2: Support XPath CheckBox List and CheckBox Tree with the `mntp` option too. Add count of matched nodes to output for `xpath` option
 * v0.9.1: Bugfix release
-* v0.9:   Lots of refactoring. Added options `search` &amp; `mntp`, changed some logic in `xpath` option.
+* v0.9:   Lots of refactoring. Added options `search` &amp; `mntp`, changed some logic in `xpath` option
 * v0.8:	  "Universal Binary" (compatible with both XML formats). Changed to use altTemplate syntax (e.g., to just get $currentPage). Added activation for security reasons
 * v0.7:	  Added options: `xpath` &amp; `property`
 * v0.6:	  Added options: `media` &amp; `sitemap`
