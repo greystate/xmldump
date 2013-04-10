@@ -1,11 +1,11 @@
 
 <!-- Swap INCLUDE / IGNORE here to switch format -->
-<!ENTITY % dualModeXML	"INCLUDE">
-<!ENTITY % legacyXML	"IGNORE">
-<!ENTITY % newXML		"IGNORE">
+<!ENTITY % dualModeXML "INCLUDE">
+<!ENTITY % legacyXML "IGNORE">
+<!ENTITY % newXML "IGNORE">
 
-<!ENTITY % TESTING		"IGNORE">
-<!ENTITY % RELEASE		"INCLUDE">
+<!ENTITY % TESTING "INCLUDE">
+<!ENTITY % RELEASE "IGNORE">
 
 <![ %legacyXML; [
 	<!-- Entities for the old XML Schema -->
