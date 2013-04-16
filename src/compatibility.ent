@@ -41,12 +41,15 @@
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
 	<!ENTITY QueryString "string">
-	<!ENTITY GetMedia "concat">
+	<!ENTITY GetMediaSingle "document('../test/fixture-media.xml')//*[@id = .]">
+	<!ENTITY GetMediaFull "document('../test/fixture-media.xml')//*[@id = $mediaId]">
 	<!ENTITY GetCurrentMember "true">
-	<!ENTITY GetXmlNodeByXPath "string">
+	<!ENTITY GetXmlNodeByXPath "document('../test/fixture-media.xml')//*[@id]">
 	<!ENTITY nodeset-ns-uri "http://exslt.org/common">
 	<!ENTITY tokenize "str:tokenize">
 	<!ENTITY token "token">
+	<!ENTITY CompleteQueryString "'f=1&amp;p=2'">
+	<!ENTITY remoteAddress "'10.0.1.6'">
 ]]>
 
 <![ %RELEASE; [
@@ -54,10 +57,13 @@
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
 	<!ENTITY QueryString "umb:RequestQueryString">
-	<!ENTITY GetMedia "umb:GetMedia">
+	<!ENTITY GetMediaSingle "umb:GetMedia(., false())">
+	<!ENTITY GetMediaFull "umb:GetMedia($mediaId, true())">
 	<!ENTITY GetCurrentMember "umb:GetCurrentMember">
-	<!ENTITY GetXmlNodeByXPath "umb:GetXmlNodeByXPath">
+	<!ENTITY GetXmlNodeByXPath "umb:GetXmlNodeByXPath($queryXPath)">
 	<!ENTITY nodeset-ns-uri "urn:schemas-microsoft-com:xslt">
 	<!ENTITY tokenize "umb:Split">
 	<!ENTITY token "value">
+	<!ENTITY CompleteQueryString "umb:RequestServerVariables('QUERY_STRING')">
+	<!ENTITY remoteAddress "umb:RequestServerVariables('REMOTE_ADDR')">
 ]]>

@@ -18,9 +18,6 @@
 	
 	<!ENTITY standardAttributes		"&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
 
-	<!ENTITY CompleteQueryString	"umb:RequestServerVariables('QUERY_STRING')">
-	<!ENTITY remoteAddress "umb:RequestServerVariables('REMOTE_ADDR')">
-
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
 
@@ -146,7 +143,7 @@
 					<xsl:value-of select="$xpath" />
 				</xsl:variable>
 				
-				<xsl:variable name="matchedNodes" select="&GetXmlNodeByXPath;($queryXPath)" />
+				<xsl:variable name="matchedNodes" select="&GetXmlNodeByXPath;" />
 				<output select="{$umbXPath}" total="{count($matchedNodes)}">
 					<xsl:apply-templates select="$matchedNodes" />
 				</output>
@@ -170,7 +167,7 @@
 
 			<!-- Specific Media id? -->
 			<xsl:when test="number($mediaId)">
-				<xsl:variable name="mediaNode" select="&GetMedia;($mediaId, true())" />
+				<xsl:variable name="mediaNode" select="&GetMediaFull;" />
 					<media>
 						<xsl:apply-templates select="$mediaNode[not(error)]" />
 					</media>
@@ -274,7 +271,7 @@
 
 				<xsl:if test="not($node)">
 					<!-- Try to see if it's a Media node -->
-					<xsl:variable name="mediaNode" select="&GetMedia;(., false())" />
+					<xsl:variable name="mediaNode" select="&GetMediaSingle;" />
 					<xsl:apply-templates select="$mediaNode[not(error)]" mode="MNTP" />
 				</xsl:if>
 			</xsl:when>
