@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Folder id="1800" nodeTypeAlias="Folder" level="1" nodeName="Images">
+		<contents />
+		<Image id="1900" nodeTypeAlias="Image" level="2" nodeName="Test Image">
+			<umbracoFile>/media/1234/testfile.jpg</umbracoFile>
+			<umbracoWidth>800</umbracoWidth>
+			<umbracoHeight>600</umbracoHeight>
+			<umbracoExtension>jpg</umbracoExtension>
+			<umbracoBytes>2837</umbracoBytes>
+		</Image>
+	</Folder>
+</root>
