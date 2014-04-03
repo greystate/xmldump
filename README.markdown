@@ -11,10 +11,11 @@ leave it open on your secondary screen :-)
 
 ## Files Installed
 
-The package installs a Template and an XSLT Macro - the files are:
+The package installs a Template, an XSLT Macro and a Config - the files are:
 
 	~/masterpages/XMLDump.master
 	~/xslt/XMLDump.xslt
+	~/config/XMLDump.config
 
 How To Use
 ----------
@@ -23,13 +24,11 @@ How To Use
 
 Because installing XMLDump will allow **anyone** to see the entire data structure of your site, I've decided
 to require an extra step that makes you, the developer, responsible for switching the feature on and off.
-Here's how that works:
+You can do that in two different ways:
 
-XMLDump will look for a property called `xmldumpAllowedIPs` recursively upwards from the
-start node selected for viewing (see below) and if that property contains the IP address of the current request
-(the REMOTE_ADDR server variable), it will render the XML. So you
-need to add a textstring property to your "website" Document Type and subsequently fill in your IP address on
-the corresponding content node before XMLDump will render anything.
+1. XMLDump will look for a property called `xmldumpAllowedIPs` recursively upwards from the start node selected for viewing (see below) and if that property contains the IP address of the current request (the REMOTE_ADDR server variable), it will render the XML. So you need to add a textstring property to your "website" Document Type and subsequently fill in your IP address on the corresponding content node before XMLDump will render anything.
+
+2. As of version 0.9.3 you can also add the IP address(es) to the `XMLDump.config` file in the `config` folder - there should be an empty `<xmldumpAllowedIPs>` element in there which you can fill in.
 
 ### Viewing the XML
 
@@ -131,6 +130,7 @@ or:
 Revision History
 ----------------
 
+* v0.9.3: Add config file for the `xmldumpAllowedIPs` key
 * v0.9.2: Support XPath CheckBox List and CheckBox Tree with the `mntp` option too. Add count of matched nodes to output for `xpath` option
 * v0.9.1: Bugfix release
 * v0.9:   Lots of refactoring. Added options `search` &amp; `mntp`, changed some logic in `xpath` option
@@ -140,5 +140,5 @@ Revision History
 * v0.5:	  Initial version, supporting the options: `node`, `type` &amp; `hidden`
 
 
-Chriztian Steinmeier, March 2011
+Chriztian Steinmeier, April 2014
 (Initial version: November 2009)
