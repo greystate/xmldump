@@ -47,6 +47,7 @@
 	<!ENTITY GetXmlNodeByXPath "document('../test/fixture-media.xml')//*[@id]">
 	<!ENTITY nodeset-ns-uri "http://exslt.org/common">
 	<!ENTITY tokenize "str:tokenize">
+	<!ENTITY tokenizeOptions "document('../test/fixture-options')/options">
 	<!ENTITY token "token">
 	<!ENTITY CompleteQueryString "'f=1&amp;p=2'">
 	<!ENTITY remoteAddress "'10.0.1.6'">
@@ -62,7 +63,7 @@
 	<!ENTITY GetCurrentMember "umb:GetCurrentMember">
 	<!ENTITY GetXmlNodeByXPath "umb:GetXmlNodeByXPath($queryXPath)">
 	<!ENTITY nodeset-ns-uri "urn:schemas-microsoft-com:xslt">
-	<!ENTITY tokenize "umb:Split">
+	<!ENTITY tokenizeOptions "umb:Split($options, '&amp;')">
 	<!ENTITY token "value">
 	<!ENTITY CompleteQueryString "umb:RequestServerVariables('QUERY_STRING')">
 	<!ENTITY remoteAddress "umb:RequestServerVariables('REMOTE_ADDR')">

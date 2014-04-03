@@ -317,7 +317,7 @@
 	<xsl:template name="parseOptions">
 		<xsl:param name="options" select="''" />
 		<options>
-			<xsl:apply-templates select="&tokenize;($options, '&amp;')/&token;" mode="parse" />
+			<xsl:apply-templates select="&tokenizeOptions;/&token;" mode="parse" />
 		</options>
 	</xsl:template>
 	
