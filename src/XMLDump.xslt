@@ -53,7 +53,7 @@
 	<xsl:variable name="root" select="$currentPage/ancestor::root" />
 	
 	<!-- Grab the config file -->
-	<xsl:variable name="config" select="document('&configFile;')/config.xmldump" />
+	<xsl:variable name="config" select="document('&configFile;')/config" />
 	
 <!--
 	Allowed for this node?
