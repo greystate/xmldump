@@ -10,6 +10,9 @@ fi
 # Transform the development XSLT into the release file
 xsltproc --novalid --output package/XMLDump.xslt lib/freezeEntities.xslt src/XMLDump.xslt
 
+# Transform the development config into the release file
+xsltproc --novalid --output package/XMLDump.config lib/freezeEntities.xslt src/XMLDump.config
+
 # Transform the package.xml file, pulling in the README
 xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xslt src/package.xml 
 
@@ -18,6 +21,9 @@ zip -j dist/XMLDump package/* -x \*.DS_Store
 
 # Copy the release XSLT into the dist dir for upgraders
 cp package/XMLDump.xslt dist/XMLDump.xslt
+
+# ... as well as the release config
+cp package/XMLDump.config dist/XMLDump.config
 
 # This is a future enhancement in the works ...
 # coffee  -o package/ -c src/xmldump.coffee

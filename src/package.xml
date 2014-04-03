@@ -9,6 +9,11 @@
       <orgPath>/xslt</orgPath>
       <orgName>XMLDump.xslt</orgName>
     </file>
+    <file>
+      <guid>XMLDump.config</guid>
+      <orgPath>/config</orgPath>
+      <guid>XMLDump.config</guid>
+    </file>
   </files>
   <info>
     <package>
