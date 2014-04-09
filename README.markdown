@@ -130,6 +130,7 @@ or:
 Revision History
 ----------------
 
+* v0.9.4: Updated to use new build script
 * v0.9.3: Add config file for the `xmldumpAllowedIPs` key
 * v0.9.2: Support XPath CheckBox List and CheckBox Tree with the `mntp` option too. Add count of matched nodes to output for `xpath` option
 * v0.9.1: Bugfix release
