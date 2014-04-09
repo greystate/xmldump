@@ -354,9 +354,8 @@
 <xsl:comment xml:space="preserve">
 	XMLDump is not allowed for this node
 	====================================
-	To enable, add a textstring property with the alias "&xmldumpAllowed;" on your top-level Document Type.
-	Then go to the corresponding Content node and fill in your IP address (or more, comma-separated). Hit "Save and Publish" to enable XMLDump.
-
+	To enable, add your IP (<xsl:value-of select="$remoteAddress" />) to the XMLDump.config file.
+	
 	&XMLDumpVersionHeader;
 </xsl:comment>
 		</output>
