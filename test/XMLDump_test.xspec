@@ -23,28 +23,6 @@
 		</x:expect>
 		<x:expect label="it should not copy any of writerID, creatorID or nodeType attributes" test="not(/*[@writerID | @creatorID | @nodeType])" />
 	</x:scenario>
-	
-	<x:scenario label="when using the property option" pending="off for now">
-		<!-- <x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-cws.xml" select="/" /> -->
-		<x:context select="/">
-			<root>
-				<node id="12">
-					<node id="2">
-						<data alias="articlePhotoColOne">Test</data>
-						<data alias="umbracoNaviHide">0</data>
-					</node>
-				</node>
-			</root>
-		</x:context>
-		<x:expect label="only nodes with that property whould be copied">
-			<!--...-->
-			<output property="articlePhotoColOne" isLegacy="..." isNewXML="...">
-				<node id="...">
-					<data alias="articlePhotoColOne">...</data>
-				</node>
-			</output>
-		</x:expect>
-		
-	</x:scenario>
+
 	
 </x:description>

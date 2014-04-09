@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<x:description
+	stylesheet="../src/XMLDump.xslt"
+	xslt-version="1.0"
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"
+>
+
+	<x:param name="property" select="'articlePhotoColOne'" />
+
+	<x:scenario label="when using the property option">
+		<!-- <x:context href="file:///Users/chriz/Development/src/xmldump/test/fixture-cws.xml" select="/" /> -->
+		<x:context select="/root/node">
+			<root>
+				<node id="12">
+					<node id="2">
+						<data alias="articlePhotoColOne">Test</data>
+						<data alias="umbracoNaviHide">0</data>
+					</node>
+				</node>
+			</root>
+		</x:context>
+		<x:expect label="only nodes with that property whould be copied">
+			<!--...-->
+			<output property="articlePhotoColOne" isLegacy="..." isNewXML="...">
+				<node id="2">
+					<data alias="articlePhotoColOne">...</data>
+				</node>
+			</output>
+		</x:expect>
+		
+	</x:scenario>
+
+</x:description>
