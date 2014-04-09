@@ -24,6 +24,9 @@ sed -i "" "s/$TMON/$TMOFF/" src/compatibility.ent
 # Transform the development XSLT into the release file
 xsltproc --novalid --output package/XMLDump.xslt lib/freezeEntities.xslt src/XMLDump.xslt
 
+# Transform the development config into the release file
+xsltproc --novalid --output package/XMLDump.config lib/freezeEntities.xslt src/XMLDump.config
+
 # Transform the package.xml file, pulling in the README
 xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xslt src/package.xml 
 
@@ -32,6 +35,9 @@ zip -j "dist/XMLDump-$VERSION.zip" package/* -x \*.DS_Store
 
 # Copy the release XSLT into the dist dir for upgraders
 cp package/XMLDump.xslt dist/XMLDump.xslt
+
+# ... as well as the release config
+cp package/XMLDump.config dist/XMLDump.config
 
 # Go back to DEVELOPMENT entities again
 sed -i "" "s/$UMBON/$UMBOFF/" src/compatibility.ent
