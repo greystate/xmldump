@@ -66,7 +66,7 @@
 			boolean(
 				$currentPage/ancestor-or-self::*[contains(&xmldumpAllowed;, $remoteAddress)]
 			  | $currentPage/ancestor-or-self::node[contains(data[@alias = '&xmldumpAllowed;'], $remoteAddress)]
-			  | contains($config/&xmldumpAllowed;, $remoteAddress)
+			  | $config[contains(&xmldumpAllowed;, $remoteAddress)]
 			)" />
 	
 	<!-- Determine if using legacy or v4.5 XML Schema -->
