@@ -52,9 +52,22 @@
 	<!-- Grab the root node -->
 	<xsl:variable name="root" select="$currentPage/ancestor::root" />
 	
-	<!-- Allowed for this node? -->
+	<!-- Grab the config file -->
+	<xsl:variable name="config" select="document('&configFile;')/config" />
+	
+<!--
+	Allowed for this node?
+	Checks the ancestors of $currentPage for a specific property containing the IP address of the
+	browser requesting the page. Also checks the config file, which is the preferred method.
+-->
 	<xsl:variable name="remoteAddress" select="&remoteAddress;" />
-	<xsl:variable name="xmldumpAllowed" select="boolean($currentPage/ancestor-or-self::*[contains(&xmldumpAllowed;, $remoteAddress)] | $currentPage/ancestor-or-self::node[contains(data[@alias = '&xmldumpAllowed;'], $remoteAddress)])" />
+	<xsl:variable name="xmldumpAllowed"
+		select="
+			boolean(
+				$currentPage/ancestor-or-self::*[contains(&xmldumpAllowed;, $remoteAddress)]
+			  | $currentPage/ancestor-or-self::node[contains(data[@alias = '&xmldumpAllowed;'], $remoteAddress)]
+			  | $config[contains(&xmldumpAllowed;, $remoteAddress)]
+			)" />
 	
 	<!-- Determine if using legacy or v4.5 XML Schema -->
 	<xsl:variable name="isLegacyXML" select="boolean(not($root/*[@isDoc][1]))" />
@@ -341,9 +354,8 @@
 <xsl:comment xml:space="preserve">
 	XMLDump is not allowed for this node
 	====================================
-	To enable, add a textstring property with the alias "&xmldumpAllowed;" on your top-level Document Type.
-	Then go to the corresponding Content node and fill in your IP address (or more, comma-separated). Hit "Save and Publish" to enable XMLDump.
-
+	To enable, add your IP (<xsl:value-of select="$remoteAddress" />) to the XMLDump.config file.
+	
 	&XMLDumpVersionHeader;
 </xsl:comment>
 		</output>

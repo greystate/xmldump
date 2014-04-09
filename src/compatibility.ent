@@ -37,7 +37,7 @@
 
 <![ %TESTING; [
 	<!-- When used with XSpec for tests -->
-	<!-- <!ENTITY isLegacyXMLParam "boolean(not(/$root/*[@isDoc][1]))"> -->
+	<!ENTITY configFile "XMLDump.config">
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
 	<!ENTITY QueryString "string">
@@ -51,6 +51,7 @@
 
 <![ %RELEASE; [
 	<!-- In Release Build -->
+	<!ENTITY configFile "../config/XMLDump.config">
 	<!ENTITY isLegacyXMLParam "$isLegacyXML">
 	<!ENTITY isNewXMLParam "$isNewXML">
 	<!ENTITY QueryString "umb:RequestQueryString">
