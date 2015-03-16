@@ -5,10 +5,13 @@
 	<!ENTITY sitemapBOOL              "$sitemap = 'yes'">
 	<!ENTITY verboseBOOL              "$verbose = 'yes'">
 	<!ENTITY mntpBOOL                 "$mntp = 'yes'">
+	<!ENTITY jsonBOOL                 "$json = 'yes'">
 	<!ENTITY xmldumpAllowed           "xmldumpAllowedIPs">
 
 	<!ENTITY upper                    "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
 	<!ENTITY lower                    "abcdefghijklmnopqrstuvwxyzæøå">
+	<!ENTITY jsonArray                "'['">
+	<!ENTITY jsonObject               "'{'">
 
 	<!ENTITY sitemapAttributes        "@id | @nodeName | @urlName">
 	<!ENTITY imageCropperAttributes   "@url | @name">
@@ -21,6 +24,7 @@
 
 	<!ENTITY CompleteQueryString      "umb:RequestServerVariables('QUERY_STRING')">
 	<!ENTITY remoteAddress            "umb:RequestServerVariables('REMOTE_ADDR')">
+	<!ENTITY JSON2XML                 "umb:JsonToXml">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
@@ -108,6 +112,8 @@
 	<xsl:variable name="search"       select="($options[@key = 'search'] | $options[@key = 's'])[1]" />
 	<xsl:variable name="mntp"         select="$options[@key = 'mntp']" />
 	<xsl:variable name="expandMNTP"   select="boolean(&mntpBOOL;)" />
+	<xsl:variable name="json"         select="$options[@key = 'json']" />
+	<xsl:variable name="convertJSON"  select="not(&jsonBOOL;)" />
 
 	<!-- Secret option - not ready for prime time yet :-) -->
 	<xsl:variable name="memberId"     select="$options[@key = 'member']" />
@@ -267,6 +273,22 @@
 		</xsl:copy>
 	</xsl:template>
 	
+	<!-- Template for JSON properties (Umbraco 7+) -->
+	<xsl:template match="*[not(@isDoc)][starts-with(., &jsonArray;) or starts-with(., &jsonObject;)]">
+		<xsl:choose>
+			<xsl:when test="function-available('&JSON2XML;') and $convertJSON">
+				<xsl:variable name="jsonData" select="&JSON2XML;(.)" />
+				<xsl:copy>
+					<xsl:comment>JSON data converted with umb:JsonToXml()</xsl:comment>
+					<xsl:copy-of select="$jsonData" />
+				</xsl:copy>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:copy-of select="." />
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	
 	<xsl:template match="&data;/text()">
 		<xsl:value-of select="." />
 	</xsl:template>
@@ -313,16 +335,17 @@
 	&XMLDumpVersionHeader;
 	======================================================================================
 	Options (QueryString parameters):
-	- id		Grab a node by its id, e.g.: id=1080
-	- type		Grab node(s) by their DocumentType, e.g.: type=GalleryItem
-	- prop		Find nodes that have a specific property, e.g.: prop=metaDescription
-	- media		View XML for media item, e.g.: media=1337
-	- search	Search the name and properties of Documents for a string, e.g.: search=umbraco
-	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
-	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
-	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
+	- id        Grab a node by its id, e.g.: id=1080
+	- type      Grab node(s) by their DocumentType, e.g.: type=GalleryItem
+	- prop      Find nodes that have a specific property, e.g.: prop=metaDescription
+	- media     View XML for media item, e.g.: media=1337
+	- search    Search the name and properties of Documents for a string, e.g.: search=umbraco
+	- sitemap   Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
+	- hidden    Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
+	- xpath     Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
 	
-	- mntp		Set to 'yes' to show nodes referenced by uComponents pickers instead of just their node id 
+	- mntp      Set to 'yes' to show nodes referenced by uComponents pickers instead of just their node id 
+	- json      Set to 'yes' to show the original JSON data instead of the XML converted with JsonToXml()
 	
 	You can add 'v=yes' (or 'verbose=yes') to show all attributes of Document nodes (by default only shows "&standardAttributes;").
 
