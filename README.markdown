@@ -125,6 +125,12 @@ or:
 
 As of version 0.9.5 it also supports [nuPickers][2] data types.
 
+### json
+
+By default, XMLDump will use the library extension `JsonToXml()` to convert JSON property data into XML, since it's
+easier to read in an XML context (and it's very likely that that's how it'll be used anyway). You can disable this
+behavior and show the raw JSON by specifying `json=yes`.
+
 
 [1]: http://ucomponents.org
 [2]: https://github.com/uComponents/nuPickers#readme
