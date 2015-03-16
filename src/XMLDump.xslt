@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
-	<!ENTITY hiddenBOOL		"$hidden = 'yes'">
-	<!ENTITY sitemapBOOL	"$sitemap = 'yes'">
-	<!ENTITY verboseBOOL	"$verbose = 'yes'">
-	<!ENTITY mntpBOOL		"$mntp = 'yes'">
-	<!ENTITY xmldumpAllowed "xmldumpAllowedIPs">
-	
-	<!ENTITY upper			"ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
-	<!ENTITY lower			"abcdefghijklmnopqrstuvwxyzæøå">
-	
-	<!ENTITY sitemapAttributes		"@id | @nodeName | @urlName">
-	<!ENTITY imageCropperAttributes	"@url | @name">
-	<!ENTITY relatedLinkAttributes	"@title | @link">
-	<!ENTITY documentAttributes		"@isDoc | @level | @nodeTypeAlias">
-	<!ENTITY propertyAttributes		"@alias">
-	
-	<!ENTITY standardAttributes		"&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
+	<!ENTITY hiddenBOOL               "$hidden = 'yes'">
+	<!ENTITY sitemapBOOL              "$sitemap = 'yes'">
+	<!ENTITY verboseBOOL              "$verbose = 'yes'">
+	<!ENTITY mntpBOOL                 "$mntp = 'yes'">
+	<!ENTITY xmldumpAllowed           "xmldumpAllowedIPs">
 
-	<!ENTITY CompleteQueryString	"umb:RequestServerVariables('QUERY_STRING')">
-	<!ENTITY remoteAddress "umb:RequestServerVariables('REMOTE_ADDR')">
+	<!ENTITY upper                    "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
+	<!ENTITY lower                    "abcdefghijklmnopqrstuvwxyzæøå">
+
+	<!ENTITY sitemapAttributes        "@id | @nodeName | @urlName">
+	<!ENTITY imageCropperAttributes   "@url | @name">
+	<!ENTITY relatedLinkAttributes    "@title | @link">
+	<!ENTITY documentAttributes       "@isDoc | @level | @nodeTypeAlias[parent::node]">
+	<!ENTITY nuPickerAttributes       "@Key">
+	<!ENTITY propertyAttributes       "@alias">
+
+	<!ENTITY standardAttributes       "&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes; | &nuPickerAttributes;">
+
+	<!ENTITY CompleteQueryString      "umb:RequestServerVariables('QUERY_STRING')">
+	<!ENTITY remoteAddress            "umb:RequestServerVariables('REMOTE_ADDR')">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
@@ -91,25 +92,25 @@
 			<xsl:with-param name="options" select="&CompleteQueryString;" />
 		</xsl:call-template>
 	</xsl:variable>
-	<xsl:variable name="options" select="make:node-set($optionsProxy)/options/option" />
+	<xsl:variable name="options"      select="make:node-set($optionsProxy)/options/option" />
 
-	<xsl:variable name="nodeId"		select="$options[@key = 'id']" />
-	<xsl:variable name="type"		select="$options[@key = 'type']" />
-	<xsl:variable name="mediaId"	select="$options[@key = 'media']" />
-	<xsl:variable name="property"	select="($options[@key = 'property'] | $options[@key = 'prop'])[1]" />
-	<xsl:variable name="xpath"		select="$options[@key = 'xpath']" />
-	<xsl:variable name="hidden"		select="$options[@key = 'hidden']" />
-	<xsl:variable name="hiddenOnly" select="boolean(&hiddenBOOL;)" />
-	<xsl:variable name="sitemap"	select="$options[@key = 'sitemap']" />
-	<xsl:variable name="navOnly"	select="boolean(&sitemapBOOL;)" />
-	<xsl:variable name="verbose"	select="($options[@key = 'v'] | $options[@key = 'verbose'])[1]" />
-	<xsl:variable name="verbosity"	select="boolean(&verboseBOOL;)" />
-	<xsl:variable name="search"		select="($options[@key = 'search'] | $options[@key = 's'])[1]" />
-	<xsl:variable name="mntp"		select="$options[@key = 'mntp']" />
-	<xsl:variable name="expandMNTP"	select="boolean(&mntpBOOL;)" />
+	<xsl:variable name="nodeId"       select="$options[@key = 'id']" />
+	<xsl:variable name="type"         select="$options[@key = 'type']" />
+	<xsl:variable name="mediaId"      select="$options[@key = 'media']" />
+	<xsl:variable name="property"     select="($options[@key = 'property'] | $options[@key = 'prop'])[1]" />
+	<xsl:variable name="xpath"        select="$options[@key = 'xpath']" />
+	<xsl:variable name="hidden"       select="$options[@key = 'hidden']" />
+	<xsl:variable name="hiddenOnly"   select="boolean(&hiddenBOOL;)" />
+	<xsl:variable name="sitemap"      select="$options[@key = 'sitemap']" />
+	<xsl:variable name="navOnly"      select="boolean(&sitemapBOOL;)" />
+	<xsl:variable name="verbose"      select="($options[@key = 'v'] | $options[@key = 'verbose'])[1]" />
+	<xsl:variable name="verbosity"    select="boolean(&verboseBOOL;)" />
+	<xsl:variable name="search"       select="($options[@key = 'search'] | $options[@key = 's'])[1]" />
+	<xsl:variable name="mntp"         select="$options[@key = 'mntp']" />
+	<xsl:variable name="expandMNTP"   select="boolean(&mntpBOOL;)" />
 
 	<!-- Secret option - not ready for prime time yet :-) -->
-	<xsl:variable name="memberId"	select="$options[@key = 'member']" />
+	<xsl:variable name="memberId"     select="$options[@key = 'member']" />
 	
 	<xsl:variable name="processChildNodes" select="
 		not(
@@ -151,7 +152,7 @@
 					</xsl:if>
 					<xsl:value-of select="$xpath" />
 				</xsl:variable>
-				<!-- Next we create the printed XPath that you'll end up copying for your XSLT -->
+				<!-- Next we create the printed XPath that you will end up copying for your XSLT -->
 				<xsl:variable name="umbXPath">
 					<xsl:if test="not(starts-with($xpath, '/'))">
 						<xsl:text>$currentPage/</xsl:text>
@@ -279,26 +280,26 @@
 	</xsl:template>
 	
 	<!-- Hey - that's a uComponents picker - should we expand it? -->
-	<xsl:template match="MultiNodePicker/nodeId | XPathCheckBoxList/nodeId | CheckBoxTree/nodeId">
+	<xsl:template match="MultiNodePicker/nodeId | XPathCheckBoxList/nodeId | CheckBoxTree/nodeId | Picker/Picked">
 		<xsl:choose>
 			<xsl:when test="$expandMNTP">
-				<xsl:variable name="node" select="id(.)" />
+				<xsl:variable name="node" select="id(.) | id(@Key)" />
 				<xsl:apply-templates select="$node" mode="MNTP" />
 
 				<xsl:if test="not($node)">
-					<!-- Try to see if it's a Media node -->
+					<!-- Try to see if it is a Media node -->
 					<xsl:variable name="mediaNode" select="&GetMedia;(., false())" />
 					<xsl:apply-templates select="$mediaNode[not(error)]" mode="MNTP" />
 				</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>
-				<nodeId><xsl:value-of select="." /></nodeId>
+				<xsl:copy-of select="." />
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template match="*" mode="MNTP">
-		<xsl:comment>Node referenced by uComponents DataType</xsl:comment>
+		<xsl:comment>Node referenced by uComponents/nuPickers Data Type</xsl:comment>
 		<xsl:copy>
 			<xsl:copy-of select="&standardAttributes;" />
 		</xsl:copy>
