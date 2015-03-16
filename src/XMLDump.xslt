@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
-	<!ENTITY hiddenBOOL		"$hidden = 'yes'">
-	<!ENTITY sitemapBOOL	"$sitemap = 'yes'">
-	<!ENTITY verboseBOOL	"$verbose = 'yes'">
-	<!ENTITY mntpBOOL		"$mntp = 'yes'">
-	<!ENTITY xmldumpAllowed "xmldumpAllowedIPs">
-	
-	<!ENTITY upper			"ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
-	<!ENTITY lower			"abcdefghijklmnopqrstuvwxyzæøå">
-	
-	<!ENTITY sitemapAttributes		"@id | @nodeName | @urlName">
-	<!ENTITY imageCropperAttributes	"@url | @name">
-	<!ENTITY relatedLinkAttributes	"@title | @link">
-	<!ENTITY documentAttributes		"@isDoc | @level | @nodeTypeAlias">
-	<!ENTITY propertyAttributes		"@alias">
-	
-	<!ENTITY standardAttributes		"&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes;">
+	<!ENTITY hiddenBOOL               "$hidden = 'yes'">
+	<!ENTITY sitemapBOOL              "$sitemap = 'yes'">
+	<!ENTITY verboseBOOL              "$verbose = 'yes'">
+	<!ENTITY mntpBOOL                 "$mntp = 'yes'">
+	<!ENTITY jsonBOOL                 "$json = 'yes'">
+	<!ENTITY helpBOOL                 "$help = 'yes'">
+	<!ENTITY xmldumpAllowed           "xmldumpAllowedIPs">
+
+	<!ENTITY upper                    "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
+	<!ENTITY lower                    "abcdefghijklmnopqrstuvwxyzæøå">
+	<!ENTITY jsonArray                "'['">
+	<!ENTITY jsonObject               "'{'">
+
+	<!ENTITY sitemapAttributes        "@id | @nodeName | @urlName">
+	<!ENTITY imageCropperAttributes   "@url | @name">
+	<!ENTITY relatedLinkAttributes    "@title | @link">
+	<!ENTITY documentAttributes       "@isDoc | @level | @nodeTypeAlias[parent::node]">
+	<!ENTITY nuPickerAttributes       "@Key">
+	<!ENTITY propertyAttributes       "@alias">
+
+	<!ENTITY standardAttributes       "&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes; | &nuPickerAttributes;">
+
+	<!ENTITY CompleteQueryString      "umb:RequestServerVariables('QUERY_STRING')">
+	<!ENTITY remoteAddress            "umb:RequestServerVariables('REMOTE_ADDR')">
+	<!ENTITY JSON2XML                 "umb:JsonToXml">
 
 	<!ENTITY % compatibility SYSTEM "compatibility.ent">
 	%compatibility;
@@ -88,25 +97,29 @@
 			<xsl:with-param name="options" select="&CompleteQueryString;" />
 		</xsl:call-template>
 	</xsl:variable>
-	<xsl:variable name="options" select="make:node-set($optionsProxy)/options/option" />
+	<xsl:variable name="options"      select="make:node-set($optionsProxy)/options/option" />
 
-	<xsl:variable name="nodeId"		select="$options[@key = 'id']" />
-	<xsl:variable name="type"		select="$options[@key = 'type']" />
-	<xsl:variable name="mediaId"	select="$options[@key = 'media']" />
-	<xsl:variable name="property"	select="($options[@key = 'property'] | $options[@key = 'prop'])[1]" />
-	<xsl:variable name="xpath"		select="$options[@key = 'xpath']" />
-	<xsl:variable name="hidden"		select="$options[@key = 'hidden']" />
-	<xsl:variable name="hiddenOnly" select="boolean(&hiddenBOOL;)" />
-	<xsl:variable name="sitemap"	select="$options[@key = 'sitemap']" />
-	<xsl:variable name="navOnly"	select="boolean(&sitemapBOOL;)" />
-	<xsl:variable name="verbose"	select="($options[@key = 'v'] | $options[@key = 'verbose'])[1]" />
-	<xsl:variable name="verbosity"	select="boolean(&verboseBOOL;)" />
-	<xsl:variable name="search"		select="($options[@key = 'search'] | $options[@key = 's'])[1]" />
-	<xsl:variable name="mntp"		select="$options[@key = 'mntp']" />
-	<xsl:variable name="expandMNTP"	select="boolean(&mntpBOOL;)" />
+	<xsl:variable name="nodeId"       select="$options[@key = 'id']" />
+	<xsl:variable name="type"         select="$options[@key = 'type']" />
+	<xsl:variable name="mediaId"      select="$options[@key = 'media']" />
+	<xsl:variable name="property"     select="($options[@key = 'property'] | $options[@key = 'prop'])[1]" />
+	<xsl:variable name="xpath"        select="$options[@key = 'xpath']" />
+	<xsl:variable name="hidden"       select="$options[@key = 'hidden']" />
+	<xsl:variable name="hiddenOnly"   select="boolean(&hiddenBOOL;)" />
+	<xsl:variable name="sitemap"      select="$options[@key = 'sitemap']" />
+	<xsl:variable name="navOnly"      select="boolean(&sitemapBOOL;)" />
+	<xsl:variable name="verbose"      select="($options[@key = 'v'] | $options[@key = 'verbose'])[1]" />
+	<xsl:variable name="verbosity"    select="boolean(&verboseBOOL;)" />
+	<xsl:variable name="search"       select="($options[@key = 'search'] | $options[@key = 's'])[1]" />
+	<xsl:variable name="mntp"         select="$options[@key = 'mntp']" />
+	<xsl:variable name="expandMNTP"   select="boolean(&mntpBOOL;)" />
+	<xsl:variable name="json"         select="$options[@key = 'json']" />
+	<xsl:variable name="convertJSON"  select="not(&jsonBOOL;)" />
+	<xsl:variable name="help"         select="($options[@key = 'help'] | $options[@key = 'h'])[1]" />
+	<xsl:variable name="showHelp"     select="boolean(&helpBOOL;)" />
 
 	<!-- Secret option - not ready for prime time yet :-) -->
-	<xsl:variable name="memberId"	select="$options[@key = 'member']" />
+	<xsl:variable name="memberId"     select="$options[@key = 'member']" />
 	
 	<xsl:variable name="processChildNodes" select="
 		not(
@@ -148,7 +161,7 @@
 					</xsl:if>
 					<xsl:value-of select="$xpath" />
 				</xsl:variable>
-				<!-- Next we create the printed XPath that you'll end up copying for your XSLT -->
+				<!-- Next we create the printed XPath that you will end up copying for your XSLT -->
 				<xsl:variable name="umbXPath">
 					<xsl:if test="not(starts-with($xpath, '/'))">
 						<xsl:text>$currentPage/</xsl:text>
@@ -263,6 +276,22 @@
 		</xsl:copy>
 	</xsl:template>
 	
+	<!-- Template for JSON properties (Umbraco 7+) -->
+	<xsl:template match="*[not(@isDoc)][starts-with(., &jsonArray;) or starts-with(., &jsonObject;)]">
+		<xsl:choose>
+			<xsl:when test="function-available('&JSON2XML;') and $convertJSON">
+				<xsl:variable name="jsonData" select="&JSON2XML;(.)" />
+				<xsl:copy>
+					<xsl:comment>JSON data converted with umb:JsonToXml()</xsl:comment>
+					<xsl:copy-of select="$jsonData" />
+				</xsl:copy>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:copy-of select="." />
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	
 	<xsl:template match="&data;/text()">
 		<xsl:value-of select="." />
 	</xsl:template>
@@ -276,26 +305,26 @@
 	</xsl:template>
 	
 	<!-- Hey - that's a uComponents picker - should we expand it? -->
-	<xsl:template match="MultiNodePicker/nodeId | XPathCheckBoxList/nodeId | CheckBoxTree/nodeId">
+	<xsl:template match="MultiNodePicker/nodeId | XPathCheckBoxList/nodeId | CheckBoxTree/nodeId | Picker/Picked">
 		<xsl:choose>
 			<xsl:when test="$expandMNTP">
-				<xsl:variable name="node" select="id(.)" />
+				<xsl:variable name="node" select="id(.) | id(@Key)" />
 				<xsl:apply-templates select="$node" mode="MNTP" />
 
 				<xsl:if test="not($node)">
-					<!-- Try to see if it's a Media node -->
+					<!-- Try to see if it is a Media node -->
 					<xsl:variable name="mediaNode" select="&GetMediaSingle;" />
 					<xsl:apply-templates select="$mediaNode[not(error)]" mode="MNTP" />
 				</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>
-				<nodeId><xsl:value-of select="." /></nodeId>
+				<xsl:copy-of select="." />
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template match="*" mode="MNTP">
-		<xsl:comment>Node referenced by uComponents DataType</xsl:comment>
+		<xsl:comment>Node referenced by uComponents/nuPickers Data Type</xsl:comment>
 		<xsl:copy>
 			<xsl:copy-of select="&standardAttributes;" />
 		</xsl:copy>
@@ -306,23 +335,27 @@
 <!-- :: Utility templates :: -->
 	<xsl:template name="usage-comment">
 <xsl:comment xml:space="preserve">
-	&XMLDumpVersionHeader;
+	&XMLDumpVersionHeader; <xsl:if test="not($showHelp)">(Add ?help=yes to QueryString to show options)</xsl:if>
+<xsl:if test="$showHelp">
 	======================================================================================
 	Options (QueryString parameters):
-	- id		Grab a node by its id, e.g.: id=1080
-	- type		Grab node(s) by their DocumentType, e.g.: type=GalleryItem
-	- prop		Find nodes that have a specific property, e.g.: prop=metaDescription
-	- media		View XML for media item, e.g.: media=1337
-	- search	Search the name and properties of Documents for a string, e.g.: search=umbraco
-	- sitemap	Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
-	- hidden	Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
-	- xpath		Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
+	- help      Show this help message (aliased as 'h'), e.g.: h=yes
+	- id        Grab a node by its id, e.g.: id=1080
+	- type      Grab node(s) by their DocumentType, e.g.: type=GalleryItem
+	- prop      Find nodes that have a specific property, e.g.: prop=metaDescription
+	- media     View XML for media item, e.g.: media=1337
+	- search    Search the name and properties of Documents for a string, e.g.: search=umbraco
+	- sitemap   Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
+	- hidden    Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
+	- xpath     Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
 	
-	- mntp		Set to 'yes' to show nodes referenced by uComponents pickers instead of just their node id 
+	- mntp      Set to 'yes' to show nodes referenced by uComponents pickers instead of just their node id 
+	- json      Set to 'yes' to show the original JSON data instead of the XML converted with JsonToXml()
 	
 	You can add 'v=yes' (or 'verbose=yes') to show all attributes of Document nodes (by default only shows "&standardAttributes;").
 
 	(For all boolean options, the values 'yes', 'true', 'on' and '1' will work as expected)
+</xsl:if>
 </xsl:comment>
 	</xsl:template>
 	

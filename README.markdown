@@ -49,7 +49,11 @@ You can also view the XML for a specific page by doing the same thing, e.g.:
 Options
 -------
 
-XMLDump allows a set of options on the query string and conveniently displays what they are at the top of its output. Currently, the options are:
+XMLDump allows a set of options on the query string; Currently, the options are:
+
+### help
+
+Adding ?help=yes to the query string, conveniently displays the options at the top of the output.
 
 ### id
 
@@ -123,23 +127,32 @@ or:
 
 	http://yourwebsite.com/xmldump/?id=8220&mntp=yes
 
+As of version 0.9.5 it also supports [nuPickers][2] data types.
+
+### json
+
+By default, XMLDump will use the library extension `JsonToXml()` to convert JSON property data into XML, since it's
+easier to read in an XML context (and it's very likely that that's how it'll be used anyway). You can disable this
+behavior and show the raw JSON by specifying `json=yes`.
 
 
-[1]:http://ucomponents.codeplex.com
+[1]: http://ucomponents.org
+[2]: https://github.com/uComponents/nuPickers#readme
  
 Revision History
 ----------------
 
+* v0.9.5: Add support for nuPickers XML and JSON properties. Add the `help` option.
 * v0.9.4: Updated to use new build script
 * v0.9.3: Add config file for the `xmldumpAllowedIPs` key
 * v0.9.2: Support XPath CheckBox List and CheckBox Tree with the `mntp` option too. Add count of matched nodes to output for `xpath` option
 * v0.9.1: Bugfix release
 * v0.9:   Lots of refactoring. Added options `search` &amp; `mntp`, changed some logic in `xpath` option
-* v0.8:	  "Universal Binary" (compatible with both XML formats). Changed to use altTemplate syntax (e.g., to just get $currentPage). Added activation for security reasons
-* v0.7:	  Added options: `xpath` &amp; `property`
-* v0.6:	  Added options: `media` &amp; `sitemap`
-* v0.5:	  Initial version, supporting the options: `node`, `type` &amp; `hidden`
+* v0.8:   "Universal Binary" (compatible with both XML formats). Changed to use altTemplate syntax (e.g., to just get $currentPage). Added activation for security reasons
+* v0.7:   Added options: `xpath` &amp; `property`
+* v0.6:   Added options: `media` &amp; `sitemap`
+* v0.5:   Initial version, supporting the options: `node`, `type` &amp; `hidden`
 
 
-Chriztian Steinmeier, April 2014
+Chriztian Steinmeier, March 2015
 (Initial version: November 2009)
