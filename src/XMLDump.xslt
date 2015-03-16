@@ -6,6 +6,7 @@
 	<!ENTITY verboseBOOL              "$verbose = 'yes'">
 	<!ENTITY mntpBOOL                 "$mntp = 'yes'">
 	<!ENTITY jsonBOOL                 "$json = 'yes'">
+	<!ENTITY helpBOOL                 "$help = 'yes'">
 	<!ENTITY xmldumpAllowed           "xmldumpAllowedIPs">
 
 	<!ENTITY upper                    "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ">
@@ -114,6 +115,8 @@
 	<xsl:variable name="expandMNTP"   select="boolean(&mntpBOOL;)" />
 	<xsl:variable name="json"         select="$options[@key = 'json']" />
 	<xsl:variable name="convertJSON"  select="not(&jsonBOOL;)" />
+	<xsl:variable name="help"         select="($options[@key = 'help'] | $options[@key = 'h'])[1]" />
+	<xsl:variable name="showHelp"     select="boolean(&helpBOOL;)" />
 
 	<!-- Secret option - not ready for prime time yet :-) -->
 	<xsl:variable name="memberId"     select="$options[@key = 'member']" />
@@ -332,9 +335,11 @@
 <!-- :: Utility templates :: -->
 	<xsl:template name="usage-comment">
 <xsl:comment xml:space="preserve">
-	&XMLDumpVersionHeader;
+	&XMLDumpVersionHeader; <xsl:if test="not($showHelp)">(Add ?help=yes to QueryString to show options)</xsl:if>
+<xsl:if test="$showHelp">
 	======================================================================================
 	Options (QueryString parameters):
+	- help      Show this help message (aliased as 'h'), e.g.: h=yes
 	- id        Grab a node by its id, e.g.: id=1080
 	- type      Grab node(s) by their DocumentType, e.g.: type=GalleryItem
 	- prop      Find nodes that have a specific property, e.g.: prop=metaDescription
@@ -350,6 +355,7 @@
 	You can add 'v=yes' (or 'verbose=yes') to show all attributes of Document nodes (by default only shows "&standardAttributes;").
 
 	(For all boolean options, the values 'yes', 'true', 'on' and '1' will work as expected)
+</xsl:if>
 </xsl:comment>
 	</xsl:template>
 	
