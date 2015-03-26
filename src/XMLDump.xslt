@@ -162,9 +162,9 @@
 				<xsl:choose>
 					<!-- Assume single item -->
 					<xsl:when test="normalize-space($dictionaryItem)">
-						<output dictionaryKey="{$dictionary}">
+						<DictionaryItem key="{$dictionary}">
 							<xsl:value-of select="$dictionaryItem" />
-						</output>
+						</DictionaryItem>
 					</xsl:when>
 					<!-- Maybe a collection? -->
 					<xsl:when test="$dictionaryItems[DictionaryItem]">
@@ -172,7 +172,7 @@
 					</xsl:when>
 					<!-- Nope - nothing -->
 					<xsl:otherwise>
-						<output dictionaryKey="{$dictionary}">Dictionary key not found...</output>
+						<output>No '<xsl:value-of select="$dictionary" />' key found in Dictionary</output>
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:when>
