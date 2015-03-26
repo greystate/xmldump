@@ -374,7 +374,7 @@
 	- sitemap   Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden    Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
 	- xpath     Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
-	- dict      Get the value of a Dictionary item, e.g.: dict=LabelAboutUsButton or the XML for a nested structure of Dictionary items.
+	- dict      Get the XML for a Dictionary item or a nested structure of Dictionary items, e.g.: dict=LabelAboutUsButton
 	
 	- mntp      Set to 'yes' to show nodes referenced by uComponents pickers instead of just their node id 
 	- json      Set to 'yes' to show the original JSON data instead of the XML converted with JsonToXml()
