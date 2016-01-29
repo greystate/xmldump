@@ -20,8 +20,9 @@
 	<!ENTITY documentAttributes       "@isDoc | @level | @nodeTypeAlias[parent::node]">
 	<!ENTITY nuPickerAttributes       "@Key">
 	<!ENTITY propertyAttributes       "@alias">
+	<!ENTITY dictionaryAttributes     "@key">
 
-	<!ENTITY standardAttributes       "&sitemapAttributes; | &documentAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes; | &nuPickerAttributes;">
+	<!ENTITY standardAttributes       "&sitemapAttributes; | &documentAttributes; | &dictionaryAttributes; | &propertyAttributes; | &imageCropperAttributes; | &relatedLinkAttributes; | &nuPickerAttributes;">
 
 	<!ENTITY CompleteQueryString      "umb:RequestServerVariables('QUERY_STRING')">
 	<!ENTITY remoteAddress            "umb:RequestServerVariables('REMOTE_ADDR')">
@@ -117,6 +118,7 @@
 	<xsl:variable name="convertJSON"  select="not(&jsonBOOL;)" />
 	<xsl:variable name="help"         select="($options[@key = 'help'] | $options[@key = 'h'])[1]" />
 	<xsl:variable name="showHelp"     select="boolean(&helpBOOL;)" />
+	<xsl:variable name="dictionary"   select="$options[@key = 'dict']" />
 
 	<!-- Secret option - not ready for prime time yet :-) -->
 	<xsl:variable name="memberId"     select="$options[@key = 'member']" />
@@ -128,6 +130,7 @@
 			or normalize-space($type)
 			or normalize-space($property)
 			or normalize-space($xpath)
+			or normalize-space($dictionary)
 		) or $verbosity" />
 	
 <!-- :: Templates :: -->
@@ -149,6 +152,29 @@
 			<!-- Was a specific node requested by id? -->
 			<xsl:when test="number($nodeId)">
 				<xsl:apply-templates select="$root//&node;[@id = $nodeId]" />
+			</xsl:when>
+			
+			<!-- Was it a Dictionary request? -->
+			<xsl:when test="normalize-space($dictionary)">
+				<xsl:variable name="dictionaryItem" select="umb:GetDictionaryItem($dictionary)" />
+				<xsl:variable name="dictionaryItems" select="umb:GetDictionaryItems($dictionary)/DictionaryItems" />
+
+				<xsl:choose>
+					<!-- Assume single item -->
+					<xsl:when test="normalize-space($dictionaryItem)">
+						<DictionaryItem key="{$dictionary}">
+							<xsl:value-of select="$dictionaryItem" />
+						</DictionaryItem>
+					</xsl:when>
+					<!-- Maybe a collection? -->
+					<xsl:when test="$dictionaryItems[DictionaryItem]">
+						<xsl:apply-templates select="$dictionaryItems" />
+					</xsl:when>
+					<!-- Nope - nothing -->
+					<xsl:otherwise>
+						<output>No '<xsl:value-of select="$dictionary" />' key found in Dictionary</output>
+					</xsl:otherwise>
+				</xsl:choose>
 			</xsl:when>
 			
 			<!-- Was an XPath specified? -->
@@ -348,6 +374,7 @@
 	- sitemap   Set to 'yes' to show navigation structure only (shows only "&sitemapAttributes;" and hides nodes with '&umbracoNaviHide;' checked)
 	- hidden    Set to 'yes' to show all nodes with '&umbracoNaviHide;' checked.
 	- xpath     Grab node(s) using an XPath, e.g.: xpath=/root//&node;[@nodeName = 'Home']
+	- dict      Get the XML for a Dictionary item or a nested structure of Dictionary items, e.g.: dict=LabelAboutUsButton
 	
 	- mntp      Set to 'yes' to show nodes referenced by uComponents pickers instead of just their node id 
 	- json      Set to 'yes' to show the original JSON data instead of the XML converted with JsonToXml()

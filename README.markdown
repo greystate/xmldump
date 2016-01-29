@@ -109,6 +109,14 @@ For those times where you need to do some hardcore scrutiny on the XML you can s
 	
 (If you don't start with a forward slash the expression will use `$currentPage` as context node, otherwise you'll need to specify a complete XPath)
 
+### dict
+
+You can check the value of an item in the Dictionary using the `dict` option:
+
+	http://yourwebsite.com/xmldump?dict=SendButtonLabel
+
+If the key has nested items, the complete XML tree is shown for the key and its child nodes.
+
 ### search
 
 If you're looking for a specific piece of information, you can perform a search through the complete tree using the `search` option:
@@ -142,6 +150,7 @@ behavior and show the raw JSON by specifying `json=yes`.
 Revision History
 ----------------
 
+* v0.9.6: Add `dict` option for Dictionary items.
 * v0.9.5: Add support for nuPickers XML and JSON properties. Add the `help` option.
 * v0.9.4: Updated to use new build script
 * v0.9.3: Add config file for the `xmldumpAllowedIPs` key
