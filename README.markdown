@@ -150,6 +150,7 @@ behavior and show the raw JSON by specifying `json=yes`.
 Revision History
 ----------------
 
+* v0.9.7: Fix display of "JSON Inception".
 * v0.9.6: Add `dict` option for Dictionary items.
 * v0.9.5: Add support for nuPickers XML and JSON properties. Add the `help` option.
 * v0.9.4: Updated to use new build script
