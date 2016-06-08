@@ -309,7 +309,9 @@
 				<xsl:variable name="jsonData" select="&JSON2XML;(.)" />
 				<xsl:copy>
 					<xsl:comment>JSON data converted with umb:JsonToXml()</xsl:comment>
-					<xsl:copy-of select="$jsonData" />
+					<json>
+						<xsl:apply-templates select="$jsonData/*" />
+					</json>
 				</xsl:copy>
 			</xsl:when>
 			<xsl:otherwise>
