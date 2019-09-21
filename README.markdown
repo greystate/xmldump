@@ -165,5 +165,5 @@ Revision History
 * v0.5:   Initial version, supporting the options: `node`, `type` &amp; `hidden`
 
 
-Chriztian Steinmeier, March 2015
+Chriztian Steinmeier, September 2019
 (Initial version: November 2009)
