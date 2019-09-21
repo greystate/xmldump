@@ -37,9 +37,14 @@
   <Templates>
     <Template>
       <Name>XML Dump</Name>
-      <Alias>XMLDump</Alias>
-      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="/umbraco/masterpages/default.master" AutoEventWireup="true" %>
-<asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"><% Response.ContentType = "text/xml"; %><?xml version="1.0"?><umbraco:Macro Alias="XMLDump" runat="server"></umbraco:Macro></asp:Content>]]></Design>
+      <Alias>xmldump</Alias>
+      <Design><![CDATA[@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	Layout = null;
+	Response.ContentType = "text/xml";
+}<?xml version="1.0"?>
+@Umbraco.RenderMacro("XMLDump")
+]]></Design>
     </Template>
   </Templates>
   <Stylesheets />
